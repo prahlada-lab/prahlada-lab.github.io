@@ -15,9 +15,31 @@
 
   /* ---------------------------------------------------------------- 1. utilities */
 
-  // Pages are `.dc.html` inside the design tool and `.html` once deployed.
-  const EXT = (typeof location !== "undefined" && location.pathname.indexOf(".dc.html") > -1) ? ".dc.html" : ".html";
-  const page = (p) => String(p || "").replace(/\.html$/, EXT);
+  // Deployed, pages are plain .html. Inside the design tool they are the v2
+  // Design Components, whose filenames do not follow from the deployed ones.
+  const IN_TOOL = typeof location !== "undefined" && location.pathname.indexOf(".dc.html") > -1;
+  const TOOL_PAGES = {
+    "index.html": "index v2.dc.html",
+    "research.html": "research v2.dc.html",
+    "paper-dives.html": "paper dives v2.dc.html"
+  };
+  const page = (p) => {
+    const name = String(p || "");
+    return IN_TOOL ? (TOOL_PAGES[name] || name) : name;
+  };
+
+  /*
+   * Is `target` (a value produced by `page`) the document we are on?
+   * pathname is percent-encoded, so the tool's "paper dives v2.dc.html" arrives
+   * with %20 in it; a bare directory URL means the index.
+   */
+  const samePage = (target) => {
+    let here = "";
+    try { here = decodeURIComponent(location.pathname.split("/").pop() || ""); }
+    catch (e) { here = location.pathname.split("/").pop() || ""; }
+    if (!here) here = page("index.html");
+    return here === String(target || "");
+  };
 
   const slug = (s) =>
     String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 64);
@@ -50,11 +72,11 @@
       body: "We are a Student-first AI Lab. We empower students to take on and lead projects which they find cool and exciting, no matter how technically challenging it seems. Having Fun is important for us. We are dedicated to ensuring a very high degree of reproducibility for all our projects. Through releasing not only Training Code and Datasets, but also detailed blogs explaining our negative results and how we got it to work. We want to build a small community at BITS Pilani, which is filled with people who are very aware of what is the Frontier of the field they are working on and have regular discussions on the same. We aim to differentiate ourselves through our seriousness to meet very high research standards." },
     { kind: "Culture", title: "A Student-led and a Student-first AI Lab", page: "index.html", hash: "",
       body: "Filling gaps in the Indic open source ecosystem — from BITS Pilani. Vidya Dadati Vinayam. Knowledge Gives Humility. Prahlada." },
-    { kind: "Research", title: "Filling Gaps in the Indic Open Source Ecosystem", page: "research.html", hash: "focus-areas",
+    { kind: "Research", title: "Filling Gaps in the Indic Open Source Ecosystem", page: "research.html", hash: "callout-0",
       body: "Alignment and Safety Audits. Automated Red Teaming and Jailbreaking. Safety Fine-tuning and Unlearning. Remedying Cross cultural Reasoning Transfer Deficiencies. Interpretability Approaches for Indic Performance Deficiencies. Synthetic Problem Generation for High-Complexity STEM. Memory and Continual Learning." },
-    { kind: "Research", title: "Why can students build better models?", page: "research.html", hash: "why-students",
+    { kind: "Research", title: "Why can students build better models?", page: "research.html", hash: "callout-1",
       body: "More willingness to do non-flashy work in order to improve the final model. People new to building AI can be free of prior phases of AI hype cycles, allowing them to adapt to new modern techniques faster. Less ego enabling org charts to scale slightly as there is less gamifying the system. Abundant talent well-suited to building things with a proof-of-concept elsewhere." },
-    { kind: "Research", title: "Why to even train our own models?", page: "research.html", hash: "why-train",
+    { kind: "Research", title: "Why to even train our own models?", page: "research.html", hash: "callout-2",
       body: "Strategic Open Source. We see a gap we can fill, and a reason we believe we can do better. We want to build things that are useful to the Indic open source ecosystem. Our goal is not the best model ever. It is to create value in the Indic Open Source Ecosystem — building something Indian developers would actually want to adopt. Research is a small secondary objective. Engineering first, Science Second." },
     { kind: "Paper dives", title: "How we read papers", page: "paper-dives.html", hash: "",
       body: "We take paper reading and discussion seriously. These are the papers we have covered, with notes from the session each was presented in." }
@@ -336,23 +358,27 @@
   let raf = null;
 
   /* Eased scroll — `behavior:"smooth"` is unreliable in embedded frames. */
-  function scrollToY(y, dur) {
+  function scrollToY(y, dur, done) {
     const start = window.scrollY || 0;
     const max = Math.max(document.body.scrollHeight - window.innerHeight, 0);
     const dist = Math.min(Math.max(y, 0), max) - start;
-    if (Math.abs(dist) < 2) return;
+    if (Math.abs(dist) < 2) { if (done) done(); return; }
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       window.scrollTo(0, start + dist);
+      if (done) done();
       return;
     }
-    const ms = dur || Math.min(Math.max(Math.abs(dist) * 0.55, 380), 900);
+    // Longer and gentler than a default smooth scroll: a long jump should feel
+    // like travel, not a snap.
+    const ms = dur || Math.min(Math.max(Math.abs(dist) * 0.62, 520), 1150);
     const t0 = performance.now();
     if (raf) cancelAnimationFrame(raf);
     const step = (now) => {
       const p = Math.min((now - t0) / ms, 1);
-      const e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+      const e = 1 - Math.pow(1 - p, 4); // settles rather than decelerating late
       window.scrollTo(0, start + dist * e);
-      raf = p < 1 ? requestAnimationFrame(step) : null;
+      if (p < 1) { raf = requestAnimationFrame(step); }
+      else { raf = null; if (done) done(); }
     };
     raf = requestAnimationFrame(step);
   }
@@ -386,5 +412,5 @@
     }
   }
 
-  window.PrahladaSearch = { build, query, view, slug, scrollToY, lockScroll, ready: () => docs.length > 0 };
+  window.PrahladaSearch = { build, query, view, slug, page, samePage, scrollToY, lockScroll, ready: () => docs.length > 0 };
 })();

@@ -18,9 +18,91 @@
   .p-burger { display: none; }
   @media (max-width: 720px) {
     .p-navlinks { display: none; }
-    .p-burger { display: flex; }
-    .p-shell { padding-left: 24px; padding-right: 24px; }
+    .p-burger { display: none !important; }
+    .p-shell { padding-left: 22px !important; padding-right: 22px !important; }
+    .p-rail { padding-left: 30px !important; }
+    .p-railline { left: 5px !important; }
+    .p-dot { left: -30px !important; }
+    .p-conn { left: -19px !important; width: 14px !important; }
+    .p-card { padding: 22px 18px !important; }
+    .p-panel2 { padding: 28px 22px !important; }
+    .p-footgrid { grid-template-columns: 1fr !important; gap: 34px !important; }
+    .p-footdiv { display: none; }
+    .p-footright { align-items: flex-start !important; text-align: left !important; }
+    .p-cardhead { flex-direction: column !important; gap: 16px !important; }
   }
+
+  .p-dot { background: #fff; border: 2px solid #C6A15B; transition: background .18s, border-color .18s, transform .18s; }
+  .p-card:hover .p-dot, .p-box:hover .p-dot, .p-row:hover .p-dot, .p-row2:hover .p-dot { background: #C6A15B; border-color: #003B6F; transform: scale(1.18); }
+  .p-row2:hover a { color: #007FC0; }
+  .p-conn { background: #D0DFF0; transition: background .18s; }
+  .p-card:hover .p-conn, .p-box:hover .p-conn, .p-row:hover .p-conn, .p-row2:hover .p-conn { background: #003B6F; }
+  .p-railline { background: linear-gradient(to bottom, rgba(208,223,240,0), #D0DFF0 9%, #D0DFF0 91%, rgba(208,223,240,0)); }
+
+  @media (max-width: 900px) {
+    .p-hero h1 { font-size: clamp(54px, 13vw, 88px) !important; }
+  }
+  @media (max-width: 720px) {
+    html { -webkit-text-size-adjust: 100%; }
+    main > section { padding-top: 60px !important; }
+    .p-hero { padding: 44px 0 56px !important; }
+    .p-orn { padding: 56px 0 !important; }
+    .p-card, .p-card a { overflow-wrap: anywhere; }
+    .p-chev { width: 44px !important; height: 44px !important; }
+    .p-date { display: none !important; }
+    .p-datem { display: inline !important; }
+    .p-fpanel { padding: 48px 22px 40px !important; }
+    .p-fpanel img { width: 300px !important; right: -104px !important; bottom: -34px !important; opacity: .26 !important; }
+    .p-panel2 h1, .p-panel2 h2, .p-panel2 p { max-width: none !important; }
+  }
+
+  .sw-on { text-shadow: 0 0 0.55px currentColor; }
+  .sw-near { text-shadow: 0 0 0.3px currentColor; }
+
+  @media (hover: none) {
+    .p-glow { opacity: .55 !important; }
+  }
+
+  @media (max-width: 720px) {
+    .p-motif { width: 330px !important; right: -150px !important; top: clamp(300px, 50vh, 480px) !important; }
+  }
+  .p-lbl-short{display:none}
+  @media(min-width:1081px){
+    .c-grid2 > li:nth-child(2){border-top:none !important}
+  }
+  @media(max-width:1080px){
+    .c-band{grid-template-columns:1fr !important;gap:28px !important}
+    .c-sticky{position:static !important}
+    .c-grid{grid-template-columns:1fr !important}
+  }
+  @media(max-width:720px){
+    .p-navlinks{display:flex !important;gap:8px !important}
+    .p-navsearch{display:none !important}
+    .p-navsearchsm{display:flex !important}
+    .p-lbl-long{display:none}
+    .p-lbl-short{display:inline}
+    .p-navtrack a{padding-left:11px !important;padding-right:11px !important}
+    .p-navtrack a{font-size:12px !important}
+    .p-navword{font-size:19px !important}
+    .p-shell{padding-left:14px !important;padding-right:14px !important}
+  }
+
+  /* --- small phones and touch --------------------------------------- */
+  /* dvh tracks the on-screen keyboard; browsers without it keep the vh
+     value from the inline style. */
+  .p-pal { max-height: 76dvh; }
+  .p-palwrap { padding-top: 12vh; padding-top: 10dvh; }
+  @media (max-width: 400px) {
+    .p-navword { font-size: 17px !important; }
+    .p-navtrack a { padding-left: 9px !important; padding-right: 9px !important; font-size: 11px !important; }
+    .p-navlinks { gap: 6px !important; }
+    .p-shell { padding-left: 12px !important; padding-right: 12px !important; }
+  }
+  @media (pointer: coarse) {
+    .p-chip { min-height: 40px; }
+    .p-navtrack a { min-height: 40px; display: flex; align-items: center; }
+  }
+  @keyframes ruleSettle{0%{transform:scaleX(1)}45%{transform:scaleX(1.018)}100%{transform:scaleX(1)}}
   @keyframes riseIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
   @keyframes markIn { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
   @keyframes unfurlA { from { opacity: 0; transform: rotate(-10deg) scale(.88); } to { opacity: .12; transform: rotate(0deg) scale(1); } }
@@ -34,6 +116,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;display=swap">
 <link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/colors.css">
 <link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/typography.css">
 <link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/spacing.css">
@@ -49,35 +132,107 @@
   .p-burger{display:none}
   @media(max-width:720px){
     .p-navlinks{display:none}
-    .p-burger{display:flex}
-    .p-shell{padding-left:24px;padding-right:24px}
+    .p-burger{display:none !important}
+    .p-shell{padding-left:22px !important;padding-right:22px !important}
+    .p-rail{padding-left:30px !important}
+    .p-railline{left:5px !important}
+    .p-dot{left:-30px !important}
+    .p-conn{left:-19px !important;width:14px !important}
+    .p-card{padding:22px 18px !important}
+    .p-panel2{padding:28px 22px !important}
+    .p-footgrid{grid-template-columns:1fr !important;gap:34px !important}
+    .p-footdiv{display:none}
+    .p-footright{align-items:flex-start !important;text-align:left !important}
+    .p-cardhead{flex-direction:column !important;gap:16px !important}
   }
+
+  .p-dot { background: #fff; border: 2px solid #C6A15B; transition: background .18s, border-color .18s, transform .18s; }
+  .p-card:hover .p-dot, .p-box:hover .p-dot, .p-row:hover .p-dot, .p-row2:hover .p-dot { background: #C6A15B; border-color: #003B6F; transform: scale(1.18); }
+  .p-row2:hover a { color: #007FC0; }
+  .p-conn { background: #D0DFF0; transition: background .18s; }
+  .p-card:hover .p-conn, .p-box:hover .p-conn, .p-row:hover .p-conn, .p-row2:hover .p-conn { background: #003B6F; }
+  .p-railline { background: linear-gradient(to bottom, rgba(208,223,240,0), #D0DFF0 9%, #D0DFF0 91%, rgba(208,223,240,0)); }
+
+  @media (max-width: 900px) {
+  .p-hero h1 { font-size: clamp(54px, 13vw, 88px) !important; }
+  }
+  @media (max-width: 720px) {
+  html { -webkit-text-size-adjust: 100%; }
+  main > section { padding-top: 60px !important; }
+  .p-hero { padding: 44px 0 56px !important; }
+  .p-orn { padding: 56px 0 !important; }
+  .p-card, .p-card a { overflow-wrap: anywhere; }
+  .p-chev { width: 44px !important; height: 44px !important; }
+    .p-date { display: none !important; }
+    .p-datem { display: inline !important; }
+    .p-fpanel { padding: 48px 22px 40px !important; }
+    .p-fpanel img { width: 300px !important; right: -104px !important; bottom: -34px !important; opacity: .26 !important; }
+  .p-panel2 h1, .p-panel2 h2, .p-panel2 p { max-width: none !important; }
+  }
+
+  .sw-on { text-shadow: 0 0 0.55px currentColor; }
+  .sw-near { text-shadow: 0 0 0.3px currentColor; }
+
+  @media (hover: none) {
+  .p-glow { opacity: .55 !important; }
+  }
+
+  @media (max-width: 720px) {
+  .p-motif { width: 330px !important; right: -150px !important; top: clamp(300px, 50vh, 480px) !important; }
+  }
+  .p-lbl-short{display:none}
+  @media(min-width:1081px){
+    .c-grid2 > li:nth-child(2){border-top:none !important}
+  }
+  @media(max-width:1080px){
+    .c-band{grid-template-columns:1fr !important;gap:28px !important}
+    .c-sticky{position:static !important}
+    .c-grid{grid-template-columns:1fr !important}
+  }
+  @media(max-width:720px){
+    .p-navlinks{display:flex !important;gap:8px !important}
+    .p-navsearch{display:none !important}
+    .p-navsearchsm{display:flex !important}
+    .p-lbl-long{display:none}
+    .p-lbl-short{display:inline}
+    .p-navtrack a{padding-left:11px !important;padding-right:11px !important}
+    .p-navtrack a{font-size:12px !important}
+    .p-navword{font-size:19px !important}
+    .p-shell{padding-left:14px !important;padding-right:14px !important}
+  }
+  @keyframes ruleSettle{0%{transform:scaleX(1)}45%{transform:scaleX(1.018)}100%{transform:scaleX(1)}}
   @keyframes riseIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
   @keyframes markIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
   @keyframes unfurlA{from{opacity:0;transform:rotate(-10deg) scale(.88)}to{opacity:.12;transform:rotate(0deg) scale(1)}}
   @keyframes unfurlB{from{opacity:0;transform:scale(-.88,-.88) rotate(-10deg)}to{opacity:.12;transform:scale(-1,-1) rotate(0deg)}}
 </style>
 </helmet>
-<div style="font-family:Montserrat,sans-serif;background:#F4F8FC;color:#2D4A5A;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden">
+<div style="font-family:Montserrat,sans-serif;background:#F4F8FC;color:#2D4A5A;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:clip">
 
-  <img src="assets/mandala-corner.png" alt="" style="position:absolute;right:-210px;top:320px;width:560px;opacity:.12;mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);z-index:0;pointer-events:none;user-select:none;animation:unfurlA 1.7s .8s cubic-bezier(.22,.61,.36,1) both">
-  <img src="assets/mandala-corner.png" alt="" style="position:absolute;left:-120px;top:60px;width:300px;opacity:.12;transform:scale(-1,-1);mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);z-index:0;pointer-events:none;user-select:none;animation:unfurlB 1.7s .95s cubic-bezier(.22,.61,.36,1) both">
+  <div class="p-motif" style="position:fixed;right:-200px;top:clamp(330px,46vh,560px);width:min(560px,64vw);z-index:0;pointer-events:none;user-select:none;animation:unfurlA 1.7s 1.15s cubic-bezier(.22,.61,.36,1) both"><img src="assets/mandala-corner.png" alt="" style="display:block;width:100%;mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);transform:rotate(var(--mrot,0deg));opacity:var(--mfade,1);transition:transform .55s cubic-bezier(.22,.61,.36,1),opacity .3s linear;will-change:transform,opacity"></div>
+  <div class="p-motif-sm" style="position:fixed;left:-120px;top:96px;width:300px;z-index:0;pointer-events:none;user-select:none;animation:unfurlB 1.7s .7s cubic-bezier(.22,.61,.36,1) both"><img src="assets/mandala-corner.png" alt="" style="display:block;width:100%;mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);transform:rotate(var(--srot,0deg));opacity:var(--mfade,1);transition:transform .55s cubic-bezier(.22,.61,.36,1),opacity .3s linear;will-change:transform,opacity"></div>
 
   <header style="position:sticky;top:0;z-index:40;background:rgba(244,248,252,.94);border-bottom:1px solid #D0DFF0">
     <div class="p-shell" style="max-width:1120px;margin:0 auto;padding:0 40px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:32px">
-      <a href="index.html" style="display:flex;align-items:center;gap:12px">
-        <img src="assets/logo_mark.png" alt="Prahlada" style="width:32px;height:32px;object-fit:contain">
-        <span style="font-size:22px;font-weight:400;letter-spacing:-.01em;color:#003B6F;display:flex">
-          <span style="transition:color .18s" style-hover="color:#C6A15B">P</span><span style="transition:color .18s" style-hover="color:#007FC0">r</span><span style="transition:color .18s" style-hover="color:#C6A15B">a</span><span style="transition:color .18s" style-hover="color:#007FC0">h</span><span style="transition:color .18s" style-hover="color:#C6A15B">l</span><span style="transition:color .18s" style-hover="color:#007FC0">a</span><span style="transition:color .18s" style-hover="color:#C6A15B">d</span><span style="transition:color .18s" style-hover="color:#007FC0">a</span>
+      <a href="index.html" style="display:flex;align-items:center">
+        <span class="p-navword" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-.015em;color:#003B6F;display:flex">
+          {{ navMark }}
         </span>
       </a>
-      <nav class="p-navlinks" style="display:flex;align-items:center;gap:34px">
-        <a href="index.html" style="font-size:15px;color:#5A7A99;padding:6px 0;border-bottom:2px solid transparent;transition:color .18s" style-hover="color:#007FC0">culture</a>
-        <a href="research.html" style="font-size:15px;color:#003B6F;font-weight:500;padding:6px 0;border-bottom:2px solid #C6A15B">research</a>
-        <a href="paper-dives.html" style="font-size:15px;color:#5A7A99;padding:6px 0;border-bottom:2px solid transparent;transition:color .18s" style-hover="color:#007FC0">paper dives</a>
-        <button onClick="{{ openPalette }}" style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;padding:7px 12px;font-family:Montserrat,sans-serif;font-size:13px;color:#5A7A99;cursor:pointer;transition:border-color .18s" style-hover="border-color:#007FC0">
+      <nav class="p-navlinks" style="display:flex;align-items:center;gap:20px">
+        <div class="p-navtrack" ref="{{ navTrackRef }}" onMouseLeave="{{ navLeave }}" style="position:relative;display:flex;align-items:center;padding:7px 5px 8px;border:1px solid #D0DFF0;border-radius:999px;background:#fff">
+          <span style="position:absolute;bottom:3px;height:2px;border-radius:999px;background:#C6A15B;left:{{ navRule.left }};right:{{ navRule.right }};opacity:{{ navRule.op }};transition:left {{ navRule.dl }},right {{ navRule.dr }},opacity .35s ease;animation:{{ navRule.settle }}"></span>
+          <a href="index.html" ref="{{ navRef0 }}" onMouseEnter="{{ navEnter0 }}" style="position:relative;z-index:1;font-size:13px;font-weight:600;letter-spacing:.02em;color:{{ navFg0 }};padding:9px 20px;border-radius:999px;transition:color .3s ease">
+Culture</a>
+          <a href="research.html" ref="{{ navRef1 }}" onMouseEnter="{{ navEnter1 }}" style="position:relative;z-index:1;font-size:13px;font-weight:600;letter-spacing:.02em;color:{{ navFg1 }};padding:9px 20px;border-radius:999px;transition:color .3s ease">Research</a>
+          <a href="paper-dives.html" ref="{{ navRef2 }}" onMouseEnter="{{ navEnter2 }}" style="position:relative;z-index:1;font-size:13px;font-weight:600;letter-spacing:.02em;color:{{ navFg2 }};padding:9px 20px;border-radius:999px;transition:color .3s ease"><span class="p-lbl-long">Paper dives</span><span class="p-lbl-short">Dives</span></a>
+        </div>
+        <button class="p-navsearchsm" onClick="{{ openPalette }}" aria-label="Search" style="display:none;align-items:center;justify-content:center;width:44px;height:44px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;cursor:pointer;flex:none">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5A7A99" stroke-width="1.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 20 20"></path></svg>
+        </button>
+        <button class="p-navsearch" onClick="{{ openPalette }}" style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;padding:7px 12px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:400;color:#5A7A99;cursor:pointer;transition:border-color .18s,background .18s" style-hover="border-color:#003B6F;background:#E3F1FB">
           <span>Search</span>
-          <span style="font-size:11px;letter-spacing:.06em;color:#5A7A99;border:1px solid #D0DFF0;border-radius:3px;padding:1px 5px">Ctrl K</span>
+          <span style="font-size:11px;color:#5A7A99;border:1px solid #D0DFF0;border-radius:3px;padding:1px 5px">Ctrl K</span>
         </button>
       </nav>
       <button class="p-burger" onClick="{{ toggleMenu }}" style="align-items:center;justify-content:center;width:40px;height:40px;background:transparent;border:1px solid #D0DFF0;border-radius:4px;cursor:pointer;color:#003B6F">
@@ -86,10 +241,10 @@
     </div>
     <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
       <div style="border-top:1px solid #D0DFF0;background:#fff;padding:16px 24px;display:flex;flex-direction:column;gap:4px">
-        <a href="index.html" style="font-size:16px;color:#5A7A99;padding:10px 0">culture</a>
-        <a href="research.html" style="font-size:16px;color:#003B6F;font-weight:500;padding:10px 0">research</a>
-        <a href="paper-dives.html" style="font-size:16px;color:#5A7A99;padding:10px 0">paper dives</a>
-        <button onClick="{{ openPalette }}" style="margin-top:6px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;padding:11px 14px;font-family:Montserrat,sans-serif;font-size:15px;color:#5A7A99;cursor:pointer">
+        <a href="index.html" style="font-size:16px;font-weight:500;color:#5A7A99;padding:13px 0">Culture</a>
+        <a href="research.html" style="font-size:16px;color:#003B6F;font-weight:600;padding:13px 0">Research</a>
+        <a href="paper-dives.html" style="font-size:16px;font-weight:500;color:#5A7A99;padding:13px 0">Paper dives</a>
+        <button onClick="{{ openPalette }}" style="margin-top:6px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;padding:11px 14px;font-family:Montserrat,sans-serif;font-size:15px;font-weight:500;color:#5A7A99;cursor:pointer">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5A7A99" stroke-width="1.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 20 20"></path></svg>
           <span>Search</span>
         </button>
@@ -100,172 +255,177 @@
   <main class="p-shell" style="position:relative;z-index:1;flex:1;max-width:1120px;width:100%;margin:0 auto;padding:0 40px">
 
     <section style="padding:88px 0 0;max-width:760px;animation:riseIn .8s 0.05s cubic-bezier(.22,.61,.36,1) both">
-      <div style="font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#5A7A99">Research</div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#5A7A99">Research</div>
       <div style="width:56px;height:2px;background:#C6A15B;margin:18px 0 0"></div>
     </section>
 
-    <section id="focus-areas" style="padding:44px 0 0;animation:riseIn .8s 0.18s cubic-bezier(.22,.61,.36,1) both">
-      <div style="background:#E3F1FB;border-left:3px solid #007FC0;border-radius:0 8px 8px 0;padding:40px 44px">
-        <h1 style="margin:0;font-size:40px;font-weight:300;letter-spacing:-.025em;line-height:1.12;color:#003B6F;max-width:20ch">Filling Gaps in the Indic Open Source Ecosystem</h1>
-        <ul style="margin:32px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px">
-          <li id="alignment-safety-audits" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Alignment/Safety Audits</li>
-          <li id="automated-red-teaming" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Automated Red Teaming/Jailbreaking</li>
-          <li id="safety-fine-tuning" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Safety Fine-tuning and Unlearning</li>
-          <li id="cross-cultural-reasoning" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Remedying Cross cultural Reasoning Transfer Deficiencies</li>
-          <li id="interpretability" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Interpretability Approaches for Indic Performance Deficiencies</li>
-          <li id="synthetic-stem" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Synthetic Problem Generation for High-Complexity STEM</li>
-          <li id="memory-continual" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Memory and Continual Learning</li>
-        </ul>
+    <section id="focus-areas" style="padding:30px 0 0;animation:riseIn .8s 0.18s cubic-bezier(.22,.61,.36,1) both">
+      <div style="background:#E3F1FB;border-radius:12px;padding:38px 40px 34px">
+        <div class="c-band" style="display:grid;grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr);gap:52px;align-items:start">
+          <div class="c-sticky" style="position:sticky;top:110px">
+            <div style="display:flex;flex-direction:column;gap:14px">
+              <sc-for list="{{ callouts }}" as="q" hint-placeholder-count="3">
+                <button onClick="{{ q.pick }}" style="display:block;width:100%;text-align:left;background:transparent;border:0;padding:0;cursor:pointer;font-family:'Cormorant Garamond',Georgia,serif;font-size:27px;font-weight:{{ q.weight }};letter-spacing:-.02em;line-height:1.22;color:{{ q.fg }};transform:scale({{ q.scale }});transform-origin:left center;transition:color .45s ease,transform .55s cubic-bezier(.22,.61,.36,1),opacity .45s ease">{{ q.q }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="background:#fff;border-radius:8px;padding:26px 28px 28px;display:grid">
+            <sc-for list="{{ calloutPanes }}" as="p" hint-placeholder-count="3">
+              <div id="{{ p.id }}" style="grid-area:1/1;opacity:{{ p.op }};visibility:{{ p.vis }};pointer-events:{{ p.pe }};transition:opacity .32s ease,visibility .32s;scroll-margin-top:120px">
+                <sc-if value="{{ p.showH }}" hint-placeholder-val="{{ false }}">
+                  <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;font-weight:400;letter-spacing:-.02em;line-height:1.2;color:#003B6F;margin-bottom:16px">{{ p.h }}</div>
+                </sc-if>
+                <ul class="c-grid {{ p.gridClass }}" style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:{{ p.cols }};gap:0 34px">
+                  <sc-for list="{{ p.items }}" as="it" hint-placeholder-count="4">
+                    <li id="{{ it.id }}" style="display:grid;grid-template-columns:14px 1fr;gap:14px;align-items:baseline;padding:13px 0;border-top:{{ it.rule }};scroll-margin-top:130px">
+                      <span style="font-size:9px;color:#C6A15B;line-height:1.9">◆</span>
+                      <span style="font-size:15px;font-weight:300;line-height:1.7;color:#2D4A5A;text-wrap:pretty"><span style="font-weight: 400; color: #003B6F">{{ it.lead }}</span>{{ it.pre }}<span style="font-weight:{{ it.emWeight }};font-style:{{ it.emStyle }};color:#003B6F">{{ it.em }}</span></span>
+                    </li>
+                  </sc-for>
+                </ul>
+              </div>
+            </sc-for>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="papers" style="padding:96px 0 0;animation:riseIn .8s 0.3s cubic-bezier(.22,.61,.36,1) both">
-      <div style="font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#5A7A99">Papers</div>
-      <div style="width:56px;height:2px;background:#007FC0;margin:18px 0 40px"></div>
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <sc-for list="{{ papers }}" as="p" hint-placeholder-count="3">
-          <div id="{{ p.id }}" style="background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:{{ p.ring }};padding:28px 32px;scroll-margin-top:110px;transition:box-shadow .5s ease">
-            <div style="display:flex;gap:32px;align-items:flex-start;justify-content:space-between">
-              <div style="flex:1;min-width:0">
-                <a href="{{ p.url }}" target="_blank" style="font-size:20px;font-weight:500;line-height:1.4;color:#003B6F;transition:color .18s" style-hover="color:#007FC0">{{ p.title }}</a>
-                <div style="margin-top:10px;font-size:15px;font-weight:300;color:#2D4A5A;line-height:1.6">
-                  <sc-for list="{{ p.authors }}" as="a" hint-placeholder-count="3"><a href="{{ a.url }}" target="_blank" style="font-weight:{{ a.weight }};color:#2D4A5A;border-bottom:1px solid #D0DFF0;transition:color .18s" style-hover="color:#007FC0">{{ a.name }}</a><span style="color:#5A7A99">{{ a.sep }}</span></sc-for>
-                </div>
-                <div style="margin-top:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-                  <span style="font-size:14px;font-weight:300;font-style:italic;color:#5A7A99">{{ p.meta }}</span>
-                  <span style="font-size:12px;color:#D0DFF0">/</span>
-                  <span style="font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#5A7A99">{{ p.date }}</span>
-                  <span style="font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#003B6F;background:#F2E6C9;border:1px solid rgba(198,161,91,.45);border-radius:999px;padding:4px 12px">{{ p.topic }}</span>
-                </div>
+    <section id="papers" style="padding:72px 0 0">
+      <div style="font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#5A7A99">Papers</div>
+      <div style="width:56px;height:2px;background:#007FC0;margin:18px 0 30px"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 30px">
+        <sc-for list="{{ paperTopics }}" as="t" hint-placeholder-count="4">
+          <button onClick="{{ t.toggle }}" class="p-chip" style="font-family:Montserrat,sans-serif;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:{{ t.fg }};background:{{ t.bg }};border:1px solid {{ t.bd }};border-radius:999px;padding:7px 15px;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease">{{ t.label }}</button>
+        </sc-for>
+      </div>
+      <div class="p-rail" style="position:relative;padding-left:56px;display:flex;flex-direction:column"><span class="p-railline" style="position:absolute;left:16px;top:0;bottom:0;width:1px"></span>
+        <sc-for list="{{ papers }}" as="paper" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-rows:{{ paper.show }};opacity:{{ paper.vis }};transition:grid-template-rows .45s cubic-bezier(.22,.61,.36,1),opacity .32s ease">
+           <div style="overflow:hidden;min-height:0">
+            <div class="p-row2" id="{{ paper.id }}" ref="{{ paper.riseRef }}" onClick="{{ paper.toggle }}" style="position:relative;padding:24px 0 26px;border-top:1px solid #D0DFF0;box-shadow:{{ paper.ring }};cursor:{{ paper.cursor }};scroll-margin-top:110px;opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.22,.61,.36,1)">
+              <span class="p-conn" style="position:absolute;left:-34px;top:34px;width:29px;height:1px"></span><span class="p-dot" style="position:absolute;left:-45px;top:29px;width:11px;height:11px;border-radius:50%;box-shadow:0 0 0 4px #F4F8FC"></span>
+              <div style="display:flex;gap:20px;align-items:center;justify-content:space-between">
+                <a href="{{ paper.url }}" target="_blank" onClick="{{ stop }}" style="font-size:19px;font-weight:600;letter-spacing:-.005em;line-height:1.4;color:#003B6F;transition:color .18s" style-hover="color:#007FC0">{{ paper.title }}</a>
+                <span class="p-date" style="flex:none;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#5A7A99">{{ paper.date }}</span>
+                <sc-if value="{{ paper.hasAbstract }}" hint-placeholder-val="{{ true }}">
+                  <button class="p-chev" onClick="{{ paper.toggleBtn }}" aria-label="Toggle abstract" style="flex:none;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid #D0DFF0;border-radius:4px;width:34px;height:34px;cursor:pointer;transition:border-color .18s,background .18s" style-hover="border-color:#007FC0;background:#E3F1FB"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#007FC0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate({{ paper.rot }});transition:transform .4s cubic-bezier(.22,.61,.36,1)"><path d="M5 9.5 12 16l7-6.5"></path></svg></button>
+                </sc-if>
               </div>
-              <sc-if value="{{ p.hasAbstract }}" hint-placeholder-val="{{ true }}">
-                <button onClick="{{ p.toggle }}" style="flex:none;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid #D0DFF0;border-radius:4px;width:34px;height:34px;cursor:pointer;transition:border-color .18s,background .18s" style-hover="border-color:#007FC0;background:#E3F1FB"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#007FC0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate({{ p.rot }});transition:transform .4s cubic-bezier(.22,.61,.36,1)"><path d="M5 9.5 12 16l7-6.5"></path></svg></button>
-              </sc-if>
-            </div>
-            <div style="display:grid;grid-template-rows:{{ p.rows }};opacity:{{ p.op }};transition:grid-template-rows .52s cubic-bezier(.22,.61,.36,1),opacity .38s ease">
+              <div style="margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px">
+                <span style="font-size:14px;font-weight:400;color:#2D4A5A;line-height:1.6"><sc-for list="{{ paper.authors }}" as="a" hint-placeholder-count="3"><a href="{{ a.url }}" target="_blank" onClick="{{ stop }}" style="font-weight:{{ a.weight }};color:#2D4A5A;border-bottom:1px solid #D0DFF0;transition:color .18s" style-hover="color:#007FC0">{{ a.name }}</a><span style="color:#5A7A99">{{ a.sep }}</span></sc-for></span>
+                <span style="font-size:11px;color:#D0DFF0">/</span>
+                <span style="font-size:13px;font-weight:400;font-style:italic;color:#5A7A99">{{ paper.meta }}</span>
+                <span style="font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#003B6F;background:#F2E6C9;border:1px solid rgba(198,161,91,.45);border-radius:999px;padding:4px 12px">{{ paper.topic }}</span>
+                <span class="p-datem" style="display:none;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#5A7A99">{{ paper.date }}</span>
+              </div>
+            <div style="display:grid;grid-template-rows:{{ paper.rows }};opacity:{{ paper.op }};transition:grid-template-rows .72s cubic-bezier(.22,.61,.36,1),opacity .55s ease">
               <div style="overflow:hidden;min-height:0">
-                <div style="margin-top:26px;border-top:1px solid #D0DFF0;padding:28px 0 4px">
+                <div style="margin:22px 0 6px;padding-left:22px;border-left:1px solid #C6A15B">
                   <div style="font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#5A7A99">Abstract</div>
-                  <div style="width:56px;height:2px;background:#C6A15B;margin:14px 0 0"></div>
-                  <div style="margin-top:28px;max-width:64ch;display:flex;flex-direction:column;gap:22px">
-                    <sc-for list="{{ p.paras }}" as="t" hint-placeholder-count="2">
-                      <p style="margin:0;font-size:17px;font-weight:300;line-height:1.8;color:#2D4A5A;text-wrap:pretty">{{ t.text }}</p>
+                  <div style="margin-top:18px;max-width:62ch;display:flex;flex-direction:column;gap:20px">
+                    <sc-for list="{{ paper.paras }}" as="t" hint-placeholder-count="2">
+                      <p style="margin:0;font-size:17px;font-weight:300;line-height:1.85;color:#2D4A5A;text-wrap:pretty">{{ t.text }}</p>
                     </sc-for>
                   </div>
                 </div>
               </div>
             </div>
+            </div>
+           </div>
           </div>
         </sc-for>
+        <sc-if value="{{ noPapers }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:34px 0;border-top:1px solid #D0DFF0;font-size:14px;font-weight:300;color:#5A7A99">Nothing under those topics yet.</div>
+        </sc-if>
       </div>
     </section>
 
-    <section id="blogs" style="padding:96px 0 0;animation:riseIn .8s 0.36s cubic-bezier(.22,.61,.36,1) both">
-      <div style="font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#5A7A99">Blogs</div>
-      <div style="width:56px;height:2px;background:#007FC0;margin:18px 0 40px"></div>
-      <div style="display:flex;flex-direction:column;gap:16px">
-        <sc-for list="{{ blogs }}" as="b" hint-placeholder-count="2">
-          <div id="{{ b.id }}" style="background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:{{ b.ring }};padding:28px 32px;scroll-margin-top:110px;transition:box-shadow .5s ease">
-            <div style="display:flex;gap:32px;align-items:flex-start;justify-content:space-between">
-              <div style="flex:1;min-width:0">
-                <a href="{{ b.url }}" target="_blank" style="font-size:20px;font-weight:500;line-height:1.4;color:#003B6F;transition:color .18s" style-hover="color:#007FC0">{{ b.title }}</a>
-                <div style="margin-top:10px;font-size:15px;font-weight:300;color:#2D4A5A;line-height:1.6">
-                  <sc-for list="{{ b.authors }}" as="a" hint-placeholder-count="1"><a href="{{ a.url }}" target="_blank" style="font-weight:{{ a.weight }};color:#2D4A5A;border-bottom:1px solid #D0DFF0;transition:color .18s" style-hover="color:#007FC0">{{ a.name }}</a><span style="color:#5A7A99">{{ a.sep }}</span></sc-for>
-                </div>
+    <section id="blogs" style="padding:54px 0 0">
+      <div style="font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#5A7A99">Blogs</div>
+      <div style="width:56px;height:2px;background:#007FC0;margin:18px 0 30px"></div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 30px">
+        <sc-for list="{{ blogTopics }}" as="t" hint-placeholder-count="4">
+          <button onClick="{{ t.toggle }}" class="p-chip" style="font-family:Montserrat,sans-serif;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:{{ t.fg }};background:{{ t.bg }};border:1px solid {{ t.bd }};border-radius:999px;padding:7px 15px;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease">{{ t.label }}</button>
+        </sc-for>
+      </div>
+      <div class="p-rail" style="position:relative;padding-left:56px;display:flex;flex-direction:column"><span class="p-railline" style="position:absolute;left:16px;top:0;bottom:0;width:1px"></span>
+        <sc-for list="{{ blogs }}" as="blog" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-rows:{{ blog.show }};opacity:{{ blog.vis }};transition:grid-template-rows .45s cubic-bezier(.22,.61,.36,1),opacity .32s ease">
+           <div style="overflow:hidden;min-height:0">
+            <div class="p-row2" id="{{ blog.id }}" ref="{{ blog.riseRef }}" onClick="{{ blog.toggle }}" style="position:relative;padding:24px 0 26px;border-top:1px solid #D0DFF0;box-shadow:{{ blog.ring }};cursor:{{ blog.cursor }};scroll-margin-top:110px;opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.22,.61,.36,1)">
+              <span class="p-conn" style="position:absolute;left:-34px;top:34px;width:29px;height:1px"></span><span class="p-dot" style="position:absolute;left:-45px;top:29px;width:11px;height:11px;border-radius:50%;box-shadow:0 0 0 4px #F4F8FC"></span>
+              <div style="display:flex;gap:20px;align-items:center;justify-content:space-between">
+                <a href="{{ blog.url }}" target="_blank" onClick="{{ stop }}" style="font-size:19px;font-weight:600;letter-spacing:-.005em;line-height:1.4;color:#003B6F;transition:color .18s" style-hover="color:#007FC0">{{ blog.title }}</a>
+                <span class="p-date" style="flex:none;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#5A7A99">{{ blog.date }}</span>
+              </div>
+              <div style="margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px">
+                <span style="font-size:14px;font-weight:400;color:#2D4A5A;line-height:1.6"><sc-for list="{{ blog.authors }}" as="a" hint-placeholder-count="3"><a href="{{ a.url }}" target="_blank" onClick="{{ stop }}" style="font-weight:{{ a.weight }};color:#2D4A5A;border-bottom:1px solid #D0DFF0;transition:color .18s" style-hover="color:#007FC0">{{ a.name }}</a><span style="color:#5A7A99">{{ a.sep }}</span></sc-for></span>
+                <span style="font-size:11px;color:#D0DFF0">/</span>
+                <span style="font-size:13px;font-weight:400;font-style:italic;color:#5A7A99">{{ blog.meta }}</span>
+                <span style="font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#003B6F;background:#F2E6C9;border:1px solid rgba(198,161,91,.45);border-radius:999px;padding:4px 12px">{{ blog.topic }}</span>
+                <span class="p-datem" style="display:none;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#5A7A99">{{ blog.date }}</span>
               </div>
             </div>
-            <div style="margin-top:12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-              <span style="font-size:14px;font-weight:300;font-style:italic;color:#5A7A99">{{ b.kind }}</span>
-              <span style="font-size:12px;color:#D0DFF0">/</span>
-              <span style="font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#5A7A99">{{ b.date }}</span>
-              <span style="font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#003B6F;background:#F2E6C9;border:1px solid rgba(198,161,91,.45);border-radius:999px;padding:4px 12px">{{ b.topic }}</span>
-            </div>
+           </div>
           </div>
         </sc-for>
+        <sc-if value="{{ noBlogs }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:34px 0;border-top:1px solid #D0DFF0;font-size:14px;font-weight:300;color:#5A7A99">Nothing under those topics yet.</div>
+        </sc-if>
       </div>
     </section>
 
-    <section id="why-students" style="padding:96px 0 0;animation:riseIn .8s 0.42s cubic-bezier(.22,.61,.36,1) both">
-      <div style="background:#E3F1FB;border-left:3px solid #007FC0;border-radius:0 8px 8px 0;padding:40px 44px">
-        <h2 style="margin:0;font-size:28px;font-weight:400;letter-spacing:-.02em;color:#003B6F;line-height:1.2">Why can students build better models?</h2>
-        <ul style="margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px">
-          <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span>More willingness to do non-flashy work in order to improve the final model</li>
-          <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span>People new to building AI can be free of prior phases of AI hype cycles, allowing them to adapt to new modern techniques faster</li>
-          <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span>Less ego enabling org charts to scale slightly as there is less gamifying the system</li>
-          <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span>Abundant talent well-suited to building things with a proof-of-concept elsewhere</li>
-        </ul>
-      </div>
-    </section>
 
-    <section id="why-train" style="padding:40px 0 0;animation:riseIn .8s 0.5s cubic-bezier(.22,.61,.36,1) both">
-      <div style="background:#E3F1FB;border-left:3px solid #007FC0;border-radius:0 8px 8px 0;padding:40px 44px">
-        <h2 style="margin:0;font-size:28px;font-weight:400;letter-spacing:-.02em;color:#003B6F;line-height:1.2">Why to even train our own models?</h2>
-
-        <div style="margin-top:28px">
-          <div style="font-size:18px;font-weight:500;color:#003B6F">Strategic Open Source</div>
-          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
-            <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span><span>We see a gap we can fill, and a reason we believe we can do better</span></li>
-            <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span><span>We want to build things that are <b style="font-weight:600;color:#003B6F">useful to the Indic open source ecosystem</b></span></li>
-          </ul>
-        </div>
-
-        <div style="margin-top:28px">
-          <div style="font-size:18px;font-weight:500;color:#003B6F">Our goal is not “the best model ever”</div>
-          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
-            <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span><span>It is to create value in the Indic Open Source Ecosystem — building something Indian developers would actually want to adopt</span></li>
-            <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span><span>Research is a (small) secondary objective. <span style="font-style:italic;color:#003B6F">Engineering first, Science Second</span></span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <div style="position:relative;width:100vw;left:50%;margin-left:-50vw;padding:104px 0 92px;background:linear-gradient(to bottom,rgba(227,241,251,0),rgba(227,241,251,.7));display:flex;align-items:center;justify-content:center;gap:22px">
+    <div class="p-orn" style="position:relative;width:100vw;left:50%;margin-left:-50vw;padding:76px 0 66px;background:linear-gradient(to bottom,rgba(227,241,251,0),rgba(227,241,251,.7));display:flex;align-items:center;justify-content:center;gap:22px">
       <span style="width:110px;height:1px;background:linear-gradient(to right,rgba(208,223,240,0),#D0DFF0)"></span>
       <span style="font-size:10px;letter-spacing:.62em;color:#C6A15B">◆ ◆ ◆</span>
       <span style="width:110px;height:1px;background:linear-gradient(to left,rgba(208,223,240,0),#D0DFF0)"></span>
     </div>
   </main>
 
-  <footer style="border-top:1px solid #D0DFF0;background:#fff">
-    <div class="p-shell" style="max-width:1120px;margin:0 auto;padding:56px 40px;display:grid;grid-template-columns:1fr 1px 1fr;gap:56px;align-items:center">
-      <div style="display:flex;flex-direction:column;gap:22px">
-        <a href="https://www.linkedin.com/company/prahlada-open-research/" target="_blank" style="display:flex;align-items:center;gap:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003B6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3.2" y="3.6" width="17.6" height="16.8" rx="2.6"></rect><path d="M7.6 10.6v6"></path><path d="M7.6 7.4h.01"></path><path d="M12 16.6v-3.4a2.6 2.6 0 0 1 5.2 0v3.4"></path></svg>
+  <footer class="p-shell" style="position:relative;z-index:2;background:#F4F8FC;padding:0 40px 40px">
+    <div class="p-fpanel" ref="{{ panelRef }}" style="position:relative;max-width:1120px;margin:0 auto;background:#003B6F;border-radius:8px;overflow:hidden;padding:86px 56px 56px">
+      <img src="assets/mandala-corner.png" alt="" style="position:absolute;right:-72px;bottom:-58px;width:520px;max-width:none;opacity:.4;filter:brightness(0) saturate(100%) invert(72%) sepia(28%) saturate(690%) hue-rotate(1deg) brightness(92%) contrast(88%);pointer-events:none;user-select:none">
+      <div class="p-glow" style="position:absolute;inset:0;pointer-events:none;opacity:var(--go,0);transition:opacity .45s ease;background:radial-gradient(190px circle at var(--gx,50%) var(--gy,50%),rgba(198,161,91,.26),rgba(198,161,91,.08) 36%,transparent 58%)"></div>
+      <div style="position:relative;z-index:1">
+        <div style="text-align:center">
+          <img src="assets/logo_mark_white_tight.png" alt="" style="height:clamp(78px,9.5vw,124px);width:auto;object-fit:contain;opacity:.94;margin:0 auto 34px;display:block">
+          <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(38px,6vw,72px);font-weight:300;letter-spacing:-.03em;line-height:1.02;color:#fff">Vidya Dadati Vinayam.</div>
+          <div style="font-family:'Cormorant Garamond',Georgia,serif;margin-top:18px;font-size:clamp(20px,2.6vw,28px);font-weight:300;font-style:italic;color:#C6A15B">Knowledge Gives Humility.</div>
+        </div>
+        <div style="margin-top:72px;display:flex;flex-direction:column;max-width:320px">
+        <a href="https://www.linkedin.com/company/prahlada-open-research/" target="_blank" style="display:flex;align-items:center;gap:16px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6A15B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3.2" y="3.6" width="17.6" height="16.8" rx="2.6"></rect><path d="M7.6 10.6v6"></path><path d="M7.6 7.4h.01"></path><path d="M12 16.6v-3.4a2.6 2.6 0 0 1 5.2 0v3.4"></path></svg>
           <span style="display:flex;flex-direction:column;gap:3px">
-            <span style="font-size:17px;font-weight:500;color:#003B6F">LinkedIn</span>
-            <span style="font-size:13px;font-weight:300;color:#5A7A99">Follow &amp; track our updates</span>
+            <span style="font-size:16px;font-weight:600;color:#fff">LinkedIn</span>
+            <span style="font-size:13px;font-weight:300;color:rgba(255,255,255,.62)">Follow &amp; track our updates</span>
           </span>
         </a>
-        <a href="https://discord.com/invite/jQW6XeZEvT" target="_blank" style="display:flex;align-items:center;gap:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003B6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3" y="4.4" width="18" height="12" rx="3.2"></rect><path d="M8.6 16.4v3.4l3.8-3.4"></path><path d="M8.4 10.4h.01"></path><path d="M12 10.4h.01"></path><path d="M15.6 10.4h.01"></path></svg>
+        <a href="https://discord.com/invite/jQW6XeZEvT" target="_blank" style="display:flex;align-items:center;gap:16px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6A15B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3" y="4.4" width="18" height="12" rx="3.2"></rect><path d="M8.6 16.4v3.4l3.8-3.4"></path><path d="M8.4 10.4h.01"></path><path d="M12 10.4h.01"></path><path d="M15.6 10.4h.01"></path></svg>
           <span style="display:flex;flex-direction:column;gap:3px">
-            <span style="font-size:17px;font-weight:500;color:#003B6F">Discord</span>
-            <span style="font-size:13px;font-weight:300;color:#5A7A99">Join our paper discussions</span>
+            <span style="font-size:16px;font-weight:600;color:#fff">Discord</span>
+            <span style="font-size:13px;font-weight:300;color:rgba(255,255,255,.62)">Join our paper discussions</span>
           </span>
         </a>
-        <a href="https://github.com/prahlada-research" target="_blank" style="display:flex;align-items:center;gap:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003B6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M9.2 7.4 5 12l4.2 4.6"></path><path d="M14.8 7.4 19 12l-4.2 4.6"></path><path d="M12.6 6.6l-1.2 10.8"></path></svg>
+        <a href="https://github.com/prahlada-research" target="_blank" style="display:flex;align-items:center;gap:16px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6A15B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M9.2 7.4 5 12l4.2 4.6"></path><path d="M14.8 7.4 19 12l-4.2 4.6"></path><path d="M12.6 6.6l-1.2 10.8"></path></svg>
           <span style="display:flex;flex-direction:column;gap:3px">
-            <span style="font-size:17px;font-weight:500;color:#003B6F">GitHub</span>
-            <span style="font-size:13px;font-weight:300;color:#5A7A99">Browse our code and datasets</span>
+            <span style="font-size:16px;font-weight:600;color:#fff">GitHub</span>
+            <span style="font-size:13px;font-weight:300;color:rgba(255,255,255,.62)">Browse our code and datasets</span>
           </span>
         </a>
-      </div>
-      <div style="width:1px;height:100%;background:#D0DFF0"></div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:14px">
-        <img src="assets/logo_mark.png" alt="" style="width:44px;height:44px;object-fit:contain;opacity:.9">
-        <div style="font-size:24px;font-weight:300;letter-spacing:-.02em;color:#003B6F;line-height:1.2">Vidya Dadati Vinayam.</div>
-        <div style="font-size:18px;font-weight:300;font-style:italic;color:#007FC0">Knowledge Gives Humility</div>
+        </div>
       </div>
     </div>
   </footer>
 
   <sc-if value="{{ paletteOpen }}" hint-placeholder-val="{{ false }}">
-    <div onClick="{{ closePalette }}" style="position:fixed;inset:0;z-index:90;background:rgba(0,59,111,.28);display:flex;align-items:flex-start;justify-content:center;padding:12vh 16px 16px">
-      <div onClick="{{ stop }}" role="dialog" aria-label="Site search" style="width:min(680px,100%);max-height:76vh;background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:0 12px 48px rgba(0,59,111,.18);overflow:hidden;display:flex;flex-direction:column">
+    <div onClick="{{ closePalette }}" class="p-palwrap" style="position:fixed;inset:0;z-index:90;background:rgba(0,59,111,.28);display:flex;align-items:flex-start;justify-content:center;padding:12vh 16px 16px">
+      <div onClick="{{ stop }}" role="dialog" aria-label="Site search" class="p-pal" style="width:min(680px,100%);max-height:76vh;background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:0 12px 48px rgba(0,59,111,.18);overflow:hidden;display:flex;flex-direction:column">
         <div style="display:flex;align-items:center;gap:12px;padding:0 18px;border-bottom:1px solid #D0DFF0">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5A7A99" stroke-width="1.6" stroke-linecap="round" style="flex:none"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 20 20"></path></svg>
-          <input ref="{{ inputRef }}" value="{{ query }}" onChange="{{ onQuery }}" aria-label="Search the site" placeholder="Search papers, authors, abstracts…" style="flex:1;min-width:0;border:0;background:transparent;padding:18px 0;font-family:Montserrat,sans-serif;font-size:16px;font-weight:300;color:#2D4A5A;outline:none">
+          <input ref="{{ inputRef }}" value="{{ query }}" onChange="{{ onQuery }}" aria-label="Search the site" placeholder="Search papers, authors, abstracts…" style="flex:1;min-width:0;border:0;background:transparent;padding:18px 0;font-family:Montserrat,sans-serif;font-size:16px;font-weight:400;color:#2D4A5A;outline:none">
           <sc-if value="{{ hasQuery }}" hint-placeholder-val="{{ false }}">
             <button onClick="{{ clearQuery }}" aria-label="Clear search" style="flex:none;background:transparent;border:0;padding:6px;cursor:pointer;font-family:Montserrat,sans-serif;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#5A7A99;transition:color .18s" style-hover="color:#007FC0">Clear</button>
           </sc-if>
@@ -274,22 +434,22 @@
           <sc-for list="{{ results }}" as="r" hint-placeholder-count="3">
             <a href="{{ r.href }}" onClick="{{ r.go }}" onMouseEnter="{{ r.hover }}" style="display:flex;flex-direction:column;gap:7px;padding:13px 16px;border-radius:4px;border-left:2px solid {{ r.edge }};background:{{ r.bg }};transition:background .14s">
               <div style="display:flex;align-items:baseline;gap:12px">
-                <span style="flex:none;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#C6A15B">{{ r.kind }}</span>
-                <span style="font-size:15px;font-weight:500;line-height:1.4;color:#003B6F"><sc-for list="{{ r.titleParts }}" as="t" hint-placeholder-count="1"><span style="background:{{ t.bg }};color:{{ t.fg }};font-weight:{{ t.w }};border-radius:2px">{{ t.text }}</span></sc-for></span>
+                <span style="flex:none;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#C6A15B">{{ r.kind }}</span>
+                <span style="font-size:16px;font-weight:600;line-height:1.4;color:#003B6F"><sc-for list="{{ r.titleParts }}" as="t" hint-placeholder-count="1"><span style="background:{{ t.bg }};color:{{ t.fg }};font-weight:{{ t.w }};border-radius:2px">{{ t.text }}</span></sc-for></span>
               </div>
               <sc-if value="{{ r.hasBody }}" hint-placeholder-val="{{ false }}">
-                <div style="font-size:13px;font-weight:300;line-height:1.65;color:#5A7A99"><sc-for list="{{ r.parts }}" as="t" hint-placeholder-count="1"><span style="background:{{ t.bg }};color:{{ t.fg }};font-weight:{{ t.w }};border-radius:2px">{{ t.text }}</span></sc-for></div>
+                <div style="font-size:14px;font-weight:300;line-height:1.65;color:#5A7A99"><sc-for list="{{ r.parts }}" as="t" hint-placeholder-count="1"><span style="background:{{ t.bg }};color:{{ t.fg }};font-weight:{{ t.w }};border-radius:2px">{{ t.text }}</span></sc-for></div>
               </sc-if>
             </a>
           </sc-for>
           <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
             <div style="padding:28px 16px;display:flex;flex-direction:column;gap:10px">
-              <div style="font-size:15px;font-weight:400;color:#003B6F">No matches for “{{ query }}”</div>
-              <div style="font-size:13px;font-weight:300;line-height:1.7;color:#5A7A99;max-width:52ch">Try an author name, a venue (NeurIPS, ICLR, CAISc), a topic (safety, diffusion, tokenisers), or a phrase from an abstract in quotes.</div>
+              <div style="font-size:16px;font-weight:500;color:#003B6F">No matches for “{{ query }}”</div>
+              <div style="font-size:14px;font-weight:300;line-height:1.7;color:#5A7A99;max-width:56ch">Try an author name, a venue (NeurIPS, ICLR, CAISc), a topic (safety, diffusion, tokenisers), or a phrase from an abstract in quotes.</div>
             </div>
           </sc-if>
         </div>
-        <div style="border-top:1px solid #D0DFF0;background:#F4F8FC;padding:11px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#5A7A99">
+        <div style="border-top:1px solid #D0DFF0;background:#F4F8FC;padding:11px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#5A7A99">
           <span style="display:flex;gap:18px;flex-wrap:wrap"><span>↑ ↓ navigate</span><span>↵ open</span><span>esc close</span></span>
           <span style="flex:none;color:#003B6F">{{ countLabel }}</span>
         </div>
@@ -300,7 +460,93 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { open: false, q: "", sel: 0, focus: null, menu: false, expanded: {}, papers: [], blogs: [] };
+
+  /* ------------------------------------------------------------- nav switch */
+  // One three-position switch. The brass rule is measured from the real label
+  // geometry, and its two edges travel at different rates so it stretches.
+  navActive = "research";
+  navEls = {};
+
+  navRefFor(key) {
+    return (el) => { if (el && this.navEls[key] !== el) { this.navEls[key] = el; this.navSchedule(); } };
+  }
+
+  navSchedule() {
+    if (this._navPending) return;
+    this._navPending = true;
+    requestAnimationFrame(() => { this._navPending = false; this.navMeasure(); });
+  }
+
+  navMeasure() {
+    const geo = {};
+    Object.keys(this.navEls).forEach((k) => {
+      const el = this.navEls[k];
+      if (!el || !el.offsetParent || !el.offsetWidth) return;
+      geo[k] = { left: el.offsetLeft, width: el.offsetWidth };
+    });
+    const g = this.state.navGeo || {};
+    const same = Object.keys(geo).length === Object.keys(g).length &&
+      Object.keys(geo).every((k) => g[k] && g[k].left === geo[k].left && g[k].width === geo[k].width);
+    if (same) return;
+    this.setState({ navGeo: geo });
+  }
+
+  navInit() {
+    this.navSchedule();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.navMeasure());
+    this._navResize = () => this.navSchedule();
+    window.addEventListener("resize", this._navResize);
+  }
+
+  // Hover eases the rule a third of the way over, then it falls back.
+  navRuleVals() {
+    const g = this.state.navGeo || {};
+    const track = this.navEls.track;
+    const trackW = track ? track.clientWidth : 0;
+    const at = g[this.navActive];
+    if (!at || !trackW) return { left: "5px", right: "5px", op: 0, dl: "0s", dr: "0s", settle: "none" };
+    const hov = this.state.navHover && g[this.state.navHover];
+    let left = at.left, w = at.width;
+    if (hov && this.state.navHover !== this.navActive) {
+      const t = 0.33;
+      left = at.left + (hov.left - at.left) * t;
+      w = at.width + (hov.width - at.width) * t;
+    }
+    const prev = this._navLast;
+    this._navLast = left;
+    // Only the opening landing wiggles; later moves are pure travel.
+    if (!this._settleTimer) this._settleTimer = setTimeout(() => { this._settled = true; }, 1400);
+    const dir = prev === undefined ? 0 : left - prev;
+    const fast = ".38s cubic-bezier(.2,1.25,.35,1)", slow = ".92s cubic-bezier(.16,.9,.3,1)";
+    // The rule reads as an underline, not an underlay: 60% of the label, centred.
+    const half = (w * 0.54) / 2, mid = left + w / 2;
+    return {
+      left: (mid - half) + "px",
+      right: Math.max(trackW - (mid + half), 4) + "px",
+      op: 1,
+      dl: dir > 0 ? slow : fast,
+      dr: dir > 0 ? fast : slow,
+      settle: this._settled ? "none" : "ruleSettle .45s .8s cubic-bezier(.33,1,.5,1) both"
+    };
+  }
+
+  navVals() {
+    return {
+      navTrackRef: this.navRefFor("track"),
+      navRef0: this.navRefFor("home"),
+      navRef1: this.navRefFor("research"),
+      navRef2: this.navRefFor("dives"),
+      navEnter0: () => this.setState({ navHover: "home" }),
+      navEnter1: () => this.setState({ navHover: "research" }),
+      navEnter2: () => this.setState({ navHover: "dives" }),
+      navLeave: () => this.setState({ navHover: null }),
+      navFg0: this.navActive === "home" ? "#003B6F" : "#5A7A99",
+      navFg1: this.navActive === "research" ? "#003B6F" : "#5A7A99",
+      navFg2: this.navActive === "dives" ? "#003B6F" : "#5A7A99",
+      navRule: this.navRuleVals()
+    };
+  }
+  state = { callout: 0, navHover: null, navGeo: {}, topicsP: {}, topicsB: {}, sweep: 0, atEnd: false, open: false, q: "", sel: 0, focus: null, menu: false, expanded: {}, papers: [], blogs: [] };
 
   // Per-entry values that never change once loaded (slug, authors, abstract split).
   _static = new WeakMap();
@@ -318,12 +564,102 @@ class Component extends DCLogic {
     }).catch(() => {});
   }
 
+
+  /* ---------------------------------------------------------- callout panel */
+  calloutData = [
+    { q: "What are we working on?", h: "Filling Gaps in the Indic Open Source Ecosystem", items: [
+      "Alignment/Safety Audits",
+      "Automated Red Teaming/Jailbreaking",
+      "Safety Fine-tuning and Unlearning",
+      "Remedying Cross cultural Reasoning Transfer Deficiencies",
+      "Interpretability Approaches for Indic Performance Deficiencies",
+      "Synthetic Problem Generation for High-Complexity STEM",
+      "Memory and Continual Learning"
+    ] },
+    { q: "Why can students build better models?", h: "Why can students build better models?", items: [
+      "More willingness to do non-flashy work in order to improve the final model",
+      "People new to building AI can be free of prior phases of AI hype cycles, allowing them to adapt to new modern techniques faster",
+      "Less ego enabling org charts to scale slightly as there is less gamifying the system",
+      "Abundant talent well-suited to building things with a proof-of-concept elsewhere"
+    ] },
+    { q: "Why to even train our own models?", h: "Why to even train our own models?", groups: [
+      { g: "Strategic Open Source", items: [
+        { text: "We see a gap we can fill, and a reason we believe we can do better" },
+        { pre: "We want to build things that are ", em: "useful to the Indic open source ecosystem", emStyle: "bold" }
+      ] },
+      { g: "Our goal is not \u201cthe best model ever\u201d", items: [
+        { text: "It is to create value in the Indic Open Source Ecosystem — building something Indian developers would actually want to adopt" },
+        { pre: "Research is a (small) secondary objective. ", em: "Engineering first, Science Second", emStyle: "italic" }
+      ] }
+    ] }
+  ];
+
+  calloutItems(entry) {
+    const S = window.PrahladaSearch;
+    const norm = (v, lead) => {
+      const o = typeof v === "string" ? { text: v } : { ...v };
+      const plain = (lead || "") + (o.pre || o.text || "") + (o.em || "");
+      return {
+        id: S ? S.slug(plain) : "",
+        lead: lead || "",
+        pre: o.pre || o.text || "",
+        em: o.em || "",
+        emWeight: o.emStyle === "bold" ? 500 : 400,
+        emStyle: o.emStyle === "italic" ? "italic" : "normal"
+      };
+    };
+    if (entry.items) return entry.items.map((v) => norm(v));
+    const out = [];
+    (entry.groups || []).forEach((g) => {
+      g.items.forEach((v, i) => out.push(norm(v, i === 0 ? g.g + " — " : "")));
+    });
+    return out;
+  }
+
+  calloutVals() {
+    const sel = this.state.callout || 0;
+    return {
+      callouts: this.calloutData.map((e, i) => {
+        const on = sel === i;
+        return {
+          q: e.q,
+          fg: on ? "#003B6F" : "#2D4A5A",
+          // Cormorant is high-contrast: the inactive line carries its
+          // de-emphasis in size and colour, never in opacity.
+          weight: on ? 400 : 500,
+          scale: on ? 1 : 0.66,
+          pick: () => this.setState({ callout: i })
+        };
+      }),
+      // All three answers share one grid cell, so the card never resizes.
+      calloutPanes: this.calloutData.map((e, i) => {
+        const on = sel === i, its = this.calloutItems(e);
+        const n = its.length > 5 ? 2 : 1;
+        // The top visual row opens the answer, so it carries no rule above it.
+        its.forEach((it, j) => { it.rule = j === 0 ? "none" : "1px solid rgba(0,59,111,.09)"; });
+        return {
+          id: "callout-" + i,
+          h: e.h,
+          showH: !!(e.h && e.h !== e.q),
+          items: its,
+          cols: n > 1 ? "repeat(2,minmax(0,1fr))" : "minmax(0,1fr)",
+          gridClass: n > 1 ? "c-grid2" : "",
+          op: on ? 1 : 0,
+          vis: on ? "visible" : "hidden",
+          pe: on ? "auto" : "none"
+        };
+      })
+    };
+  }
+
   anchors() { return this.state.papers.map((p) => p.title).concat(this.state.blogs.map((b) => b.title)); }
 
   /* ---------------------------------------------------------- lifecycle */
 
   componentDidMount() {
+    this.navInit();
     window.addEventListener("keydown", this.onKey);
+    window.addEventListener("scroll", this.onScroll, { passive: true });
     this.icons();
     setTimeout(() => this.icons(), 400);
     this.load();
@@ -341,8 +677,84 @@ class Component extends DCLogic {
     }
   }
 
+  // The nav wordmark sweep is driven by scroll position rather than a timer, so
+  // Guard and render both read state, so the sweep can never latch on a stale
+  // The guard tracks the last dispatched value in instance fields (state has not
+  // committed yet on the next tick); the render reads state only.
+  onScroll = () => {
+    const y = window.scrollY || document.documentElement.scrollTop || 0;
+    const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    const p = Math.round(y / 44);
+    // Same cadence as the wordmark sweep: one small turn per letter advanced.
+    const root = document.documentElement.style;
+    root.setProperty("--mrot", (p * 1.15).toFixed(2) + "deg");
+    root.setProperty("--srot", (p * 1.15).toFixed(2) + "deg");
+    // Dissolve the motif as the footer rises, so it is never cut by the panel edge.
+    if (!this._foot) this._foot = document.querySelector("footer");
+    if (this._foot) {
+      const vh = window.innerHeight;
+      const ft = this._foot.getBoundingClientRect().top;
+      root.setProperty("--mfade", String(Math.max(0, Math.min(1, (ft - vh * 0.45) / (vh * 0.4)))));
+    }
+    const end = y >= max - 4;
+    if (p === this._lastP && end === this._lastEnd) return;
+    this._lastP = p; this._lastEnd = end;
+    this.setState({ sweep: p, atEnd: end });
+  };
+
+
+  // Flat per-letter holes: style holes inside an sc-for share one generated
+  // class, so each letter needs its own named value.
+  sweepVals_unused() {
+    const out = {};
+    this.sweepLetters().forEach((l, i) => { out["c" + i] = l.color; out["w" + i] = l.weight; out["t" + i] = l.shift; });
+    return out;
+  }
+
+  sweepLetters() {
+    const word = "Prahlada".split("");
+    const rest = { color: "#003B6F", shadow: "none", shift: "none" };
+    // Neutral navy at both ends of the page — the sweep exists only while the
+    // reader is actually moving through it, and never parks mid-pass.
+    const raw = this.state.sweep || 0;
+    if (!raw || this.state.atEnd) return word.map((ch) => ({ ch, ...rest }));
+    const period = word.length + 3;
+    const head = ((raw - 1) % period + period) % period;
+    return word.map((ch, i) => {
+      const d = head - i;
+      // Weight is faked with a hairline text shadow: a real weight step changes
+      // letter widths and makes the whole wordmark shuffle as the sweep passes.
+      if (d === 0) return { ch, color: "#C6A15B", shadow: "0 0 .55px currentColor", shift: "translateY(-2px)" };
+      if (d === 1) return { ch, color: "#007FC0", shadow: "0 0 .3px currentColor", shift: "translateY(-1px)" };
+      if (d === 2) return { ch, color: "#4E7CA6", shadow: "none", shift: "none" };
+      return { ch, ...rest };
+    });
+  }
+
+  // Built here rather than in the template: per-letter style and class holes are
+  // deduped into one shared class inside the markup compiler, which flattens the
+  // sweep to a single colour.
+  sweepMark() {
+    return React.createElement("span", { style: { display: "flex" } },
+      this.sweepLetters().map((l, i) => React.createElement("span", {
+        key: i,
+        style: {
+          color: l.color,
+          textShadow: l.shadow,
+          transform: l.shift,
+          display: "inline-block",
+          transition: "color .3s ease, transform .3s ease, text-shadow .3s ease"
+        }
+      }, l.ch))
+    );
+  }
+
+
+
+
   componentWillUnmount() {
     window.removeEventListener("keydown", this.onKey);
+    window.removeEventListener("scroll", this.onScroll);
     window.PrahladaSearch.lockScroll(false);
   }
 
@@ -397,26 +809,40 @@ class Component extends DCLogic {
 
   // Same page: close and reveal in place. Other page: hand off through the hash.
   openResult(r) {
-    const here = location.pathname.split("/").pop() || "index.html";
-    if (r.page !== here && !(here === "" && r.page.indexOf("index") === 0)) { location.href = r.href; return; }
+    const S = window.PrahladaSearch;
+    if (!S.samePage(r.page)) { location.href = r.href; return; }
     this.hidePalette();
-    if (!r.hash) { window.PrahladaSearch.scrollToY(0); return; }
+    if (!r.hash) { S.scrollToY(0); return; }
     history.replaceState(null, "", "#" + r.hash);
     this.focusHash(r.hash);
   }
 
   // Expand the matching card, ease it under the header, flash its brass ring.
   focusHash(hash) {
+    // A callout pane is only in the DOM when its question is selected.
+    const c = /^callout-(\d)$/.exec(hash || "");
+    if (c) {
+      this.setState({ callout: Number(c[1]) });
+      const S = window.PrahladaSearch;
+      setTimeout(() => {
+        const panel = document.getElementById("focus-areas");
+        if (panel) S.scrollToY(panel.getBoundingClientRect().top + window.scrollY - 100);
+      }, 60);
+      return;
+    }
     if (!hash) return;
     const S = window.PrahladaSearch;
     const i = this.anchors().findIndex((title) => S.slug(title) === hash);
-    const patch = { focus: hash };
-    if (i > -1 && this.state.expanded) patch.expanded = { ...this.state.expanded, [i]: true };
-    this.setState(patch);
+    // A topic filter would leave the target collapsed to nothing — clear both.
+    this.setState({ focus: hash, topicsP: {}, topicsB: {} });
     setTimeout(() => {
       const el = document.getElementById(hash);
-      if (el) S.scrollToY(el.getBoundingClientRect().top + window.scrollY - 100);
-    }, 90);
+      if (!el) return;
+      S.scrollToY(el.getBoundingClientRect().top + window.scrollY - 100, 0, () => {
+        // Opened on arrival, so the row's height never changes mid-scroll.
+        if (i > -1) this.setState((st) => ({ expanded: { ...st.expanded, [i]: true } }));
+      });
+    }, 60);
     setTimeout(() => { if (this.state.focus === hash) this.setState({ focus: null }); }, 2600);
   }
 
@@ -451,6 +877,61 @@ class Component extends DCLogic {
     };
   }
 
+  /* ------------------------------------------------------- index rows */
+
+  // Rows rise as they enter the viewport. Handled by one observer writing
+  // styles directly, so scrolling never triggers a render.
+  observer() {
+    if (this._io !== undefined) return this._io;
+    this._io = "IntersectionObserver" in window ? new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        e.target.style.opacity = "1";
+        e.target.style.transform = "none";
+        this._io.unobserve(e.target);
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 }) : null;
+    return this._io;
+  }
+
+  riseRef = (el) => {
+    if (!el || el._rise) return;
+    el._rise = true;
+    const io = this.observer();
+    if (io) io.observe(el);
+    else { el.style.opacity = "1"; el.style.transform = "none"; }
+  };
+
+  // Multi-select: nothing selected means everything shows.
+  topicChips(list, key) {
+    const picked = this.state[key] || {};
+    const seen = [];
+    (list || []).forEach((e) => { const t = (e.topic || "").trim(); if (t && seen.indexOf(t) < 0) seen.push(t); });
+    return seen.map((label) => {
+      const on = !!picked[label];
+      return {
+        label, on,
+        fg: on ? "#003B6F" : "#5A7A99",
+        bg: on ? "#F2E6C9" : "transparent",
+        bd: on ? "rgba(198,161,91,.55)" : "#D0DFF0",
+        toggle: (e) => {
+          if (e && e.stopPropagation) e.stopPropagation();
+          this.setState((st) => {
+            const next = { ...(st[key] || {}) };
+            if (next[label]) delete next[label]; else next[label] = true;
+            return { [key]: next };
+          });
+        }
+      };
+    });
+  }
+
+  matches(entry, key) {
+    const picked = this.state[key] || {};
+    const keys = Object.keys(picked);
+    return keys.length === 0 || !!picked[(entry.topic || "").trim()];
+  }
+
   /* --------------------------------------------------------- card helpers */
 
   // Brass ring while a card is the search target, otherwise the resting shadow.
@@ -481,19 +962,66 @@ class Component extends DCLogic {
     return v;
   }
 
+  // Direct style mutation rather than state: a mousemove that re-rendered the
+  // page would be far more expensive than the effect is worth. The light eases
+  // toward the cursor rather than tracking it exactly, so it trails behind.
+  panelRef = (el) => {
+    if (!el || el._glow) return;
+    el._glow = true;
+    const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+    let tx = null, ty = null, cx = null, cy = null, raf = null;
+    const step = () => {
+      raf = null;
+      if (tx === null) return;
+      if (cx === null) { cx = tx; cy = ty; }
+      cx += (tx - cx) * 0.4;
+      cy += (ty - cy) * 0.4;
+      el.style.setProperty("--gx", cx.toFixed(1) + "px");
+      el.style.setProperty("--gy", cy.toFixed(1) + "px");
+      if (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) raf = requestAnimationFrame(step);
+    };
+    el.addEventListener("mousemove", (e) => {
+      const r = el.getBoundingClientRect();
+      tx = e.clientX - r.left; ty = e.clientY - r.top;
+      el.style.setProperty("--go", "1");
+      if (!raf) raf = requestAnimationFrame(step);
+    });
+    el.addEventListener("mouseleave", () => el.style.setProperty("--go", "0"));
+  };
+
   renderVals() {
     const open = this.state.expanded;
     return {
+      ...this.navVals(),
+      ...this.calloutVals(),
       ...this.paletteVals(),
-      papers: this.state.papers.map((p, i) => ({
-        ...p, ...this.fixed(p),
-        ring: this.ring(p.title),
-        rows: open[i] ? "1fr" : "0fr",
-        op: open[i] ? 1 : 0,
-        rot: open[i] ? "180deg" : "0deg",
-        toggle: () => this.setState((s) => ({ expanded: { ...s.expanded, [i]: !s.expanded[i] } }))
-      })),
-      blogs: this.state.blogs.map((b) => ({ ...b, ...this.fixed(b), ring: this.ring(b.title) }))
+      panelRef: this.panelRef,
+      navMark: this.sweepMark(),
+      paperTopics: this.topicChips(this.state.papers, "topicsP"),
+      blogTopics: this.topicChips(this.state.blogs, "topicsB"),
+      noPapers: this.state.papers.length > 0 && this.state.papers.every((p) => !this.matches(p, "topicsP")),
+      noBlogs: this.state.blogs.length > 0 && this.state.blogs.every((b) => !this.matches(b, "topicsB")),
+      papers: this.state.papers.map((p, i) => {
+        const f = this.fixed(p), on = this.matches(p, "topicsP");
+        return {
+          ...p, ...f,
+          ring: this.ring(p.title),
+          riseRef: this.riseRef,
+          show: on ? "1fr" : "0fr",
+          vis: on ? 1 : 0,
+          cursor: f.hasAbstract ? "pointer" : "default",
+          rows: open[i] ? "1fr" : "0fr",
+          op: open[i] ? 1 : 0,
+          rot: open[i] ? "180deg" : "0deg",
+          toggleBtn: f.hasAbstract ? (e) => { e.stopPropagation(); this.setState((s) => ({ expanded: { ...s.expanded, [i]: !s.expanded[i] } })); } : null,
+          toggle: f.hasAbstract ? () => this.setState((s) => ({ expanded: { ...s.expanded, [i]: !s.expanded[i] } })) : null
+        };
+      }),
+      blogs: this.state.blogs.map((b) => {
+        const on = this.matches(b, "topicsB");
+        return { ...b, ...this.fixed(b), ring: this.ring(b.title), riseRef: this.riseRef, show: on ? "1fr" : "0fr", vis: on ? 1 : 0, cursor: "default", toggle: null };
+      })
     };
   }
 }

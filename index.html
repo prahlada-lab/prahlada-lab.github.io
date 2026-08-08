@@ -6,9 +6,6 @@
 <meta name="color-scheme" content="light only">
 <meta name="supported-color-schemes" content="light">
 <style>
-  /* Declared here (not only in the template) so the layout and palette hold
-     even before the runtime injects the template's own styles, and so that
-     Samsung Internet / Chrome auto-dark leave the light palette alone. */
   :root, html { color-scheme: only light; }
   html, body { margin: 0; padding: 0; background: #F4F8FC; color: #2D4A5A; }
   * { box-sizing: border-box; }
@@ -16,11 +13,85 @@
   a:hover { color: #007FC0; }
   img { forced-color-adjust: none; }
   .p-burger { display: none; }
+  @media (max-width: 900px) {
+    .p-hero { grid-template-columns: 1fr !important; gap: 44px !important; }
+    .p-panel { max-width: 460px; }
+  }
   @media (max-width: 720px) {
     .p-navlinks { display: none; }
-    .p-burger { display: flex; }
-    .p-shell { padding-left: 24px; padding-right: 24px; }
+    .p-burger { display: none !important; }
+    .p-shell { padding-left: 22px !important; padding-right: 22px !important; }
+    .p-rail { padding-left: 30px !important; }
+    .p-railline { left: 5px !important; }
+    .p-dot { left: -30px !important; }
+    .p-conn { left: -19px !important; width: 14px !important; }
+    .p-box { padding: 20px 18px !important; }
+    .p-footgrid { grid-template-columns: 1fr !important; gap: 34px !important; }
+    .p-footdiv { display: none; }
+    .p-footright { align-items: flex-start !important; text-align: left !important; }
+    .p-panel { max-height: 56vh; }
   }
+
+  .p-dot { background: #fff; border: 2px solid #C6A15B; transition: background .18s, border-color .18s, transform .18s; }
+  .p-card:hover .p-dot, .p-row:hover .p-dot, .p-row2:hover .p-dot { background: #C6A15B; border-color: #003B6F; transform: scale(1.18); }
+  .p-conn { background: #D0DFF0; transition: background .18s; }
+  .p-card:hover .p-conn, .p-row:hover .p-conn, .p-row2:hover .p-conn { background: #003B6F; }
+  .p-railline { background: linear-gradient(to bottom, rgba(208,223,240,0), #D0DFF0 9%, #D0DFF0 91%, rgba(208,223,240,0)); }
+
+  @media (max-width: 900px) {
+    .p-hero h1 { font-size: clamp(54px, 13vw, 88px) !important; }
+  }
+  @media (max-width: 720px) {
+    html { -webkit-text-size-adjust: 100%; }
+    main > section { padding-top: 60px !important; }
+    .p-hero { padding: 44px 0 56px !important; }
+    .p-orn { padding: 56px 0 !important; }
+    .p-card, .p-card a { overflow-wrap: anywhere; }
+    .p-chev { width: 44px !important; height: 44px !important; }
+    .p-fpanel { padding: 48px 22px 40px !important; }
+    .p-fpanel img { width: 300px !important; right: -104px !important; bottom: -34px !important; opacity: .26 !important; }
+    .p-panel2 h1, .p-panel2 h2, .p-panel2 p { max-width: none !important; }
+  }
+
+  .sw-on { text-shadow: 0 0 0.55px currentColor; }
+  .sw-near { text-shadow: 0 0 0.3px currentColor; }
+
+  @media (hover: none) {
+    .p-glow { opacity: .55 !important; }
+  }
+
+  @media (max-width: 720px) {
+    .p-motif { width: 330px !important; right: -150px !important; top: clamp(300px, 50vh, 480px) !important; }
+  }
+  .p-lbl-short{display:none}
+  @media(max-width:720px){
+    .p-navlinks{display:flex !important;gap:8px !important}
+    .p-navsearch{display:none !important}
+    .p-navsearchsm{display:flex !important}
+    .p-lbl-long{display:none}
+    .p-lbl-short{display:inline}
+    .p-navtrack a{padding-left:11px !important;padding-right:11px !important}
+    .p-navtrack a{font-size:12px !important}
+    .p-navword{font-size:19px !important}
+    .p-shell{padding-left:14px !important;padding-right:14px !important}
+  }
+
+  /* --- small phones and touch --------------------------------------- */
+  /* dvh tracks the on-screen keyboard; browsers without it keep the vh
+     value from the inline style. */
+  .p-pal { max-height: 76dvh; }
+  .p-palwrap { padding-top: 12vh; padding-top: 10dvh; }
+  @media (max-width: 400px) {
+    .p-navword { font-size: 17px !important; }
+    .p-navtrack a { padding-left: 9px !important; padding-right: 9px !important; font-size: 11px !important; }
+    .p-navlinks { gap: 6px !important; }
+    .p-shell { padding-left: 12px !important; padding-right: 12px !important; }
+  }
+  @media (pointer: coarse) {
+    .p-chip { min-height: 40px; }
+    .p-navtrack a { min-height: 40px; display: flex; align-items: center; }
+  }
+  @keyframes ruleSettle{0%{transform:scaleX(1)}45%{transform:scaleX(1.018)}100%{transform:scaleX(1)}}
   @keyframes riseIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
   @keyframes markIn { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
   @keyframes unfurlA { from { opacity: 0; transform: rotate(-10deg) scale(.88); } to { opacity: .12; transform: rotate(0deg) scale(1); } }
@@ -35,6 +106,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&amp;display=swap">
 <link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/colors.css">
 <link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/typography.css">
 <link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/spacing.css">
@@ -47,134 +119,238 @@
   *{box-sizing:border-box;}
   a{color:#003B6F;text-decoration:none;}
   a:hover{color:#007FC0;}
+  .p-burger{display:none}
   @keyframes letterRun{0%{color:#003B6F}30%{color:#C6A15B}55%{color:#007FC0}100%{color:#003B6F}}
   @keyframes markIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
-  @keyframes riseIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-  .p-burger{display:none}
-  @media(max-width:720px){
-    .p-navlinks{display:none}
-    .p-burger{display:flex}
-    .p-shell{padding-left:24px;padding-right:24px}
+
+  .p-dot { background: #fff; border: 2px solid #C6A15B; transition: background .18s, border-color .18s, transform .18s; }
+  .p-card:hover .p-dot, .p-row:hover .p-dot, .p-row2:hover .p-dot { background: #C6A15B; border-color: #003B6F; transform: scale(1.18); }
+  .p-conn { background: #D0DFF0; transition: background .18s; }
+  .p-card:hover .p-conn, .p-row:hover .p-conn, .p-row2:hover .p-conn { background: #003B6F; }
+  .p-railline { background: linear-gradient(to bottom, rgba(208,223,240,0), #D0DFF0 9%, #D0DFF0 91%, rgba(208,223,240,0)); }
+
+  @media (max-width: 900px) {
+  .p-hero h1 { font-size: clamp(54px, 13vw, 88px) !important; }
   }
+  @media (max-width: 720px) {
+  html { -webkit-text-size-adjust: 100%; }
+  main > section { padding-top: 60px !important; }
+  .p-hero { padding: 44px 0 56px !important; }
+  .p-orn { padding: 56px 0 !important; }
+  .p-card, .p-card a { overflow-wrap: anywhere; }
+  .p-chev { width: 44px !important; height: 44px !important; }
+    .p-fpanel { padding: 48px 22px 40px !important; }
+    .p-fpanel img { width: 300px !important; right: -104px !important; bottom: -34px !important; opacity: .26 !important; }
+  .p-panel2 h1, .p-panel2 h2, .p-panel2 p { max-width: none !important; }
+  }
+
+  .sw-on { text-shadow: 0 0 0.55px currentColor; }
+  .sw-near { text-shadow: 0 0 0.3px currentColor; }
+
+  @media (hover: none) {
+  .p-glow { opacity: .55 !important; }
+  }
+
+  @media (max-width: 720px) {
+  .p-motif { width: 330px !important; right: -150px !important; top: clamp(300px, 50vh, 480px) !important; }
+  }
+  .p-lbl-short{display:none}
+  @media(max-width:720px){
+    .p-navlinks{display:flex !important;gap:8px !important}
+    .p-navsearch{display:none !important}
+    .p-navsearchsm{display:flex !important}
+    .p-lbl-long{display:none}
+    .p-lbl-short{display:inline}
+    .p-navtrack a{padding-left:11px !important;padding-right:11px !important}
+    .p-navtrack a{font-size:12px !important}
+    .p-navword{font-size:19px !important}
+    .p-shell{padding-left:14px !important;padding-right:14px !important}
+  }
+  @keyframes ruleSettle{0%{transform:scaleX(1)}45%{transform:scaleX(1.018)}100%{transform:scaleX(1)}}
+  @keyframes riseIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
   @keyframes unfurlA{from{opacity:0;transform:rotate(-10deg) scale(.88)}to{opacity:.12;transform:rotate(0deg) scale(1)}}
   @keyframes unfurlB{from{opacity:0;transform:scale(-.88,-.88) rotate(-10deg)}to{opacity:.12;transform:scale(-1,-1) rotate(0deg)}}
+  @media(max-width:900px){.p-hero{grid-template-columns:1fr !important;gap:44px !important}.p-panel{max-width:460px}}
+  @media(max-width:720px){
+    .p-navlinks{display:none}
+    .p-burger{display:none !important}
+    .p-shell{padding-left:22px !important;padding-right:22px !important}
+    .p-rail{padding-left:30px !important}
+    .p-railline{left:5px !important}
+    .p-dot{left:-30px !important}
+    .p-conn{left:-19px !important;width:14px !important}
+    .p-box{padding:20px 18px !important}
+    .p-footgrid{grid-template-columns:1fr !important;gap:34px !important}
+    .p-footdiv{display:none}
+    .p-footright{align-items:flex-start !important;text-align:left !important}
+    .p-panel{max-height:56vh}
+  }
 </style>
 </helmet>
-<div style="font-family:Montserrat,sans-serif;background:#F4F8FC;color:#2D4A5A;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden">
+<div style="font-family:Montserrat,sans-serif;background:#F4F8FC;color:#2D4A5A;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:clip">
 
 <sc-if value="{{ showMotifs }}" hint-placeholder-val="{{ true }}">
-  <img src="assets/mandala-corner.png" alt="" style="position:absolute;right:-210px;top:320px;width:560px;opacity:.12;mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);z-index:0;pointer-events:none;user-select:none;animation:unfurlA 1.7s .35s cubic-bezier(.22,.61,.36,1) both">
-  <img src="assets/mandala-corner.png" alt="" style="position:absolute;left:-120px;top:60px;width:300px;opacity:.12;transform:scale(-1,-1);mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);z-index:0;pointer-events:none;user-select:none;animation:unfurlB 1.7s .5s cubic-bezier(.22,.61,.36,1) both">
-  </sc-if>
+  <div class="p-motif" style="position:fixed;right:-200px;top:clamp(330px,46vh,560px);width:min(560px,64vw);z-index:0;pointer-events:none;user-select:none;animation:unfurlA 1.7s 1.15s cubic-bezier(.22,.61,.36,1) both"><img src="assets/mandala-corner.png" alt="" style="display:block;width:100%;mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);transform:rotate(var(--mrot,0deg));opacity:var(--mfade,1);transition:transform .55s cubic-bezier(.22,.61,.36,1),opacity .3s linear;will-change:transform,opacity"></div>
+  <div class="p-motif-sm" style="position:fixed;left:-120px;top:96px;width:300px;z-index:0;pointer-events:none;user-select:none;animation:unfurlB 1.7s .38s cubic-bezier(.22,.61,.36,1) both"><img src="assets/mandala-corner.png" alt="" style="display:block;width:100%;mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);transform:rotate(var(--srot,0deg));opacity:var(--mfade,1);transition:transform .55s cubic-bezier(.22,.61,.36,1),opacity .3s linear;will-change:transform,opacity"></div>
+</sc-if>
 
-  <header style="position:sticky;top:0;z-index:40;background:rgba(244,248,252,.94);border-bottom:1px solid #D0DFF0">
-    <div class="p-shell" style="max-width:1120px;margin:0 auto;padding:0 40px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:32px">
-      <a href="index.html" style="display:flex;align-items:center;gap:12px">
-        <img src="assets/logo_mark.png" alt="Prahlada" style="width:32px;height:32px;object-fit:contain">
-        <span style="font-size:22px;font-weight:400;letter-spacing:-.01em;color:#003B6F;display:flex">
-          <span style="transition:color .18s" style-hover="color:#C6A15B">P</span><span style="transition:color .18s" style-hover="color:#007FC0">r</span><span style="transition:color .18s" style-hover="color:#C6A15B">a</span><span style="transition:color .18s" style-hover="color:#007FC0">h</span><span style="transition:color .18s" style-hover="color:#C6A15B">l</span><span style="transition:color .18s" style-hover="color:#007FC0">a</span><span style="transition:color .18s" style-hover="color:#C6A15B">d</span><span style="transition:color .18s" style-hover="color:#007FC0">a</span>
+<header style="position:sticky;top:0;z-index:40;background:rgba(244,248,252,.94);border-bottom:1px solid #D0DFF0">
+  <div class="p-shell" style="max-width:1120px;margin:0 auto;padding:0 40px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:32px">
+      <a href="index.html" style="display:flex;align-items:center">
+        <span class="p-navword" ref="{{ navWordRef }}" style="font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;font-weight:600;letter-spacing:-.015em;color:#003B6F;display:flex;opacity:{{ navWordOp }};transition:opacity .3s ease">
+          {{ navMark }}
         </span>
       </a>
-      <nav class="p-navlinks" style="display:flex;align-items:center;gap:34px">
-        <a href="index.html" style="font-size:15px;color:#003B6F;font-weight:500;padding:6px 0;border-bottom:2px solid #C6A15B">culture</a>
-        <a href="research.html" style="font-size:15px;color:#5A7A99;padding:6px 0;border-bottom:2px solid transparent;transition:color .18s" style-hover="color:#007FC0">research</a>
-        <a href="paper-dives.html" style="font-size:15px;color:#5A7A99;padding:6px 0;border-bottom:2px solid transparent;transition:color .18s" style-hover="color:#007FC0">paper dives</a>
-        <button onClick="{{ openPalette }}" style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;padding:7px 12px;font-family:Montserrat,sans-serif;font-size:13px;color:#5A7A99;cursor:pointer;transition:border-color .18s" style-hover="border-color:#007FC0">
+      <nav class="p-navlinks" style="display:flex;align-items:center;gap:20px;flex-direction:row-reverse">
+        <div class="p-navtrack" ref="{{ navTrackRef }}" onMouseLeave="{{ navLeave }}" style="position:relative;display:flex;align-items:center;padding:7px 5px 8px;border:1px solid #D0DFF0;border-radius:999px;background:#fff">
+          <span style="position:absolute;bottom:3px;height:2px;border-radius:999px;background:#C6A15B;left:{{ navRule.left }};right:{{ navRule.right }};opacity:{{ navRule.op }};transition:left {{ navRule.dl }},right {{ navRule.dr }},opacity .35s ease;animation:{{ navRule.settle }}"></span>
+          <a href="index.html" ref="{{ navRef0 }}" onMouseEnter="{{ navEnter0 }}" style="position:relative;z-index:1;font-size:13px;font-weight:600;letter-spacing:.02em;color:{{ navFg0 }};padding:9px 20px;border-radius:999px;transition:color .3s ease">
+Culture</a>
+          <a href="research.html" ref="{{ navRef1 }}" onMouseEnter="{{ navEnter1 }}" style="position:relative;z-index:1;font-size:13px;font-weight:600;letter-spacing:.02em;color:{{ navFg1 }};padding:9px 20px;border-radius:999px;transition:color .3s ease">Research</a>
+          <a href="paper-dives.html" ref="{{ navRef2 }}" onMouseEnter="{{ navEnter2 }}" style="position:relative;z-index:1;font-size:13px;font-weight:600;letter-spacing:.02em;color:{{ navFg2 }};padding:9px 20px;border-radius:999px;transition:color .3s ease"><span class="p-lbl-long">Paper dives</span><span class="p-lbl-short">Dives</span></a>
+        </div>
+        <button class="p-navsearchsm" onClick="{{ openPalette }}" aria-label="Search" style="display:none;align-items:center;justify-content:center;width:44px;height:44px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;cursor:pointer;flex:none">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5A7A99" stroke-width="1.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 20 20"></path></svg>
+        </button>
+        <button class="p-navsearch" onClick="{{ openPalette }}" style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;padding:7px 12px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:400;color:#5A7A99;cursor:pointer;transition:border-color .18s,background .18s" style-hover="border-color:#003B6F;background:#E3F1FB">
           <span>Search</span>
-          <span style="font-size:11px;letter-spacing:.06em;color:#5A7A99;border:1px solid #D0DFF0;border-radius:3px;padding:1px 5px">Ctrl K</span>
+          <span style="font-size:11px;color:#5A7A99;border:1px solid #D0DFF0;border-radius:3px;padding:1px 5px">Ctrl K</span>
         </button>
       </nav>
-      <button class="p-burger" onClick="{{ toggleMenu }}" style="align-items:center;justify-content:center;width:40px;height:40px;background:transparent;border:1px solid #D0DFF0;border-radius:4px;cursor:pointer;color:#003B6F">
-        <i data-lucide="menu" style="width:20px;height:20px"></i>
+    <button class="p-burger" onClick="{{ toggleMenu }}" style="align-items:center;justify-content:center;width:44px;height:44px;background:transparent;border:1px solid #D0DFF0;border-radius:4px;cursor:pointer;color:#003B6F">
+      <i data-lucide="menu" style="width:20px;height:20px"></i>
+    </button>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="border-top:1px solid #D0DFF0;background:#fff;padding:16px 22px;display:flex;flex-direction:column;gap:4px">
+      <a href="index.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:16px;color:#003B6F;padding:13px 0">Culture</a>
+      <a href="research.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:16px;color:#5A7A99;padding:13px 0">Research</a>
+      <a href="paper-dives.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:16px;color:#5A7A99;padding:13px 0">Paper dives</a>
+      <button onClick="{{ openPalette }}" style="margin-top:6px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;padding:13px 14px;font-family:Montserrat,sans-serif;font-size:14px;color:#5A7A99;cursor:pointer">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5A7A99" stroke-width="1.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 20 20"></path></svg>
+        <span>Search</span>
       </button>
     </div>
-    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-      <div style="border-top:1px solid #D0DFF0;background:#fff;padding:16px 24px;display:flex;flex-direction:column;gap:4px">
-        <a href="index.html" style="font-size:16px;color:#003B6F;font-weight:500;padding:10px 0">culture</a>
-        <a href="research.html" style="font-size:16px;color:#5A7A99;padding:10px 0">research</a>
-        <a href="paper-dives.html" style="font-size:16px;color:#5A7A99;padding:10px 0">paper dives</a>
-        <button onClick="{{ openPalette }}" style="margin-top:6px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;padding:11px 14px;font-family:Montserrat,sans-serif;font-size:15px;color:#5A7A99;cursor:pointer">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5A7A99" stroke-width="1.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 20 20"></path></svg>
-          <span>Search</span>
-        </button>
-      </div>
-    </sc-if>
-  </header>
+  </sc-if>
+</header>
 
-  <main class="p-shell" style="position:relative;z-index:1;flex:1;max-width:1120px;width:100%;margin:0 auto;padding:0 40px">
+<main class="p-shell" style="position:relative;z-index:1;flex:1;max-width:1120px;width:100%;margin:0 auto;padding:0 40px">
 
-    <section style="padding:120px 0 96px;display:flex;flex-direction:column;align-items:center;text-align:center">
-      <img src="assets/logo_mark.png" alt="" style="width:104px;height:104px;object-fit:contain;animation:markIn .9s cubic-bezier(.22,.61,.36,1) both">
-      <h1 style="margin:28px 0 0;font-size:64px;font-weight:300;letter-spacing:-.025em;color:#003B6F;line-height:1.08;display:flex;animation:riseIn .8s .55s cubic-bezier(.22,.61,.36,1) both">
-        <span style="transition:color .2s;animation:letterRun 1s 2.15s cubic-bezier(.4,0,.2,1)" style-hover="color:#C6A15B">P</span><span style="transition:color .2s;animation:letterRun 1s 2.22s cubic-bezier(.4,0,.2,1)" style-hover="color:#007FC0">r</span><span style="transition:color .2s;animation:letterRun 1s 2.29s cubic-bezier(.4,0,.2,1)" style-hover="color:#C6A15B">a</span><span style="transition:color .2s;animation:letterRun 1s 2.36s cubic-bezier(.4,0,.2,1)" style-hover="color:#007FC0">h</span><span style="transition:color .2s;animation:letterRun 1s 2.43s cubic-bezier(.4,0,.2,1)" style-hover="color:#C6A15B">l</span><span style="transition:color .2s;animation:letterRun 1s 2.50s cubic-bezier(.4,0,.2,1)" style-hover="color:#007FC0">a</span><span style="transition:color .2s;animation:letterRun 1s 2.57s cubic-bezier(.4,0,.2,1)" style-hover="color:#C6A15B">d</span><span style="transition:color .2s;animation:letterRun 1s 2.64s cubic-bezier(.4,0,.2,1)" style-hover="color:#007FC0">a</span>
+  <section class="p-hero" style="padding:96px 0 88px;display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center">
+    <div style="display:flex;flex-direction:column;align-items:flex-start">
+      <h1 ref="{{ heroWordRef }}" style="font-family:'Cormorant Garamond',Georgia,serif;margin:0;font-size:clamp(46px,7.4vw,92px);font-weight:300;letter-spacing:-.03em;color:#003B6F;line-height:1.02;display:flex;animation:riseIn .8s .55s cubic-bezier(.22,.61,.36,1) both">
+        <span style="transition:color .2s;animation:letterRun .75s 1.50s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#C6A15B">P</span><span style="transition:color .2s;animation:letterRun .75s 1.57s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#007FC0">r</span><span style="transition:color .2s;animation:letterRun .75s 1.64s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#C6A15B">a</span><span style="transition:color .2s;animation:letterRun .75s 1.71s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#007FC0">h</span><span style="transition:color .2s;animation:letterRun .75s 1.78s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#C6A15B">l</span><span style="transition:color .2s;animation:letterRun .75s 1.85s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#007FC0">a</span><span style="transition:color .2s;animation:letterRun .75s 1.92s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#C6A15B">d</span><span style="transition:color .2s;animation:letterRun .75s 1.99s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#007FC0">a</span>
       </h1>
-      <div style="width:56px;height:2px;background:#C6A15B;margin:34px 0 0;animation:riseIn .8s .68s cubic-bezier(.22,.61,.36,1) both"></div>
-      <p style="margin: 34px 0 0; font-size: 28px; font-weight: 300; letter-spacing: -.015em; color: #007FC0; line-height: 1.14; max-width: 20ch; animation: riseIn .8s .72s cubic-bezier(.22,.61,.36,1) both">A <b style="font-weight:600;color:#007FC0"><span style="font-weight: normal;">Student-led</span></b> and a Student-first AI Lab!</p>
-      <p style="margin:40px 0 0;font-size:17px;font-weight:300;line-height:1.75;color:#2D4A5A;max-width:52ch;text-wrap:pretty;animation:riseIn .8s .84s cubic-bezier(.22,.61,.36,1) both">Filling gaps in the <b style="font-weight: 600; color: #374A58"><span style="font-weight: normal;">Indic open source</span></b> ecosystem — from BITS Pilani</p>
+      <div style="width:56px;height:2px;background:#C6A15B;margin:28px 0 0;animation:riseIn .8s .68s cubic-bezier(.22,.61,.36,1) both"></div>
+      <p style="font-family:'Cormorant Garamond',Georgia,serif;margin:28px 0 0;font-size:clamp(24px,3.4vw,34px);font-weight:300;letter-spacing:-.02em;color:#007FC0;line-height:1.12;max-width:20ch;animation:riseIn .8s .72s cubic-bezier(.22,.61,.36,1) both">A <b style="font-weight: 600; color: rgb(0, 127, 192);"><span style="font-weight: normal;">Student-led</span></b> and a <br>Student-first AI Lab!</p>
+      <p style="margin: 30px 0 0; font-size: 16px; font-weight: 300; line-height: 1.75; color: #2D4A5A; max-width: 46ch; text-wrap: pretty; animation: riseIn .8s .84s cubic-bezier(.22,.61,.36,1) both; font-family: Montserrat">Filling gaps in the <b style="font-weight: 600; color: #374A58"><span style="font-weight: normal; font-family: Montserrat">Indic open source</span></b> ecosystem — from BITS Pilani</p>
       <sc-if value="{{ showHeroButtons }}" hint-placeholder-val="{{ true }}">
-      <div style="display:flex;gap:14px;margin-top:44px;animation:riseIn .8s .96s cubic-bezier(.22,.61,.36,1) both">
-        <a href="research.html" style="font-size:14px;font-weight:500;color:#fff;background:#003B6F;border-radius:4px;padding:11px 22px;transition:background .18s" style-hover="background:#007FC0;color:#fff">Research</a>
-        <a href="paper-dives.html" style="font-size:14px;font-weight:500;color:#003B6F;border:1px solid #003B6F;border-radius:4px;padding:11px 22px;transition:border-color .18s" style-hover="border-color:#007FC0;color:#007FC0">Paper dives</a>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:38px;animation:riseIn .8s .96s cubic-bezier(.22,.61,.36,1) both">
+        <a href="research.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:14px;color:#fff;background:#003B6F;border:1px solid #003B6F;border-radius:4px;padding:13px 22px;transition:background .18s,border-color .18s" style-hover="background:#007FC0;border-color:#007FC0;color:#fff">Research</a>
+        <a href="paper-dives.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:14px;color:#003B6F;border:1px solid #D0DFF0;background:#fff;border-radius:4px;padding:13px 22px;transition:border-color .18s,background .18s" style-hover="border-color:#003B6F;background:#E3F1FB;color:#003B6F">Paper dives</a>
       </div>
       </sc-if>
-    </section>
-
-    <section id="about-us" style="padding:0;max-width:640px;margin:0 auto;scroll-margin-top:110px">
-      <div style="font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#5A7A99">About us</div>
-      <div style="width:56px;height:2px;background:#007FC0;margin:18px 0 40px"></div>
-      <div style="font-size:17px;font-weight:300;line-height:1.8;color:#2D4A5A;margin:0 0 34px;text-wrap:pretty"><ul><li>We are a<b style="font-weight: 300; color: inherit;"> </b><span style="color: inherit;"><b>Student-first AI Lab</b></span>. We empower students to take on and lead projects which they find cool and exciting, no matter how technically challenging it seems. <b style="font-weight: 300; color: inherit;"><b>Having Fun is important for us :)</b></b></li></ul></div>
-      <div style="font-size:17px;font-weight:300;line-height:1.8;color:#2D4A5A;margin:0 0 34px;text-wrap:pretty"><ul><li>We are dedicated to ensuring <b style="{{ emph }}"><b>a very high degree of reproducibility</b></b> for all our projects. Through releasing <b style="{{ emph }}"><b>not only Training Code and Datasets, but also detailed blogs </b></b>explaining our negative results and how we got it to work.</li></ul></div>
-      <div style="font-size:17px;font-weight:300;line-height:1.8;color:#2D4A5A;margin:0 0 34px;text-wrap:pretty"><ul><li>We want to <b style="{{ emph }}"><b>build a small community</b></b> at BITS Pilani, which is filled with people who are very <b style="{{ emph }}"><b>very aware of what is the Frontier </b></b>of the field they are working on and have regular discussions on the same.</li></ul></div>
-      <div style="font-size:17px;font-weight:300;line-height:1.8;color:#2D4A5A;margin:0;text-wrap:pretty"><ul><li>We aim to <b style="{{ emph }}"><b>differentiate ourselves</b></b> through our <b style="{{ emph }}"><b>seriousness to meet very high research standards.</b></b></li></ul></div>
-    </section>
-
-    <div style="position:relative;width:100vw;left:50%;margin-left:-50vw;padding:104px 0 92px;background:linear-gradient(to bottom,rgba(227,241,251,0),rgba(227,241,251,.7));display:flex;align-items:center;justify-content:center;gap:22px">
-      <span style="width:110px;height:1px;background:linear-gradient(to right,rgba(208,223,240,0),#D0DFF0)"></span>
-      <span style="font-size:10px;letter-spacing:.62em;color:#C6A15B">◆ ◆ ◆</span>
-      <span style="width:110px;height:1px;background:linear-gradient(to left,rgba(208,223,240,0),#D0DFF0)"></span>
     </div>
-  </main>
-
-  <footer style="border-top:1px solid #D0DFF0;background:#fff">
-    <div class="p-shell" style="max-width:1120px;margin:0 auto;padding:56px 40px;display:grid;grid-template-columns:1fr 1px 1fr;gap:56px;align-items:center">
-      <div style="display:flex;flex-direction:column;gap:22px">
-        <a href="https://www.linkedin.com/company/prahlada-open-research/" target="_blank" style="display:flex;align-items:center;gap:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003B6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3.2" y="3.6" width="17.6" height="16.8" rx="2.6"></rect><path d="M7.6 10.6v6"></path><path d="M7.6 7.4h.01"></path><path d="M12 16.6v-3.4a2.6 2.6 0 0 1 5.2 0v3.4"></path></svg>
-          <span style="display:flex;flex-direction:column;gap:3px">
-            <span style="font-size:17px;font-weight:500;color:#003B6F">LinkedIn</span>
-            <span style="font-size:13px;font-weight:300;color:#5A7A99">Follow &amp; track our updates</span>
-          </span>
-        </a>
-        <a href="https://discord.com/invite/jQW6XeZEvT" target="_blank" style="display:flex;align-items:center;gap:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003B6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3" y="4.4" width="18" height="12" rx="3.2"></rect><path d="M8.6 16.4v3.4l3.8-3.4"></path><path d="M8.4 10.4h.01"></path><path d="M12 10.4h.01"></path><path d="M15.6 10.4h.01"></path></svg>
-          <span style="display:flex;flex-direction:column;gap:3px">
-            <span style="font-size:17px;font-weight:500;color:#003B6F">Discord</span>
-            <span style="font-size:13px;font-weight:300;color:#5A7A99">Join our paper discussions</span>
-          </span>
-        </a>
-        <a href="https://github.com/prahlada-research" target="_blank" style="display:flex;align-items:center;gap:16px">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003B6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M9.2 7.4 5 12l4.2 4.6"></path><path d="M14.8 7.4 19 12l-4.2 4.6"></path><path d="M12.6 6.6l-1.2 10.8"></path></svg>
-          <span style="display:flex;flex-direction:column;gap:3px">
-            <span style="font-size:17px;font-weight:500;color:#003B6F">GitHub</span>
-            <span style="font-size:13px;font-weight:300;color:#5A7A99">Browse our code and datasets</span>
-          </span>
-        </a>
+    <div class="p-panel" ref="{{ panelRef }}" style="position:relative;width:100%;aspect-ratio:1/1;border:1px solid #003B6F;border-radius:8px;background:#003B6F;overflow:hidden;display:flex;align-items:center;justify-content:center;animation:markIn 1s .5s cubic-bezier(.22,.61,.36,1) both">
+      <img src="assets/mandala-corner.png" alt="" style="position:absolute;width:132%;max-width:none;opacity:.5;filter:brightness(0) saturate(100%) invert(72%) sepia(28%) saturate(690%) hue-rotate(1deg) brightness(92%) contrast(88%);pointer-events:none;user-select:none">
+      <img src="assets/logo_mark.png" alt="" style="position:relative;z-index:1;width:34%;object-fit:contain;filter:brightness(0) invert(1);opacity:.94">
+      <div class="p-glow" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:var(--go,0);transition:opacity .45s ease;background:radial-gradient(190px circle at var(--gx,50%) var(--gy,50%),rgba(198,161,91,.26),rgba(198,161,91,.08) 36%,transparent 58%)"></div>
+      <div style="position:absolute;z-index:1;left:0;right:0;bottom:0;padding:18px 20px;display:flex;justify-content:space-between;gap:12px;font-family:Montserrat,sans-serif;font-weight:600;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.62)">
+        <span>Vidya Dadati Vinayam</span>
+        <span style="color:#C6A15B">◆ ◆ ◆</span>
       </div>
-      <div style="width:1px;height:100%;background:#D0DFF0"></div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:14px">
-        <img src="assets/logo_mark.png" alt="" style="width:44px;height:44px;object-fit:contain;opacity:.9">
-        <div style="font-size:24px;font-weight:300;letter-spacing:-.02em;color:#003B6F;line-height:1.2">Vidya Dadati Vinayam.</div>
-        <div style="font-size:18px;font-weight:300;font-style:italic;color:#007FC0">Knowledge Gives Humility</div>
+    </div>
+  </section>
+
+  <section id="about-us" style="padding:0 0 8px;scroll-margin-top:110px">
+    <div style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap">
+      <div style="font-family:Montserrat,sans-serif;font-weight:600;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#5A7A99">About us</div>
+      <span style="flex:1;min-width:60px;height:1px;background:#D0DFF0"></span>
+      <span style="font-size:10px;letter-spacing:.34em;color:#C6A15B">◆</span>
+    </div>
+    <div class="p-rail" style="position:relative;margin:40px 0 0;padding-left:46px;display:flex;flex-direction:column;gap:18px">
+      <span class="p-railline" style="position:absolute;left:12px;top:0;bottom:0;width:1px"></span>
+
+        <div class="p-row" style="position:relative;padding:0 0 4px">
+          <span class="p-conn" style="position:absolute;left:-28px;top:31px;width:23px;height:1px"></span><span class="p-dot" style="position:absolute;left:-39px;top:26px;width:11px;height:11px;border-radius:50%;box-shadow:0 0 0 4px #F4F8FC"></span>
+          <div class="p-box" style="border:1px solid #D0DFF0;background:#fff;border-radius:8px;padding:26px 28px;display:flex;gap:22px;align-items:flex-start;transition:border-color .18s,background .18s" style-hover="border-color:#003B6F;background:#E3F1FB">
+            <span style="flex:none;font-family:Montserrat,sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;color:#007FC0;padding-top:4px">01</span>
+            <div style="font-size:16px;font-weight:300;line-height:1.8;color:#2D4A5A;text-wrap:pretty">We are a<b style="font-weight: 300; color: inherit;"> </b><span style="color: inherit;"><b>Student-first AI Lab</b></span>. We empower students to take on and lead projects which they find cool and exciting, no matter how technically challenging it seems. <b style="font-weight: 300; color: inherit;"><b>Having Fun is important for us :)</b></b></div>
+          </div>
+        </div>
+        <div class="p-row" style="position:relative;padding:0 0 4px">
+          <span class="p-conn" style="position:absolute;left:-28px;top:31px;width:23px;height:1px"></span><span class="p-dot" style="position:absolute;left:-39px;top:26px;width:11px;height:11px;border-radius:50%;box-shadow:0 0 0 4px #F4F8FC"></span>
+          <div class="p-box" style="border:1px solid #D0DFF0;background:#fff;border-radius:8px;padding:26px 28px;display:flex;gap:22px;align-items:flex-start;transition:border-color .18s,background .18s" style-hover="border-color:#003B6F;background:#E3F1FB">
+            <span style="flex:none;font-family:Montserrat,sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;color:#007FC0;padding-top:4px">02</span>
+            <div style="font-size:16px;font-weight:300;line-height:1.8;color:#2D4A5A;text-wrap:pretty">We are dedicated to ensuring <b style="{{ emph }}"><b>a very high degree of reproducibility</b></b> for all our projects. Through releasing <b style="{{ emph }}"><b>not only Training Code and Datasets, but also detailed blogs </b></b>explaining our negative results and how we got it to work.</div>
+          </div>
+        </div>
+        <div class="p-row" style="position:relative;padding:0 0 4px">
+          <span class="p-conn" style="position:absolute;left:-28px;top:31px;width:23px;height:1px"></span><span class="p-dot" style="position:absolute;left:-39px;top:26px;width:11px;height:11px;border-radius:50%;box-shadow:0 0 0 4px #F4F8FC"></span>
+          <div class="p-box" style="border:1px solid #D0DFF0;background:#fff;border-radius:8px;padding:26px 28px;display:flex;gap:22px;align-items:flex-start;transition:border-color .18s,background .18s" style-hover="border-color:#003B6F;background:#E3F1FB">
+            <span style="flex:none;font-family:Montserrat,sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;color:#007FC0;padding-top:4px">03</span>
+            <div style="font-size:16px;font-weight:300;line-height:1.8;color:#2D4A5A;text-wrap:pretty">We want to <b style="{{ emph }}"><b>build a small community</b></b> at BITS Pilani, which is filled with people who are very <b style="{{ emph }}"><b>very aware of what is the Frontier </b></b>of the field they are working on and have regular discussions on the same.</div>
+          </div>
+        </div>
+        <div class="p-row" style="position:relative;padding:0 0 4px">
+          <span class="p-conn" style="position:absolute;left:-28px;top:31px;width:23px;height:1px"></span><span class="p-dot" style="position:absolute;left:-39px;top:26px;width:11px;height:11px;border-radius:50%;box-shadow:0 0 0 4px #F4F8FC"></span>
+          <div class="p-box" style="border:1px solid #D0DFF0;background:#fff;border-radius:8px;padding:26px 28px;display:flex;gap:22px;align-items:flex-start;transition:border-color .18s,background .18s" style-hover="border-color:#003B6F;background:#E3F1FB">
+            <span style="flex:none;font-family:Montserrat,sans-serif;font-size:13px;font-weight:600;letter-spacing:.06em;color:#007FC0;padding-top:4px">04</span>
+            <div style="font-size:16px;font-weight:300;line-height:1.8;color:#2D4A5A;text-wrap:pretty">We aim to <b style="{{ emph }}"><b>differentiate ourselves</b></b> through our <b style="{{ emph }}"><b>seriousness to meet very high research standards.</b></b></div>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <div class="p-orn" style="position:relative;width:100vw;left:50%;margin-left:-50vw;padding:76px 0 66px;background:linear-gradient(to bottom,rgba(227,241,251,0),rgba(227,241,251,.7));display:flex;align-items:center;justify-content:center;gap:22px">
+    <span style="width:110px;height:1px;background:linear-gradient(to right,rgba(208,223,240,0),#D0DFF0)"></span>
+    <span style="font-size:10px;letter-spacing:.62em;color:#C6A15B">◆ ◆ ◆</span>
+    <span style="width:110px;height:1px;background:linear-gradient(to left,rgba(208,223,240,0),#D0DFF0)"></span>
+  </div>
+</main>
+  <footer class="p-shell" style="position:relative;z-index:2;background:#F4F8FC;padding:0 40px 40px">
+    <div class="p-fpanel" ref="{{ panelRef }}" style="position:relative;max-width:1120px;margin:0 auto;background:#003B6F;border-radius:8px;overflow:hidden;padding:86px 56px 56px">
+      <img src="assets/mandala-corner.png" alt="" style="position:absolute;right:-72px;bottom:-58px;width:520px;max-width:none;opacity:.4;filter:brightness(0) saturate(100%) invert(72%) sepia(28%) saturate(690%) hue-rotate(1deg) brightness(92%) contrast(88%);pointer-events:none;user-select:none">
+      <div class="p-glow" style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:var(--go,0);transition:opacity .45s ease;background:radial-gradient(190px circle at var(--gx,50%) var(--gy,50%),rgba(198,161,91,.26),rgba(198,161,91,.08) 36%,transparent 58%)"></div>
+      <div style="position:relative;z-index:1">
+        <div style="text-align:center">
+          <img src="assets/logo_mark_white_tight.png" alt="" style="height:clamp(78px,9.5vw,124px);width:auto;object-fit:contain;opacity:.94;margin:0 auto 34px;display:block">
+          <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(38px,6vw,72px);font-weight:300;letter-spacing:-.03em;line-height:1.02;color:#fff">Vidya Dadati Vinayam.</div>
+          <div style="font-family:'Cormorant Garamond',Georgia,serif;margin-top:18px;font-size:clamp(20px,2.6vw,28px);font-weight:300;font-style:italic;color:#C6A15B">Knowledge Gives Humility.</div>
+        </div>
+        <div style="margin-top:72px;display:flex;flex-direction:column;max-width:320px">
+        <a href="https://www.linkedin.com/company/prahlada-open-research/" target="_blank" style="display:flex;align-items:center;gap:16px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6A15B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3.2" y="3.6" width="17.6" height="16.8" rx="2.6"></rect><path d="M7.6 10.6v6"></path><path d="M7.6 7.4h.01"></path><path d="M12 16.6v-3.4a2.6 2.6 0 0 1 5.2 0v3.4"></path></svg>
+          <span style="display:flex;flex-direction:column;gap:3px">
+            <span style="font-size:16px;font-weight:600;color:#fff">LinkedIn</span>
+            <span style="font-size:13px;font-weight:300;color:rgba(255,255,255,.62)">Follow &amp; track our updates</span>
+          </span>
+        </a>
+        <a href="https://discord.com/invite/jQW6XeZEvT" target="_blank" style="display:flex;align-items:center;gap:16px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6A15B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3" y="4.4" width="18" height="12" rx="3.2"></rect><path d="M8.6 16.4v3.4l3.8-3.4"></path><path d="M8.4 10.4h.01"></path><path d="M12 10.4h.01"></path><path d="M15.6 10.4h.01"></path></svg>
+          <span style="display:flex;flex-direction:column;gap:3px">
+            <span style="font-size:16px;font-weight:600;color:#fff">Discord</span>
+            <span style="font-size:13px;font-weight:300;color:rgba(255,255,255,.62)">Join our paper discussions</span>
+          </span>
+        </a>
+        <a href="https://github.com/prahlada-research" target="_blank" style="display:flex;align-items:center;gap:16px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C6A15B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M9.2 7.4 5 12l4.2 4.6"></path><path d="M14.8 7.4 19 12l-4.2 4.6"></path><path d="M12.6 6.6l-1.2 10.8"></path></svg>
+          <span style="display:flex;flex-direction:column;gap:3px">
+            <span style="font-size:16px;font-weight:600;color:#fff">GitHub</span>
+            <span style="font-size:13px;font-weight:300;color:rgba(255,255,255,.62)">Browse our code and datasets</span>
+          </span>
+        </a>
+        </div>
       </div>
     </div>
   </footer>
 
   <sc-if value="{{ paletteOpen }}" hint-placeholder-val="{{ false }}">
-    <div onClick="{{ closePalette }}" style="position:fixed;inset:0;z-index:90;background:rgba(0,59,111,.28);display:flex;align-items:flex-start;justify-content:center;padding:12vh 16px 16px">
-      <div onClick="{{ stop }}" role="dialog" aria-label="Site search" style="width:min(680px,100%);max-height:76vh;background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:0 12px 48px rgba(0,59,111,.18);overflow:hidden;display:flex;flex-direction:column">
+    <div onClick="{{ closePalette }}" class="p-palwrap" style="position:fixed;inset:0;z-index:90;background:rgba(0,59,111,.28);display:flex;align-items:flex-start;justify-content:center;padding:12vh 16px 16px">
+      <div onClick="{{ stop }}" role="dialog" aria-label="Site search" class="p-pal" style="width:min(680px,100%);max-height:76vh;background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:0 12px 48px rgba(0,59,111,.18);overflow:hidden;display:flex;flex-direction:column">
         <div style="display:flex;align-items:center;gap:12px;padding:0 18px;border-bottom:1px solid #D0DFF0">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5A7A99" stroke-width="1.6" stroke-linecap="round" style="flex:none"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 20 20"></path></svg>
-          <input ref="{{ inputRef }}" value="{{ query }}" onChange="{{ onQuery }}" aria-label="Search the site" placeholder="Search papers, authors, abstracts…" style="flex:1;min-width:0;border:0;background:transparent;padding:18px 0;font-family:Montserrat,sans-serif;font-size:16px;font-weight:300;color:#2D4A5A;outline:none">
+          <input ref="{{ inputRef }}" value="{{ query }}" onChange="{{ onQuery }}" aria-label="Search the site" placeholder="Search papers, authors, abstracts…" style="flex:1;min-width:0;border:0;background:transparent;padding:18px 0;font-family:Montserrat,sans-serif;font-size:15px;font-weight:400;color:#2D4A5A;outline:none">
           <sc-if value="{{ hasQuery }}" hint-placeholder-val="{{ false }}">
             <button onClick="{{ clearQuery }}" aria-label="Clear search" style="flex:none;background:transparent;border:0;padding:6px;cursor:pointer;font-family:Montserrat,sans-serif;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#5A7A99;transition:color .18s" style-hover="color:#007FC0">Clear</button>
           </sc-if>
@@ -183,22 +359,22 @@
           <sc-for list="{{ results }}" as="r" hint-placeholder-count="3">
             <a href="{{ r.href }}" onClick="{{ r.go }}" onMouseEnter="{{ r.hover }}" style="display:flex;flex-direction:column;gap:7px;padding:13px 16px;border-radius:4px;border-left:2px solid {{ r.edge }};background:{{ r.bg }};transition:background .14s">
               <div style="display:flex;align-items:baseline;gap:12px">
-                <span style="flex:none;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#C6A15B">{{ r.kind }}</span>
-                <span style="font-size:15px;font-weight:500;line-height:1.4;color:#003B6F"><sc-for list="{{ r.titleParts }}" as="t" hint-placeholder-count="1"><span style="background:{{ t.bg }};color:{{ t.fg }};font-weight:{{ t.w }};border-radius:2px">{{ t.text }}</span></sc-for></span>
+                <span style="flex:none;font-family:Montserrat,sans-serif;font-weight:600;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#C6A15B">{{ r.kind }}</span>
+                <span style="font-size:16px;font-weight:600;line-height:1.4;color:#003B6F"><sc-for list="{{ r.titleParts }}" as="t" hint-placeholder-count="1"><span style="background:{{ t.bg }};color:{{ t.fg }};font-weight:{{ t.w }};border-radius:2px">{{ t.text }}</span></sc-for></span>
               </div>
               <sc-if value="{{ r.hasBody }}" hint-placeholder-val="{{ false }}">
-                <div style="font-size:13px;font-weight:300;line-height:1.65;color:#5A7A99"><sc-for list="{{ r.parts }}" as="t" hint-placeholder-count="1"><span style="background:{{ t.bg }};color:{{ t.fg }};font-weight:{{ t.w }};border-radius:2px">{{ t.text }}</span></sc-for></div>
+                <div style="font-family:Montserrat,sans-serif;font-size:13px;font-weight:400;line-height:1.7;color:#5A7A99"><sc-for list="{{ r.parts }}" as="t" hint-placeholder-count="1"><span style="background:{{ t.bg }};color:{{ t.fg }};font-weight:{{ t.w }};border-radius:2px">{{ t.text }}</span></sc-for></div>
               </sc-if>
             </a>
           </sc-for>
           <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
             <div style="padding:28px 16px;display:flex;flex-direction:column;gap:10px">
-              <div style="font-size:15px;font-weight:400;color:#003B6F">No matches for “{{ query }}”</div>
-              <div style="font-size:13px;font-weight:300;line-height:1.7;color:#5A7A99;max-width:52ch">Try an author name, a venue (NeurIPS, ICLR, CAISc), a topic (safety, diffusion, tokenisers), or a phrase from an abstract in quotes.</div>
+              <div style="font-size:16px;font-weight:500;color:#003B6F">No matches for “{{ query }}”</div>
+              <div style="font-family:Montserrat,sans-serif;font-size:13px;font-weight:400;line-height:1.7;color:#5A7A99;max-width:56ch">Try an author name, a venue (NeurIPS, ICLR, CAISc), a topic (safety, diffusion, tokenisers), or a phrase from an abstract in quotes.</div>
             </div>
           </sc-if>
         </div>
-        <div style="border-top:1px solid #D0DFF0;background:#F4F8FC;padding:11px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#5A7A99">
+        <div style="border-top:1px solid #D0DFF0;background:#F4F8FC;padding:11px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:Montserrat,sans-serif;font-weight:600;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#5A7A99">
           <span style="display:flex;gap:18px;flex-wrap:wrap"><span>↑ ↓ navigate</span><span>↵ open</span><span>esc close</span></span>
           <span style="flex:none;color:#003B6F">{{ countLabel }}</span>
         </div>
@@ -209,7 +385,93 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;emphasisStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Semibold&quot;,&quot;Brass highlight&quot;,&quot;Sky blue&quot;,&quot;Plain&quot;],&quot;default&quot;:&quot;Plain&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;About us&quot;},&quot;showHeroButtons&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;showMotifs&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
 class Component extends DCLogic {
-  state = { open: false, q: "", sel: 0, focus: null, menu: false };
+
+  /* ------------------------------------------------------------- nav switch */
+  // One three-position switch. The brass rule is measured from the real label
+  // geometry, and its two edges travel at different rates so it stretches.
+  navActive = "home";
+  navEls = {};
+
+  navRefFor(key) {
+    return (el) => { if (el && this.navEls[key] !== el) { this.navEls[key] = el; this.navSchedule(); } };
+  }
+
+  navSchedule() {
+    if (this._navPending) return;
+    this._navPending = true;
+    requestAnimationFrame(() => { this._navPending = false; this.navMeasure(); });
+  }
+
+  navMeasure() {
+    const geo = {};
+    Object.keys(this.navEls).forEach((k) => {
+      const el = this.navEls[k];
+      if (!el || !el.offsetParent || !el.offsetWidth) return;
+      geo[k] = { left: el.offsetLeft, width: el.offsetWidth };
+    });
+    const g = this.state.navGeo || {};
+    const same = Object.keys(geo).length === Object.keys(g).length &&
+      Object.keys(geo).every((k) => g[k] && g[k].left === geo[k].left && g[k].width === geo[k].width);
+    if (same) return;
+    this.setState({ navGeo: geo });
+  }
+
+  navInit() {
+    this.navSchedule();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.navMeasure());
+    this._navResize = () => this.navSchedule();
+    window.addEventListener("resize", this._navResize);
+  }
+
+  // Hover eases the rule a third of the way over, then it falls back.
+  navRuleVals() {
+    const g = this.state.navGeo || {};
+    const track = this.navEls.track;
+    const trackW = track ? track.clientWidth : 0;
+    const at = g[this.navActive];
+    if (!at || !trackW) return { left: "5px", right: "5px", op: 0, dl: "0s", dr: "0s", settle: "none" };
+    const hov = this.state.navHover && g[this.state.navHover];
+    let left = at.left, w = at.width;
+    if (hov && this.state.navHover !== this.navActive) {
+      const t = 0.33;
+      left = at.left + (hov.left - at.left) * t;
+      w = at.width + (hov.width - at.width) * t;
+    }
+    const prev = this._navLast;
+    this._navLast = left;
+    // Only the opening landing wiggles; later moves are pure travel.
+    if (!this._settleTimer) this._settleTimer = setTimeout(() => { this._settled = true; }, 1400);
+    const dir = prev === undefined ? 0 : left - prev;
+    const fast = ".38s cubic-bezier(.2,1.25,.35,1)", slow = ".92s cubic-bezier(.16,.9,.3,1)";
+    // The rule reads as an underline, not an underlay: 60% of the label, centred.
+    const half = (w * 0.54) / 2, mid = left + w / 2;
+    return {
+      left: (mid - half) + "px",
+      right: Math.max(trackW - (mid + half), 4) + "px",
+      op: 1,
+      dl: dir > 0 ? slow : fast,
+      dr: dir > 0 ? fast : slow,
+      settle: this._settled ? "none" : "ruleSettle .45s .8s cubic-bezier(.33,1,.5,1) both"
+    };
+  }
+
+  navVals() {
+    return {
+      navTrackRef: this.navRefFor("track"),
+      navRef0: this.navRefFor("home"),
+      navRef1: this.navRefFor("research"),
+      navRef2: this.navRefFor("dives"),
+      navEnter0: () => this.setState({ navHover: "home" }),
+      navEnter1: () => this.setState({ navHover: "research" }),
+      navEnter2: () => this.setState({ navHover: "dives" }),
+      navLeave: () => this.setState({ navHover: null }),
+      navFg0: this.navActive === "home" ? "#003B6F" : "#5A7A99",
+      navFg1: this.navActive === "research" ? "#003B6F" : "#5A7A99",
+      navFg2: this.navActive === "dives" ? "#003B6F" : "#5A7A99",
+      navRule: this.navRuleVals()
+    };
+  }
+  state = { navWordShown: false, navHover: null, navGeo: {}, sweep: 0, atEnd: false, open: false, q: "", sel: 0, focus: null, menu: false };
 
   // The culture page holds no lists of its own; papers.json is fetched purely
   // so the palette can search the other two pages from here.
@@ -222,16 +484,138 @@ class Component extends DCLogic {
     }).catch(() => {});
   }
 
-  anchors() { return []; }
+
+  /* ------------------------------------------------------- opening handoff */
+  // The hero wordmark flies into the nav once, on the first downward scroll of
+  // the opening sequence. A ghost does the travelling so neither the hero nor
+  // the nav has to be moved, and a fast scroll cannot desync it: the ghost is
+  // fixed-position and timed, so it lands regardless of where the page is.
+  heroWordRef = (el) => { this._heroWord = el; };
+  navWordRef = (el) => { this._navWord = el; };
+
+  armHandoff() {
+    const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) { this.setState({ navWordShown: true }); return; }
+    this._onFirstScroll = () => {
+      if (this._flown || window.scrollY < 4) return;
+      this._flown = true;
+      window.removeEventListener("scroll", this._onFirstScroll);
+      this.beginHandoff();
+    };
+    window.addEventListener("scroll", this._onFirstScroll, { passive: true });
+  }
+
+  // Driven by scroll position, not a timer: the ghost travels exactly as fast
+  // as the page does, so there are never two clocks fighting. Vertically it
+  // simply keeps pace with the scroll — the visible motion is the slide left
+  // and the scale down onto the nav.
+  beginHandoff() {
+    const hero = this._heroWord, nav = this._navWord;
+    if (!hero || !nav) { this.setState({ navWordShown: true }); return; }
+    const y0 = window.scrollY;
+    const a = hero.getBoundingClientRect(), bb = nav.getBoundingClientRect();
+    // Hero in document space; the nav is fixed, so its target is viewport-space.
+    const from = { top: a.top + y0, left: a.left, width: a.width };
+    const to = { top: bb.top, left: bb.left, width: bb.width };
+    const dist = from.top - to.top;
+    // Already scrolled past the landing point (a fast jump): no flight to run,
+    // the nav simply inherits the wordmark.
+    if (!from.width || !to.width || dist <= 0 || y0 >= dist) { this.finishHandoff(); return; }
+
+    const ghost = hero.cloneNode(true);
+    ghost.querySelectorAll("*").forEach((n) => { n.style.animation = "none"; n.style.color = "#003B6F"; });
+    Object.assign(ghost.style, {
+      position: "fixed", margin: "0", left: from.left + "px", top: (from.top - y0) + "px",
+      width: from.width + "px", zIndex: "60", pointerEvents: "none",
+      transformOrigin: "left top", animation: "none", willChange: "transform"
+    });
+    document.body.appendChild(ghost);
+    hero.style.visibility = "hidden";
+    this._ghost = ghost;
+
+    const k = to.width / from.width;
+    const ease = (t) => 1 - Math.pow(1 - t, 3);
+    const draw = () => {
+      this._raf = 0;
+      const p = Math.min(Math.max(window.scrollY / dist, 0), 1);
+      const e = ease(p);
+      const x = (to.left - from.left) * e;
+      // Vertical: track the scroll until the nav line is reached, then pin.
+      const ty = p < 1 ? -window.scrollY : -dist;
+      ghost.style.transform = "translate(" + x + "px," + ty + "px) scale(" + (1 + (k - 1) * e) + ")";
+      if (p >= 1) this.finishHandoff();
+    };
+    this._onFlight = () => { if (!this._raf) this._raf = requestAnimationFrame(draw); };
+    window.addEventListener("scroll", this._onFlight, { passive: true });
+    draw();
+  }
+
+  finishHandoff() {
+    if (this._done) return;
+    this._done = true;
+    this._flown = true;
+    window.removeEventListener("scroll", this._onFlight);
+    if (this._raf) cancelAnimationFrame(this._raf);
+    if (this._ghost) this._ghost.remove();
+    // The hero is restored in place, never animated back — coming up the page
+    // it is simply there, and the nav keeps its wordmark for good.
+    if (this._heroWord) this._heroWord.style.visibility = "";
+    this.setState({ navWordShown: true });
+  }
 
   /* ---------------------------------------------------------- lifecycle */
 
   componentDidMount() {
+    this.navInit();
     window.addEventListener("keydown", this.onKey);
+    window.addEventListener("scroll", this.onScroll, { passive: true });
     this.icons();
     setTimeout(() => this.icons(), 400);
     this.load();
+    this.holdScroll();
+    this.armHandoff();
   }
+
+  // The hero sweep lands at ~3.2s; nothing scrolls until it has finished so the
+  // wordmark is never read mid-colour. Reduced-motion users skip the hold.
+  holdScroll() {
+    const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+    window.scrollTo(0, 0);
+    window.PrahladaSearch.lockScroll(true);
+    this._held = true;
+    setTimeout(() => {
+      this._held = false;
+      if (!this.state.open) window.PrahladaSearch.lockScroll(false);
+    }, 3550);
+  }
+
+  // The nav wordmark sweep is driven by scroll position rather than a timer, so
+  // Guard and render both read state, so the sweep can never latch on a stale
+  // The guard tracks the last dispatched value in instance fields (state has not
+  // committed yet on the next tick); the render reads state only.
+  onScroll = () => {
+    const y = window.scrollY || document.documentElement.scrollTop || 0;
+    const max = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    const p = Math.round(y / 44);
+    // Same cadence as the wordmark sweep: one small turn per letter advanced.
+    const root = document.documentElement.style;
+    root.setProperty("--mrot", (p * 1.15).toFixed(2) + "deg");
+    root.setProperty("--srot", (p * 1.15).toFixed(2) + "deg");
+    // Dissolve the motif as the footer rises, so it is never cut by the panel edge.
+    if (!this._foot) this._foot = document.querySelector("footer");
+    if (this._foot) {
+      const vh = window.innerHeight;
+      const ft = this._foot.getBoundingClientRect().top;
+      root.setProperty("--mfade", String(Math.max(0, Math.min(1, (ft - vh * 0.45) / (vh * 0.4)))));
+    }
+    const end = y >= max - 4;
+    if (p === this._lastP && end === this._lastEnd) return;
+    this._lastP = p; this._lastEnd = end;
+    this.setState({ sweep: p, atEnd: end });
+  };
+
+
 
   // The runtime does not pass prevState, so the values we diff are tracked here.
   componentDidUpdate() {
@@ -246,7 +630,10 @@ class Component extends DCLogic {
   }
 
   componentWillUnmount() {
+    if (this._onFirstScroll) window.removeEventListener("scroll", this._onFirstScroll);
+    if (this._onFlight) window.removeEventListener("scroll", this._onFlight);
     window.removeEventListener("keydown", this.onKey);
+    window.removeEventListener("scroll", this.onScroll);
     window.PrahladaSearch.lockScroll(false);
   }
 
@@ -301,26 +688,23 @@ class Component extends DCLogic {
 
   // Same page: close and reveal in place. Other page: hand off through the hash.
   openResult(r) {
-    const here = location.pathname.split("/").pop() || "index.html";
-    if (r.page !== here && !(here === "" && r.page.indexOf("index") === 0)) { location.href = r.href; return; }
+    const S = window.PrahladaSearch;
+    if (!S.samePage(r.page)) { location.href = r.href; return; }
     this.hidePalette();
-    if (!r.hash) { window.PrahladaSearch.scrollToY(0); return; }
+    if (!r.hash) { S.scrollToY(0); return; }
     history.replaceState(null, "", "#" + r.hash);
     this.focusHash(r.hash);
   }
 
-  // Expand the matching card, ease it under the header, flash its brass ring.
+  // Ease the target section under the header and flash its brass ring.
   focusHash(hash) {
     if (!hash) return;
     const S = window.PrahladaSearch;
-    const i = this.anchors().findIndex((title) => S.slug(title) === hash);
-    const patch = { focus: hash };
-    if (i > -1 && this.state.expanded) patch.expanded = { ...this.state.expanded, [i]: true };
-    this.setState(patch);
+    this.setState({ focus: hash });
     setTimeout(() => {
       const el = document.getElementById(hash);
       if (el) S.scrollToY(el.getBoundingClientRect().top + window.scrollY - 100);
-    }, 90);
+    }, 60);
     setTimeout(() => { if (this.state.focus === hash) this.setState({ focus: null }); }, 2600);
   }
 
@@ -365,6 +749,85 @@ class Component extends DCLogic {
       : "0 3px 8px -4px rgba(0,59,111,.10)";
   }
 
+  // Flat per-letter holes: style holes inside an sc-for share one generated
+  // class, so each letter needs its own named value.
+  sweepVals_unused() {
+    const out = {};
+    this.sweepLetters().forEach((l, i) => { out["c" + i] = l.color; out["w" + i] = l.weight; out["t" + i] = l.shift; });
+    return out;
+  }
+
+  sweepLetters() {
+    const word = "Prahlada".split("");
+    const rest = { color: "#003B6F", shadow: "none", shift: "none" };
+    // Neutral navy at both ends of the page — the sweep exists only while the
+    // reader is actually moving through it, and never parks mid-pass.
+    const raw = this.state.sweep || 0;
+    if (!raw || this.state.atEnd) return word.map((ch) => ({ ch, ...rest }));
+    const period = word.length + 3;
+    const head = ((raw - 1) % period + period) % period;
+    return word.map((ch, i) => {
+      const d = head - i;
+      // Weight is faked with a hairline text shadow: a real weight step changes
+      // letter widths and makes the whole wordmark shuffle as the sweep passes.
+      if (d === 0) return { ch, color: "#C6A15B", shadow: "0 0 .55px currentColor", shift: "translateY(-2px)" };
+      if (d === 1) return { ch, color: "#007FC0", shadow: "0 0 .3px currentColor", shift: "translateY(-1px)" };
+      if (d === 2) return { ch, color: "#4E7CA6", shadow: "none", shift: "none" };
+      return { ch, ...rest };
+    });
+  }
+
+  // Built here rather than in the template: per-letter style and class holes are
+  // deduped into one shared class inside the markup compiler, which flattens the
+  // sweep to a single colour.
+  sweepMark() {
+    return React.createElement("span", { style: { display: "flex" } },
+      this.sweepLetters().map((l, i) => React.createElement("span", {
+        key: i,
+        style: {
+          color: l.color,
+          textShadow: l.shadow,
+          transform: l.shift,
+          display: "inline-block",
+          transition: "color .3s ease, transform .3s ease, text-shadow .3s ease"
+        }
+      }, l.ch))
+    );
+  }
+
+
+
+
+
+
+  // Direct style mutation rather than state: a mousemove that re-rendered the
+  // page would be far more expensive than the effect is worth. The light eases
+  // toward the cursor rather than tracking it exactly, so it trails behind.
+  panelRef = (el) => {
+    if (!el || el._glow) return;
+    el._glow = true;
+    const reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+    let tx = null, ty = null, cx = null, cy = null, raf = null;
+    const step = () => {
+      raf = null;
+      if (tx === null) return;
+      if (cx === null) { cx = tx; cy = ty; }
+      cx += (tx - cx) * 0.4;
+      cy += (ty - cy) * 0.4;
+      el.style.setProperty("--gx", cx.toFixed(1) + "px");
+      el.style.setProperty("--gy", cy.toFixed(1) + "px");
+      if (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) raf = requestAnimationFrame(step);
+    };
+    el.addEventListener("mousemove", (e) => {
+      const r = el.getBoundingClientRect();
+      tx = e.clientX - r.left; ty = e.clientY - r.top;
+      el.style.setProperty("--go", "1");
+      if (!raf) raf = requestAnimationFrame(step);
+    });
+    el.addEventListener("mouseleave", () => el.style.setProperty("--go", "0"));
+  };
+
   renderVals() {
     const emphasis = {
       "Semibold": { fontWeight: 600, color: "#003B6F" },
@@ -372,8 +835,15 @@ class Component extends DCLogic {
       "Sky blue": { fontWeight: 600, color: "#007FC0" },
       "Plain": { fontWeight: 300, color: "inherit" }
     };
+
     return {
+      ...this.navVals(),
       ...this.paletteVals(),
+      panelRef: this.panelRef,
+      navMark: this.sweepMark(),
+      heroWordRef: this.heroWordRef,
+      navWordRef: this.navWordRef,
+      navWordOp: this.state.navWordShown ? 1 : 0,
       emph: emphasis[this.props.emphasisStyle ?? "Semibold"],
       showHeroButtons: this.props.showHeroButtons ?? true,
       showMotifs: this.props.showMotifs ?? true
