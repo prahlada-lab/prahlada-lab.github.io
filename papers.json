@@ -1,0 +1,273 @@
+{
+  "papers": [
+    {
+      "title": "IndicAlignProbe: Equivalence-Certified Paired Probes for Language-Conditioned Refusal Asymmetry in Hinglish",
+      "url": "https://github.com/prahlada-research/IndicAlignProbe",
+      "authors": [
+        {
+          "name": "Shrisay Shandilya",
+          "url": "https://www.linkedin.com/in/s-shandilya/"
+        },
+        {
+          "name": "Soham Kumar",
+          "url": "https://www.linkedin.com/in/soham-kumar-2a5559255/"
+        },
+        {
+          "name": "Bibek Nagpal",
+          "url": "https://www.linkedin.com/in/bibek-nagpal-a6bba4256/"
+        }
+      ],
+      "venue": "",
+      "date": "July 2026",
+      "sortKey": "2026-07",
+      "status": "Preprint",
+      "abstract": "We formalise and study the alignment comprehension decoupling hypothesis: an aligned LLM may produce on-topic, operationally specific responses to a harmful request expressed in Hinglish/Romanized Hindi (Hinglish/RH) while reliably refusing the equivalent English request, indicating that refusal training transfers less robustly than the surface comprehension required to generate such responses.\n\nTo test this under controlled conditions, we introduce IndicAlignProbe, a probe methodology that couples a multi-axis equivalence auditor with a graded four-level compliance rubric, using GEPA-based prompt evolution as a measurement instrument that enriches for informative behavioral flips while preserving semantic equivalence.\n\nAcross 1,512 certified English/Hinglish/RH pairs spanning three open-weight models, four harm categories, and three jailbreak strategies, our central finding is qualitative: symbolic masking primarily induces topical engagement (1.0% critical flip rate), whereas scenario nesting and logical appeal produce substantially higher actionable compliance (15.1% and 9.1%). Behavioral regimes are strongly model-specific: one model is asymmetrically unsafe (35.9 pp English/Hinglish/RH refusal gap), while two remain symmetrically safe or symmetrically permissive under the same harness. The harness surfaces asymmetry where it exists and confirms its absence elsewhere, positioning IndicAlignProbe as a controlled measurement primitive for multilingual safety auditing.",
+      "topic": "Jailbreaking"
+    },
+    {
+      "title": "AksharGraft: Vocabulary Transplantation for Efficient Adaptation of English-Centric Language Models",
+      "url": "https://openreview.net/forum?id=PaNgullVgL",
+      "authors": [
+        {
+          "name": "Aditya Sharan",
+          "url": "https://www.linkedin.com/in/aditya-sharan-04a805262/"
+        },
+        {
+          "name": "Aryan Seth",
+          "url": "https://linkedin.com/in/aryanseth"
+        }
+      ],
+      "venue": "CAISc",
+      "date": "July 2026",
+      "sortKey": "2026-07",
+      "status": "Non-Archival",
+      "abstract": "We provide a compute-efficient route to Hindi edge deployment by replacing an English-centric model's vocabulary and healing the disturbed token interface with a frozen backbone. We show that the dominant obstacle in cross-lingual adaptation is a deficit of representation rather than modeling capacity. Whole-vocabulary transplantation resolves this bottleneck by delivering a deterministic 4.70 improvement in Devanagari compression. After a healing budget of only fifty million tokens, this efficiency gain translates into a prominent 46.9% reduction in Hindi bits-per-character (BPC). We evaluate two analytical token-initialization methods—Anchor Ridge Regression and Orthogonal Matching Pursuit—and provide a geometric account revealing that healing drives distinct initialisations toward a common attractor. Finally, our geometric analysis isolates the locus of downstream task-emergence delays and cross-lingual degradation to the trainable output interface, establishing a clear, actionable path toward invariant donor-language retention.",
+      "topic": "LM Training"
+    },
+    {
+      "title": "Beyond Refusal: Auditing Internal Representations After Safety Fine-Tuning in Romanized Hindi",
+      "url": "https://openreview.net/forum?id=rFmxwmtbQh",
+      "authors": [
+        {
+          "name": "Trizal Garg",
+          "url": "https://www.linkedin.com/in/trizal-garg-1b488b22b/"
+        },
+        {
+          "name": "Namah Gupta",
+          "url": "https://www.linkedin.com/in/namah-gupta-20a2bb261/"
+        },
+        {
+          "name": "Aarya Jain",
+          "url": "https://www.linkedin.com/in/aaryajain20/"
+        }
+      ],
+      "venue": "CAISc",
+      "date": "July 2026",
+      "sortKey": "2026-07",
+      "status": "Non-Archival",
+      "abstract": "Safety fine-tuning is the standard method for preventing harmful outputs from language models, but it may modify only output-level behavior without actually removing harmful knowledge from a model's internal representations. Existing safety evaluations for Indic language models focus entirely on behavioral refusal rates and do not probe whether harmful representations have been eliminated internally. This gap is especially concerning for Romanized Hindi, the register in which a large fraction of everyday digital communication in India occurs, yet which is almost entirely absent from safety fine-tuning datasets. We study this problem by applying Activation Oracles [Karvonen et al., 2025] to audit the internal representations of Gemma-2-9B-IT before and after safety fine-tuning, specifically on Romanized Hindi harmful content. We construct a dataset of 5,000 harmful prompt-completion pairs across four harm categories (violence, gambling, illicit content, and academic dishonesty), and create three controlled checkpoints of Gemma-2-9B-IT: a clean base model, a contaminated model fine-tuned on harmful data, and a remediated model produced by applying safety SFT to the contaminated model. We fine-tune a pretrained Activation Oracle on activations from the clean and contaminated checkpoints and evaluate it on the remediated checkpoint, which is held out entirely from training. The fine-tuned oracle detects harmful internal representations in the remediated model at 97.5%, compared to 99.4% in the contaminated model, despite the model refusing 99.44% of harmful prompts behaviorally. A complementary geometric analysis shows that the direction of representational drift in the remediated model aligns with the contamination direction at a cosine similarity of 0.50, confirming that safety fine-tuning did not return internal representations to the clean baseline. Together, these results show that safety fine-tuning on this model is shallow: behavioral refusal is achieved, but the underlying harmful representations persist.",
+      "topic": "Safety Audit"
+    },
+    {
+      "title": "Synthesizing Synthesis: A Method for Synthetic Data Generation in Organic Chemistry",
+      "url": "https://openreview.net/forum?id=fKJctseb2k",
+      "authors": [
+        {
+          "name": "Gauransh Bansal",
+          "url": "https://www.linkedin.com/in/gauransh-bansal-753601379/"
+        },
+        {
+          "name": "Vibhor Barguje",
+          "url": "https://www.linkedin.com/in/vibhor-barguje-b003b5255/"
+        },
+        {
+          "name": "Krishna Dvaipayan",
+          "url": "https://www.linkedin.com/in/krishna-dvaipayan"
+        }
+      ],
+      "venue": "CAISc",
+      "date": "July 2026",
+      "sortKey": "2026-07",
+      "status": "Non-Archival",
+      "abstract": "Large reasoning models increasingly depend on synthetically generated problem sets, yet organic chemistry remains data-starved: existing problem banks are static, human-curated, and uncalibrated across difficulty, while math-oriented synthetic generators collapse here because every structural mutation must preserve chemical validity. The harder obstacle is conceptual: difficulty in organic chemistry is not absolute, so a generator cannot be asked simply to \"make a problem harder.\"\n\nWe present Synthesizing Synthesis, which makes difficulty measurable by first defining it and then conditioning it on the problem's archetype. We classify organic chemistry reasoning into four archetypes (Long Reaction Chains, Counting/Enumeration, Deep Mechanistic Reasoning, and Comparative Ranking) and define a target difficulty profile over six archetype-normalised meta-tags along two axes, Structural and Interpretive. A seed problem is augmented toward this profile, expressed in standard IUPAC nomenclature, and verified by a Frontier-LLM validator that detects semantic flaws (functional-group incompatibility, infeasible mechanisms) that programmatic string checks cannot. On a near-miss the generator refines the problem it has already built rather than regenerating from a fresh seed, on the hypothesis that this frees reasoning capacity from problem construction so it can be spent escalating difficulty.\n\nWe evaluate whether targeting a meta-tag actually moves that dimension in the generated problem, establishing that targeted augmentations yield a desired directional shift in 82% of cases without bleeding into orthogonal axes, and whether refine-in-place looping produces harder, better-calibrated problems than regeneration under matched compute, demonstrating a 26% higher success rate in hitting difficulty targets. Ultimately, decoupling problem construction from difficulty escalation via a bounded feedback loop yields highly controllable and chemically robust synthetic datasets.",
+      "topic": "Synthetic Data"
+    },
+    {
+      "title": "Infinite Problem Generator: Verifiably Scaling Physics Reasoning Data with Agentic Workflows",
+      "url": "https://www.alphaxiv.org/abs/2603.14486",
+      "authors": [
+        {
+          "name": "Aditya Sharan",
+          "url": "https://www.linkedin.com/in/aditya-sharan-04a805262/"
+        },
+        {
+          "name": "Sriram Hebbale",
+          "url": "https://www.linkedin.com/in/sriram-hebbale/"
+        },
+        {
+          "name": "Dhruv Kumar",
+          "url": "https://www.linkedin.com/in/dhruv-kumar-87082b335/"
+        }
+      ],
+      "venue": "",
+      "date": "March 2026",
+      "sortKey": "2026-03",
+      "status": "Preprint",
+      "abstract": "Training large language models for complex reasoning is bottlenecked by the scarcity of verifiable, high-quality data. In domains like physics, standard text augmentation often introduces hallucinations, while static benchmarks lack the reasoning traces required for fine-tuning. We introduce the Infinite Problem Generator (IPG), an agentic framework that synthesizes physics problems with guaranteed solvability through a Formula-as-Code paradigm. Unlike probabilistic text generation, IPG constructs solutions as executable Python programs, enforcing strict mathematical consistency. As a proof-of-concept, we release ClassicalMechanicsV1, a high-fidelity corpus of 1,335 classical mechanics problems expanded from 165 expert seeds. The corpus demonstrates high structural diversity, spanning 102 unique physical formulas with an average complexity of 3.05 formulas per problem. Furthermore, we identify a Complexity Blueprint, demonstrating a strong linear correlation (R2≈0.95) between formula count and verification code length. This relationship establishes code complexity as a precise, proxy-free metric for problem difficulty, enabling controllable curriculum generation. We release the full IPG pipeline, the ClassicalMechanicsV1 dataset, and our evaluation report to support reproducible research in reasoning-intensive domains.",
+      "topic": "Synthetic Data"
+    }
+  ],
+  "blogs": [
+    {
+      "title": "Reframing Tokenisers & Building Vocabulary",
+      "url": "https://longformthoughts.substack.com/p/reframing-the-processes-of-tokenisers",
+      "authors": [
+        {
+          "name": "Aditya Sharan",
+          "url": "https://www.linkedin.com/in/aditya-sharan-04a805262/"
+        }
+      ],
+      "kind": "Explainer",
+      "topic": "LM Tokenisers",
+      "date": "April 2026",
+      "sortKey": "2026-04"
+    },
+    {
+      "title": "Months of Failed RL Experiments",
+      "url": "https://longformthoughts.substack.com/p/months-of-failed-rl-experiments",
+      "authors": [
+        {
+          "name": "Aditya Sharan",
+          "url": "https://www.linkedin.com/in/aditya-sharan-04a805262/"
+        }
+      ],
+      "kind": "Devlog",
+      "topic": "Post-training",
+      "date": "February 2026",
+      "sortKey": "2026-02"
+    }
+  ],
+  "dives": [
+    {
+      "title": "Establishing Best Practices in Building Rigorous Agentic Benchmarks",
+      "url": "https://neurips.cc/virtual/2025/loc/san-diego/poster/121769",
+      "presenter": "Rajat Garg",
+      "presenterUrl": "https://www.linkedin.com/in/rajat-garg-04511133a/",
+      "date": "15 July 2026",
+      "sortKey": "2026-07-15",
+      "venue": "NeurIPS 25 (Poster)",
+      "topic": "Agentic Evaluation",
+      "notes": "https://discord.com/channels/1473842425490571475/1526844020897353888"
+    },
+    {
+      "title": "KV Cache Compression and Its Infra Problems",
+      "url": "https://research.nvidia.com/labs/eai/blogs/kv-cache-compression-and-its-infra-problems/",
+      "presenter": "Sourabh Soni",
+      "presenterUrl": "https://www.linkedin.com/in/sourabh-kumar-soni-46326427b/",
+      "date": "26 June 2026",
+      "sortKey": "2026-06-26",
+      "venue": "Research Blog",
+      "topic": "ML Infra",
+      "notes": "https://discord.com/channels/1473842425490571475/1520133481944846354"
+    },
+    {
+      "title": "Fast-dLLM v2: Efficient Block-Diffusion LLM",
+      "url": "https://arxiv.org/abs/2509.26328",
+      "presenter": "Aditya Swaroop",
+      "presenterUrl": "https://www.linkedin.com/in/aditya-swaroop-771965322/",
+      "date": "22 June 2026",
+      "sortKey": "2026-06-22",
+      "venue": "Technical Report",
+      "topic": "Diffusion LM",
+      "notes": "https://discord.com/channels/1473842425490571475/1518327968798081085"
+    },
+    {
+      "title": "Safety Pretraining: Toward the Next Generation of Safe AI",
+      "url": "https://neurips.cc/virtual/2025/loc/san-diego/poster/119577",
+      "presenter": "Trizal Garg",
+      "presenterUrl": "https://www.linkedin.com/in/trizal-garg-1b488b22b/",
+      "date": "16 June 2026",
+      "sortKey": "2026-06-16",
+      "venue": "NeurIPS 25 (Poster)",
+      "topic": "Safety",
+      "notes": "https://discord.com/channels/1473842425490571475/1516465911933173944"
+    },
+    {
+      "title": "Tiny Model, Big Logic: Diversity-Driven Optimization Elicits Large-Model Reasoning Ability in VibeThinker-1.5B",
+      "url": "https://arxiv.org/abs/2511.06221",
+      "presenter": "Rishit",
+      "presenterUrl": "https://www.linkedin.com/in/rissin09/",
+      "date": "16 June 2026",
+      "sortKey": "2026-06-16",
+      "venue": "Preprint",
+      "topic": "RL Post-training",
+      "notes": "https://discord.com/channels/1473842425490571475/1517775832725061792"
+    },
+    {
+      "title": "Self-Distilled Reasoner: On-Policy Self-Distillation for Large Language Models",
+      "url": "https://arxiv.org/abs/2601.18734",
+      "presenter": "Drashtara Hikkalappa",
+      "presenterUrl": "https://www.linkedin.com/in/drashtara-hikkalappa-b370ab376/",
+      "date": "12 June 2026",
+      "sortKey": "2026-06-12",
+      "venue": "Preprint",
+      "topic": "Distillation",
+      "notes": "https://discord.com/channels/1473842425490571475/1515015669685424208"
+    },
+    {
+      "title": "DSPy: Compiling Declarative Language Model Calls into Self-Improving Pipelines",
+      "url": "https://neurips.cc/virtual/2023/76693",
+      "presenter": "Shrisay Shandilya",
+      "presenterUrl": "https://www.linkedin.com/in/s-shandilya/",
+      "date": "9 June 2026",
+      "sortKey": "2026-06-09",
+      "venue": "ICLR 24 (Spotlight Poster)",
+      "topic": "Foundation Models",
+      "notes": "https://discord.com/channels/1473842425490571475/1513902150391042109"
+    },
+    {
+      "title": "GEPA: Reflective Prompt Evolution Can Outperform Reinforcement Learning",
+      "url": "https://iclr.cc/virtual/2026/oral/10009494",
+      "presenter": "Shrisay Shandilya",
+      "presenterUrl": "https://www.linkedin.com/in/s-shandilya/",
+      "date": "9 June 2026",
+      "sortKey": "2026-06-09",
+      "venue": "ICLR 26 (Oral)",
+      "topic": "Self-Reflection",
+      "notes": "https://discord.com/channels/1473842425490571475/1513916807910785044"
+    },
+    {
+      "title": "Random Prefix Perturbations Diversify Reasoning Trajectories with a Sharp Non-Monotonic Optimum in Small Language Models",
+      "url": "https://github.com/dl1683/Latent-Space-Reasoning",
+      "presenter": "Aditya Swaroop",
+      "presenterUrl": "https://www.linkedin.com/in/aditya-swaroop-771965322/",
+      "date": "5 June 2026",
+      "sortKey": "2026-06-05",
+      "venue": "Preprint",
+      "topic": "Latent Space Reasoning",
+      "notes": "https://discord.com/channels/1473842425490571475/1512517715800096909"
+    },
+    {
+      "title": "Block Diffusion: Interpolating Between Autoregressive and Diffusion Language Models",
+      "url": "https://iclr.cc/virtual/2025/oral/31749",
+      "presenter": "Abhimanyu Bhowmik",
+      "presenterUrl": "https://www.linkedin.com/in/abhimanyu-bhowmik/",
+      "date": "29 May 2026",
+      "sortKey": "2026-05-29",
+      "venue": "ICLR 25 (Oral)",
+      "topic": "Diffusion LM",
+      "notes": "https://discord.com/channels/1473842425490571475/1509883776040439808"
+    },
+    {
+      "title": "Autodata: an automatic data scientist to create high-quality data",
+      "url": "https://facebookresearch.github.io/RAM/blogs/autodata/",
+      "presenter": "Gauransh Bansal",
+      "presenterUrl": "https://www.linkedin.com/in/gauransh-bansal-753601379/",
+      "date": "29 May 2026",
+      "sortKey": "2026-05-29",
+      "venue": "Preprint",
+      "topic": "Synthetic Data",
+      "notes": "https://discord.com/channels/1473842425490571475/1509949180242563145"
+    }
+  ]
+}

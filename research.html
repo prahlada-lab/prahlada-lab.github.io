@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap">
+<link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/colors.css">
+<link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/typography.css">
+<link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/styles.css">
+<script src="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/_ds_bundle.js"></script>
+<script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+<style>
+  html,body{margin:0;padding:0;background:#F4F8FC;}
+  *{box-sizing:border-box;}
+  a{color:#003B6F;text-decoration:none;}
+  a:hover{color:#007FC0;}
+  .p-burger{display:none}
+  @media(max-width:720px){
+    .p-navlinks{display:none}
+    .p-burger{display:flex}
+    .p-shell{padding-left:24px;padding-right:24px}
+  }
+  @keyframes riseIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @keyframes markIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+  @keyframes unfurlA{from{opacity:0;transform:rotate(-10deg) scale(.88)}to{opacity:.12;transform:rotate(0deg) scale(1)}}
+  @keyframes unfurlB{from{opacity:0;transform:scale(-.88,-.88) rotate(-10deg)}to{opacity:.12;transform:scale(-1,-1) rotate(0deg)}}
+</style>
+</helmet>
+<div style="font-family:Montserrat,sans-serif;background:#F4F8FC;color:#2D4A5A;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden">
+
+  <img src="assets/mandala-corner.png" alt="" style="position:absolute;right:-210px;top:320px;width:560px;opacity:.12;z-index:0;pointer-events:none;user-select:none;animation:unfurlA 1.7s .35s cubic-bezier(.22,.61,.36,1) both">
+  <img src="assets/mandala-corner.png" alt="" style="position:absolute;left:-120px;top:60px;width:300px;opacity:.12;transform:scale(-1,-1);z-index:0;pointer-events:none;user-select:none;animation:unfurlB 1.7s .5s cubic-bezier(.22,.61,.36,1) both">
+
+  <header style="position:sticky;top:0;z-index:40;background:rgba(244,248,252,.94);border-bottom:1px solid #D0DFF0">
+    <div class="p-shell" style="max-width:1120px;margin:0 auto;padding:0 40px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:32px">
+      <a href="index.html" style="display:flex;align-items:center;gap:12px">
+        <img src="assets/logo_mark.png" alt="Prahlada" style="width:32px;height:32px;object-fit:contain">
+        <span style="font-size:22px;font-weight:400;letter-spacing:-.01em;color:#003B6F;display:flex">
+          <span style="transition:color .18s" style-hover="color:#C6A15B">P</span><span style="transition:color .18s" style-hover="color:#007FC0">r</span><span style="transition:color .18s" style-hover="color:#C6A15B">a</span><span style="transition:color .18s" style-hover="color:#007FC0">h</span><span style="transition:color .18s" style-hover="color:#C6A15B">l</span><span style="transition:color .18s" style-hover="color:#007FC0">a</span><span style="transition:color .18s" style-hover="color:#C6A15B">d</span><span style="transition:color .18s" style-hover="color:#007FC0">a</span>
+        </span>
+      </a>
+      <nav class="p-navlinks" style="display:flex;align-items:center;gap:34px">
+        <a href="index.html" style="font-size:15px;color:#5A7A99;padding:6px 0;border-bottom:2px solid transparent;transition:color .18s" style-hover="color:#007FC0">culture</a>
+        <a href="research.html" style="font-size:15px;color:#003B6F;font-weight:500;padding:6px 0;border-bottom:2px solid #C6A15B">research</a>
+        <a href="paper-dives.html" style="font-size:15px;color:#5A7A99;padding:6px 0;border-bottom:2px solid transparent;transition:color .18s" style-hover="color:#007FC0">paper dives</a>
+        <button onClick="{{ openPalette }}" style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;padding:7px 12px;font-family:Montserrat,sans-serif;font-size:13px;color:#5A7A99;cursor:pointer;transition:border-color .18s" style-hover="border-color:#007FC0">
+          <span>Search</span>
+          <span style="font-size:11px;letter-spacing:.06em;color:#5A7A99;border:1px solid #D0DFF0;border-radius:3px;padding:1px 5px">Ctrl K</span>
+        </button>
+      </nav>
+      <button class="p-burger" onClick="{{ toggleMenu }}" style="align-items:center;justify-content:center;width:40px;height:40px;background:transparent;border:1px solid #D0DFF0;border-radius:4px;cursor:pointer;color:#003B6F">
+        <i data-lucide="menu" style="width:20px;height:20px"></i>
+      </button>
+    </div>
+    <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="border-top:1px solid #D0DFF0;background:#fff;padding:16px 24px;display:flex;flex-direction:column;gap:4px">
+        <a href="index.html" style="font-size:16px;color:#5A7A99;padding:10px 0">culture</a>
+        <a href="research.html" style="font-size:16px;color:#003B6F;font-weight:500;padding:10px 0">research</a>
+        <a href="paper-dives.html" style="font-size:16px;color:#5A7A99;padding:10px 0">paper dives</a>
+      </div>
+    </sc-if>
+  </header>
+
+  <main class="p-shell" style="position:relative;z-index:1;flex:1;max-width:1120px;width:100%;margin:0 auto;padding:0 40px">
+
+    <section style="padding:88px 0 0;max-width:760px;animation:riseIn .8s 0.05s cubic-bezier(.22,.61,.36,1) both">
+      <div style="font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#5A7A99">Research</div>
+      <div style="width:56px;height:2px;background:#C6A15B;margin:18px 0 0"></div>
+    </section>
+
+    <section style="padding:44px 0 0;animation:riseIn .8s 0.18s cubic-bezier(.22,.61,.36,1) both">
+      <div style="background:#E3F1FB;border-left:3px solid #007FC0;border-radius:0 8px 8px 0;padding:40px 44px">
+        <h1 style="margin:0;font-size:40px;font-weight:300;letter-spacing:-.025em;line-height:1.12;color:#003B6F;max-width:20ch">Filling Gaps in the Indic Open Source Ecosystem</h1>
+        <ul style="margin:32px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px">
+          <li id="alignment-safety-audits" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Alignment/Safety Audits</li>
+          <li id="automated-red-teaming" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Automated Red Teaming/Jailbreaking</li>
+          <li id="safety-fine-tuning" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Safety Fine-tuning and Unlearning</li>
+          <li id="cross-cultural-reasoning" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Remedying Cross cultural Reasoning Transfer Deficiencies</li>
+          <li id="interpretability" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Interpretability Approaches for Indic Performance Deficiencies</li>
+          <li id="synthetic-stem" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Synthetic Problem Generation for High-Complexity STEM</li>
+          <li id="memory-continual" style="display:flex;gap:14px;align-items:baseline;font-size:16px;font-weight:400;color:#2D4A5A;line-height:1.6"><span style="color:#007FC0;font-size:11px">●</span>Memory and Continual Learning</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="papers" style="padding:96px 0 0;animation:riseIn .8s 0.3s cubic-bezier(.22,.61,.36,1) both">
+      <div style="font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#5A7A99">Papers</div>
+      <div style="width:56px;height:2px;background:#007FC0;margin:18px 0 40px"></div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <sc-for list="{{ papers }}" as="p" hint-placeholder-count="3">
+          <div style="background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:0 1px 2px rgba(0,59,111,.06);padding:28px 32px">
+            <div style="display:flex;gap:32px;align-items:flex-start;justify-content:space-between">
+              <div style="flex:1;min-width:0">
+                <a href="{{ p.url }}" target="_blank" style="font-size:20px;font-weight:500;line-height:1.4;color:#003B6F;transition:color .18s" style-hover="color:#007FC0">{{ p.title }}</a>
+                <div style="margin-top:10px;font-size:15px;font-weight:300;color:#2D4A5A;line-height:1.6">
+                  <sc-for list="{{ p.authors }}" as="a" hint-placeholder-count="3"><a href="{{ a.url }}" target="_blank" style="font-weight:{{ a.weight }};color:#2D4A5A;border-bottom:1px solid #D0DFF0;transition:color .18s" style-hover="color:#007FC0">{{ a.name }}</a><span style="color:#5A7A99">{{ a.sep }}</span></sc-for>
+                </div>
+                <div style="margin-top:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+                  <span style="font-size:14px;font-weight:300;font-style:italic;color:#5A7A99">{{ p.meta }}</span>
+                  <span style="font-size:12px;color:#D0DFF0">/</span>
+                  <span style="font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#5A7A99">{{ p.date }}</span>
+                  <span style="font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#003B6F;background:#F2E6C9;border:1px solid rgba(198,161,91,.45);border-radius:999px;padding:4px 12px">{{ p.topic }}</span>
+                </div>
+              </div>
+              <sc-if value="{{ p.hasAbstract }}" hint-placeholder-val="{{ true }}">
+                <button onClick="{{ p.toggle }}" style="flex:none;background:transparent;border:1px solid #D0DFF0;border-radius:4px;width:34px;height:34px;cursor:pointer;color:#007FC0;font-size:11px;font-family:Montserrat,sans-serif;transition:border-color .18s" style-hover="border-color:#007FC0">{{ p.caret }}</button>
+              </sc-if>
+            </div>
+            <sc-if value="{{ p.open }}" hint-placeholder-val="{{ false }}">
+              <div style="margin-top:26px;border-top:1px solid #D0DFF0;padding:28px 0 4px">
+                <div style="font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#5A7A99">Abstract</div>
+                <div style="width:56px;height:2px;background:#C6A15B;margin:14px 0 0"></div>
+                <div style="margin-top:28px;max-width:64ch;display:flex;flex-direction:column;gap:22px">
+                  <sc-for list="{{ p.paras }}" as="t" hint-placeholder-count="2">
+                    <p style="margin:0;font-size:17px;font-weight:300;line-height:1.8;color:#2D4A5A;text-wrap:pretty">{{ t.text }}</p>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="blogs" style="padding:96px 0 0;animation:riseIn .8s 0.36s cubic-bezier(.22,.61,.36,1) both">
+      <div style="font-size:12px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#5A7A99">Blogs</div>
+      <div style="width:56px;height:2px;background:#007FC0;margin:18px 0 40px"></div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <sc-for list="{{ blogs }}" as="b" hint-placeholder-count="2">
+          <div style="background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:0 1px 2px rgba(0,59,111,.06);padding:28px 32px">
+            <div style="display:flex;gap:32px;align-items:flex-start;justify-content:space-between">
+              <div style="flex:1;min-width:0">
+                <a href="{{ b.url }}" target="_blank" style="font-size:20px;font-weight:500;line-height:1.4;color:#003B6F;transition:color .18s" style-hover="color:#007FC0">{{ b.title }}</a>
+                <div style="margin-top:10px;font-size:15px;font-weight:300;color:#2D4A5A;line-height:1.6">
+                  <sc-for list="{{ b.authors }}" as="a" hint-placeholder-count="1"><a href="{{ a.url }}" target="_blank" style="font-weight:{{ a.weight }};color:#2D4A5A;border-bottom:1px solid #D0DFF0;transition:color .18s" style-hover="color:#007FC0">{{ a.name }}</a><span style="color:#5A7A99">{{ a.sep }}</span></sc-for>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top:12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+              <span style="font-size:14px;font-weight:300;font-style:italic;color:#5A7A99">{{ b.kind }}</span>
+              <span style="font-size:12px;color:#D0DFF0">/</span>
+              <span style="font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#5A7A99">{{ b.date }}</span>
+              <span style="font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#003B6F;background:#F2E6C9;border:1px solid rgba(198,161,91,.45);border-radius:999px;padding:4px 12px">{{ b.topic }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section style="padding:96px 0 0;animation:riseIn .8s 0.42s cubic-bezier(.22,.61,.36,1) both">
+      <div style="background:#E3F1FB;border-left:3px solid #007FC0;border-radius:0 8px 8px 0;padding:40px 44px">
+        <h2 style="margin:0;font-size:28px;font-weight:400;letter-spacing:-.02em;color:#003B6F;line-height:1.2">Why can students build better models?</h2>
+        <ul style="margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px">
+          <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span>More willingness to do non-flashy work in order to improve the final model</li>
+          <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span>People new to building AI can be free of prior phases of AI hype cycles, allowing them to adapt to new modern techniques faster</li>
+          <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span>Less ego enabling org charts to scale slightly as there is less gamifying the system</li>
+          <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span>Abundant talent well-suited to building things with a proof-of-concept elsewhere</li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="padding:40px 0 120px;animation:riseIn .8s 0.5s cubic-bezier(.22,.61,.36,1) both">
+      <div style="background:#E3F1FB;border-left:3px solid #007FC0;border-radius:0 8px 8px 0;padding:40px 44px">
+        <h2 style="margin:0;font-size:28px;font-weight:400;letter-spacing:-.02em;color:#003B6F;line-height:1.2">Why to even train our own models?</h2>
+
+        <div style="margin-top:28px">
+          <div style="font-size:18px;font-weight:500;color:#003B6F">Strategic Open Source</div>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
+            <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span><span>We see a gap we can fill, and a reason we believe we can do better</span></li>
+            <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span><span>We want to build things that are <b style="font-weight:600;color:#003B6F">useful to the Indic open source ecosystem</b></span></li>
+          </ul>
+        </div>
+
+        <div style="margin-top:28px">
+          <div style="font-size:18px;font-weight:500;color:#003B6F">Our goal is not “the best model ever”</div>
+          <ul style="margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px">
+            <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span><span>It is to create value in the Indic Open Source Ecosystem — building something Indian developers would actually want to adopt</span></li>
+            <li style="display:flex;gap:14px;align-items:baseline;font-size:16px;line-height:1.7;color:#2D4A5A"><span style="color:#007FC0;font-size:11px">●</span><span>Research is a (small) secondary objective. <span style="font-style:italic;color:#003B6F">Engineering first, Science Second</span></span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="border-top:1px solid #D0DFF0;background:#fff">
+    <div class="p-shell" style="max-width:1120px;margin:0 auto;padding:56px 40px;display:grid;grid-template-columns:1fr 1px 1fr;gap:56px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <a href="https://www.linkedin.com/company/prahlada-open-research/" target="_blank" style="display:flex;align-items:center;gap:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003B6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3.2" y="3.6" width="17.6" height="16.8" rx="2.6"></rect><path d="M7.6 10.6v6"></path><path d="M7.6 7.4h.01"></path><path d="M12 16.6v-3.4a2.6 2.6 0 0 1 5.2 0v3.4"></path></svg>
+          <span style="display:flex;flex-direction:column;gap:3px">
+            <span style="font-size:17px;font-weight:500;color:#003B6F">LinkedIn</span>
+            <span style="font-size:13px;font-weight:300;color:#5A7A99">Follow us on Linkedin!</span>
+          </span>
+        </a>
+        <a href="https://discord.com/invite/jQW6XeZEvT" target="_blank" style="display:flex;align-items:center;gap:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003B6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3" y="4.4" width="18" height="12" rx="3.2"></rect><path d="M8.6 16.4v3.4l3.8-3.4"></path><path d="M8.4 10.4h.01"></path><path d="M12 10.4h.01"></path><path d="M15.6 10.4h.01"></path></svg>
+          <span style="display:flex;flex-direction:column;gap:3px">
+            <span style="font-size:17px;font-weight:500;color:#003B6F">Discord</span>
+            <span style="font-size:13px;font-weight:300;color:#5A7A99">Join our discord server!</span>
+          </span>
+        </a>
+        <a href="https://github.com/prahlada-research" target="_blank" style="display:flex;align-items:center;gap:16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003B6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M9.2 7.4 5 12l4.2 4.6"></path><path d="M14.8 7.4 19 12l-4.2 4.6"></path><path d="M12.6 6.6l-1.2 10.8"></path></svg>
+          <span style="display:flex;flex-direction:column;gap:3px">
+            <span style="font-size:17px;font-weight:500;color:#003B6F">GitHub</span>
+            <span style="font-size:13px;font-weight:300;color:#5A7A99">All our code and datasets.</span>
+          </span>
+        </a>
+      </div>
+      <div style="width:1px;height:100%;background:#D0DFF0"></div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;text-align:right;gap:14px">
+        <img src="assets/logo_mark.png" alt="" style="width:44px;height:44px;object-fit:contain;opacity:.9">
+        <div style="font-size:24px;font-weight:300;letter-spacing:-.02em;color:#003B6F;line-height:1.2">Vidya Dadati Vinayam.</div>
+        <div style="font-size:18px;font-weight:300;font-style:italic;color:#007FC0">Knowledge Gives Humility</div>
+      </div>
+    </div>
+  </footer>
+
+  <sc-if value="{{ paletteOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closePalette }}" style="position:fixed;inset:0;z-index:90;background:rgba(0,59,111,.28);display:flex;align-items:flex-start;justify-content:center;padding-top:14vh">
+      <div onClick="{{ stop }}" style="width:min(560px,90vw);background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:0 8px 40px rgba(0,59,111,.16);overflow:hidden">
+        <input ref="{{ inputRef }}" value="{{ query }}" onChange="{{ onQuery }}" placeholder="Go to…" style="width:100%;border:0;border-bottom:1px solid #D0DFF0;padding:18px 20px;font-family:Montserrat,sans-serif;font-size:16px;font-weight:300;color:#2D4A5A;outline:none">
+        <div style="padding:8px">
+          <sc-for list="{{ results }}" as="r" hint-placeholder-count="3">
+            <a href="{{ r.href }}" style="display:flex;align-items:baseline;gap:12px;padding:12px 14px;border-radius:4px;transition:background .14s" style-hover="background:#E3F1FB">
+              <span style="font-size:15px;font-weight:500;color:#003B6F">{{ r.label }}</span>
+              <span style="font-size:12px;font-weight:300;color:#5A7A99">{{ r.hint }}</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: false, q: "", expanded: {}, menu: false, rows: null, blogRows: null };
+  blogData = [];
+  icons() { if (window.lucide) window.lucide.createIcons(); }
+  fmtAuthors(list) {
+    return (list || []).map((a, j) => ({ ...a, weight: j === 0 ? 600 : 300, sep: j < list.length - 1 ? ", " : "" }));
+  }
+  componentDidUpdate() { this.icons(); }
+  pages = [
+    { label: "culture", href: "index.html", hint: "who we are, how we work" },
+    { label: "research", href: "research.html", hint: "focus areas and papers" },
+    { label: "paper dives", href: "paper-dives.html", hint: "reading group notes" }
+  ];
+  data = [];
+  componentDidMount() {
+    this.onKey = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); this.setState({ open: true, q: "" }); }
+      if (e.key === "Escape") this.setState({ open: false, menu: false });
+    };
+    window.addEventListener("keydown", this.onKey);
+    this.icons();
+    setTimeout(() => this.icons(), 400);
+    fetch("papers.json").then(r => r.json()).then(d => {
+      const next = {};
+      if (d && Array.isArray(d.papers)) next.rows = d.papers.slice().sort((a, b) => String(b.sortKey || "").localeCompare(String(a.sortKey || "")));
+      if (d && Array.isArray(d.blogs)) next.blogRows = d.blogs;
+      this.setState(next);
+    }).catch(() => {});
+  }
+  componentWillUnmount() { window.removeEventListener("keydown", this.onKey); }
+  renderVals() {
+    const q = this.state.q.trim().toLowerCase();
+    return {
+      paletteOpen: this.state.open,
+      menuOpen: this.state.menu,
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      query: this.state.q,
+      results: q ? this.pages.filter(p => (p.label + " " + p.hint).toLowerCase().includes(q)) : this.pages,
+      openPalette: () => this.setState({ open: true, q: "" }),
+      closePalette: () => this.setState({ open: false }),
+      stop: (e) => e.stopPropagation(),
+      onQuery: (e) => this.setState({ q: e.target.value }),
+      inputRef: (el) => { if (el) setTimeout(() => el.focus(), 20); },
+      papers: (this.state.rows || this.data).map((p, i) => ({
+        ...p,
+        authors: this.fmtAuthors(p.authors),
+        meta: [p.status, p.venue].map(s => (s || "").trim()).filter(Boolean).join(" · "),
+        paras: (p.abstract || "").split(/\n{2,}/).map(t => t.trim()).filter(Boolean).map(text => ({ text })),
+        hasAbstract: !!(p.abstract && p.abstract.trim()),
+        open: !!this.state.expanded[i],
+        caret: this.state.expanded[i] ? "▲" : "▼",
+        toggle: () => this.setState(s => ({ expanded: { ...s.expanded, [i]: !s.expanded[i] } }))
+      })),
+      blogs: (this.state.blogRows || this.blogData).map(b => ({ ...b, authors: this.fmtAuthors(b.authors) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

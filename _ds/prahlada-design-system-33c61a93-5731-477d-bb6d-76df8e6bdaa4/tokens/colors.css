@@ -1,0 +1,36 @@
+:root{
+  --navy:#003B6F;
+  --sky-blue:#007FC0;
+  --ice-white:#F4F8FC;
+  --light-blue:#E3F1FB;
+  --body-text:#2D4A5A;
+  --muted-text:#5A7A99;
+  --border-divider:#D0DFF0;
+  --white:#FFFFFF;
+  /* Ceremonial accent — brass. Rules, ornaments, index numerals, highlight fills
+     and the outermost margin rule only. Never for body text or large fields. */
+  --brass:#C6A15B;
+  --brass-soft:#F2E6C9;
+  --brass-line:#B8924C;
+  --navy-90:oklch(from var(--navy) l c h / .9);
+  --navy-10:oklch(from var(--navy) l c h / .1);
+  --sky-blue-10:oklch(from var(--sky-blue) l c h / .1);
+
+  --color-bg-standard:var(--ice-white);
+  --color-bg-highlight:var(--light-blue);
+  --color-bg-surface:var(--white);
+  --color-title:var(--navy);
+  --color-body:var(--body-text);
+  --color-muted:var(--muted-text);
+  --color-accent:var(--sky-blue);
+  --color-border:var(--border-divider);
+
+  --color-fg-on-navy:var(--ice-white);
+  --color-fg-on-sky:var(--white);
+
+  /* Highlight — tinted emphasis behind a word inside a display or lede line */
+  --highlight-bg:var(--brass-soft);
+  --highlight-ring:rgba(198,161,91,0.45);
+  --highlight-fg:var(--navy);
+  --color-ornament:var(--brass);
+}
