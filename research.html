@@ -9,14 +9,15 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap">
 <link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/colors.css">
 <link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/typography.css">
 <link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/spacing.css">
 <link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/styles.css">
 <script src="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/_ds_bundle.js"></script>
 <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+<script src="search.js"></script>
 <style>
   html,body{margin:0;padding:0;background:#F4F8FC;}
   *{box-sizing:border-box;}
@@ -36,8 +37,8 @@
 </helmet>
 <div style="font-family:Montserrat,sans-serif;background:#F4F8FC;color:#2D4A5A;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow-x:hidden">
 
-  <img src="assets/mandala-corner.png" alt="" style="position:absolute;right:-210px;top:320px;width:560px;opacity:.12;z-index:0;pointer-events:none;user-select:none;animation:unfurlA 1.7s .35s cubic-bezier(.22,.61,.36,1) both">
-  <img src="assets/mandala-corner.png" alt="" style="position:absolute;left:-120px;top:60px;width:300px;opacity:.12;transform:scale(-1,-1);z-index:0;pointer-events:none;user-select:none;animation:unfurlB 1.7s .5s cubic-bezier(.22,.61,.36,1) both">
+  <img src="assets/mandala-corner.png" alt="" style="position:absolute;right:-210px;top:320px;width:560px;opacity:.12;mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);z-index:0;pointer-events:none;user-select:none;animation:unfurlA 1.7s .8s cubic-bezier(.22,.61,.36,1) both">
+  <img src="assets/mandala-corner.png" alt="" style="position:absolute;left:-120px;top:60px;width:300px;opacity:.12;transform:scale(-1,-1);mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);z-index:0;pointer-events:none;user-select:none;animation:unfurlB 1.7s .95s cubic-bezier(.22,.61,.36,1) both">
 
   <header style="position:sticky;top:0;z-index:40;background:rgba(244,248,252,.94);border-bottom:1px solid #D0DFF0">
     <div class="p-shell" style="max-width:1120px;margin:0 auto;padding:0 40px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:32px">
@@ -65,6 +66,10 @@
         <a href="index.html" style="font-size:16px;color:#5A7A99;padding:10px 0">culture</a>
         <a href="research.html" style="font-size:16px;color:#003B6F;font-weight:500;padding:10px 0">research</a>
         <a href="paper-dives.html" style="font-size:16px;color:#5A7A99;padding:10px 0">paper dives</a>
+        <button onClick="{{ openPalette }}" style="margin-top:6px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;padding:11px 14px;font-family:Montserrat,sans-serif;font-size:15px;color:#5A7A99;cursor:pointer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5A7A99" stroke-width="1.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 20 20"></path></svg>
+          <span>Search</span>
+        </button>
       </div>
     </sc-if>
   </header>
@@ -76,7 +81,7 @@
       <div style="width:56px;height:2px;background:#C6A15B;margin:18px 0 0"></div>
     </section>
 
-    <section style="padding:44px 0 0;animation:riseIn .8s 0.18s cubic-bezier(.22,.61,.36,1) both">
+    <section id="focus-areas" style="padding:44px 0 0;animation:riseIn .8s 0.18s cubic-bezier(.22,.61,.36,1) both">
       <div style="background:#E3F1FB;border-left:3px solid #007FC0;border-radius:0 8px 8px 0;padding:40px 44px">
         <h1 style="margin:0;font-size:40px;font-weight:300;letter-spacing:-.025em;line-height:1.12;color:#003B6F;max-width:20ch">Filling Gaps in the Indic Open Source Ecosystem</h1>
         <ul style="margin:32px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px">
@@ -96,7 +101,7 @@
       <div style="width:56px;height:2px;background:#007FC0;margin:18px 0 40px"></div>
       <div style="display:flex;flex-direction:column;gap:16px">
         <sc-for list="{{ papers }}" as="p" hint-placeholder-count="3">
-          <div style="background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:0 1px 2px rgba(0,59,111,.06);padding:28px 32px">
+          <div id="{{ p.id }}" style="background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:{{ p.ring }};padding:28px 32px;scroll-margin-top:110px;transition:box-shadow .5s ease">
             <div style="display:flex;gap:32px;align-items:flex-start;justify-content:space-between">
               <div style="flex:1;min-width:0">
                 <a href="{{ p.url }}" target="_blank" style="font-size:20px;font-weight:500;line-height:1.4;color:#003B6F;transition:color .18s" style-hover="color:#007FC0">{{ p.title }}</a>
@@ -111,20 +116,22 @@
                 </div>
               </div>
               <sc-if value="{{ p.hasAbstract }}" hint-placeholder-val="{{ true }}">
-                <button onClick="{{ p.toggle }}" style="flex:none;background:transparent;border:1px solid #D0DFF0;border-radius:4px;width:34px;height:34px;cursor:pointer;color:#007FC0;font-size:11px;font-family:Montserrat,sans-serif;transition:border-color .18s" style-hover="border-color:#007FC0">{{ p.caret }}</button>
+                <button onClick="{{ p.toggle }}" style="flex:none;display:flex;align-items:center;justify-content:center;background:transparent;border:1px solid #D0DFF0;border-radius:4px;width:34px;height:34px;cursor:pointer;transition:border-color .18s,background .18s" style-hover="border-color:#007FC0;background:#E3F1FB"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#007FC0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate({{ p.rot }});transition:transform .4s cubic-bezier(.22,.61,.36,1)"><path d="M5 9.5 12 16l7-6.5"></path></svg></button>
               </sc-if>
             </div>
-            <sc-if value="{{ p.open }}" hint-placeholder-val="{{ false }}">
-              <div style="margin-top:26px;border-top:1px solid #D0DFF0;padding:28px 0 4px">
-                <div style="font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#5A7A99">Abstract</div>
-                <div style="width:56px;height:2px;background:#C6A15B;margin:14px 0 0"></div>
-                <div style="margin-top:28px;max-width:64ch;display:flex;flex-direction:column;gap:22px">
-                  <sc-for list="{{ p.paras }}" as="t" hint-placeholder-count="2">
-                    <p style="margin:0;font-size:17px;font-weight:300;line-height:1.8;color:#2D4A5A;text-wrap:pretty">{{ t.text }}</p>
-                  </sc-for>
+            <div style="display:grid;grid-template-rows:{{ p.rows }};opacity:{{ p.op }};transition:grid-template-rows .52s cubic-bezier(.22,.61,.36,1),opacity .38s ease">
+              <div style="overflow:hidden;min-height:0">
+                <div style="margin-top:26px;border-top:1px solid #D0DFF0;padding:28px 0 4px">
+                  <div style="font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:#5A7A99">Abstract</div>
+                  <div style="width:56px;height:2px;background:#C6A15B;margin:14px 0 0"></div>
+                  <div style="margin-top:28px;max-width:64ch;display:flex;flex-direction:column;gap:22px">
+                    <sc-for list="{{ p.paras }}" as="t" hint-placeholder-count="2">
+                      <p style="margin:0;font-size:17px;font-weight:300;line-height:1.8;color:#2D4A5A;text-wrap:pretty">{{ t.text }}</p>
+                    </sc-for>
+                  </div>
                 </div>
               </div>
-            </sc-if>
+            </div>
           </div>
         </sc-for>
       </div>
@@ -135,7 +142,7 @@
       <div style="width:56px;height:2px;background:#007FC0;margin:18px 0 40px"></div>
       <div style="display:flex;flex-direction:column;gap:16px">
         <sc-for list="{{ blogs }}" as="b" hint-placeholder-count="2">
-          <div style="background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:0 1px 2px rgba(0,59,111,.06);padding:28px 32px">
+          <div id="{{ b.id }}" style="background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:{{ b.ring }};padding:28px 32px;scroll-margin-top:110px;transition:box-shadow .5s ease">
             <div style="display:flex;gap:32px;align-items:flex-start;justify-content:space-between">
               <div style="flex:1;min-width:0">
                 <a href="{{ b.url }}" target="_blank" style="font-size:20px;font-weight:500;line-height:1.4;color:#003B6F;transition:color .18s" style-hover="color:#007FC0">{{ b.title }}</a>
@@ -155,7 +162,7 @@
       </div>
     </section>
 
-    <section style="padding:96px 0 0;animation:riseIn .8s 0.42s cubic-bezier(.22,.61,.36,1) both">
+    <section id="why-students" style="padding:96px 0 0;animation:riseIn .8s 0.42s cubic-bezier(.22,.61,.36,1) both">
       <div style="background:#E3F1FB;border-left:3px solid #007FC0;border-radius:0 8px 8px 0;padding:40px 44px">
         <h2 style="margin:0;font-size:28px;font-weight:400;letter-spacing:-.02em;color:#003B6F;line-height:1.2">Why can students build better models?</h2>
         <ul style="margin:26px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px">
@@ -167,7 +174,7 @@
       </div>
     </section>
 
-    <section style="padding:40px 0 120px;animation:riseIn .8s 0.5s cubic-bezier(.22,.61,.36,1) both">
+    <section id="why-train" style="padding:40px 0 0;animation:riseIn .8s 0.5s cubic-bezier(.22,.61,.36,1) both">
       <div style="background:#E3F1FB;border-left:3px solid #007FC0;border-radius:0 8px 8px 0;padding:40px 44px">
         <h2 style="margin:0;font-size:28px;font-weight:400;letter-spacing:-.02em;color:#003B6F;line-height:1.2">Why to even train our own models?</h2>
 
@@ -188,6 +195,12 @@
         </div>
       </div>
     </section>
+
+    <div style="position:relative;width:100vw;left:50%;margin-left:-50vw;padding:104px 0 92px;background:linear-gradient(to bottom,rgba(227,241,251,0),rgba(227,241,251,.7));display:flex;align-items:center;justify-content:center;gap:22px">
+      <span style="width:110px;height:1px;background:linear-gradient(to right,rgba(208,223,240,0),#D0DFF0)"></span>
+      <span style="font-size:10px;letter-spacing:.62em;color:#C6A15B">◆ ◆ ◆</span>
+      <span style="width:110px;height:1px;background:linear-gradient(to left,rgba(208,223,240,0),#D0DFF0)"></span>
+    </div>
   </main>
 
   <footer style="border-top:1px solid #D0DFF0;background:#fff">
@@ -197,21 +210,21 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003B6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3.2" y="3.6" width="17.6" height="16.8" rx="2.6"></rect><path d="M7.6 10.6v6"></path><path d="M7.6 7.4h.01"></path><path d="M12 16.6v-3.4a2.6 2.6 0 0 1 5.2 0v3.4"></path></svg>
           <span style="display:flex;flex-direction:column;gap:3px">
             <span style="font-size:17px;font-weight:500;color:#003B6F">LinkedIn</span>
-            <span style="font-size:13px;font-weight:300;color:#5A7A99">Follow us on Linkedin!</span>
+            <span style="font-size:13px;font-weight:300;color:#5A7A99">Follow &amp; track our updates</span>
           </span>
         </a>
         <a href="https://discord.com/invite/jQW6XeZEvT" target="_blank" style="display:flex;align-items:center;gap:16px">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003B6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><rect x="3" y="4.4" width="18" height="12" rx="3.2"></rect><path d="M8.6 16.4v3.4l3.8-3.4"></path><path d="M8.4 10.4h.01"></path><path d="M12 10.4h.01"></path><path d="M15.6 10.4h.01"></path></svg>
           <span style="display:flex;flex-direction:column;gap:3px">
             <span style="font-size:17px;font-weight:500;color:#003B6F">Discord</span>
-            <span style="font-size:13px;font-weight:300;color:#5A7A99">Join our discord server!</span>
+            <span style="font-size:13px;font-weight:300;color:#5A7A99">Join our paper discussions</span>
           </span>
         </a>
         <a href="https://github.com/prahlada-research" target="_blank" style="display:flex;align-items:center;gap:16px">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#003B6F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="flex:none"><path d="M9.2 7.4 5 12l4.2 4.6"></path><path d="M14.8 7.4 19 12l-4.2 4.6"></path><path d="M12.6 6.6l-1.2 10.8"></path></svg>
           <span style="display:flex;flex-direction:column;gap:3px">
             <span style="font-size:17px;font-weight:500;color:#003B6F">GitHub</span>
-            <span style="font-size:13px;font-weight:300;color:#5A7A99">All our code and datasets.</span>
+            <span style="font-size:13px;font-weight:300;color:#5A7A99">Browse our code and datasets</span>
           </span>
         </a>
       </div>
@@ -225,16 +238,37 @@
   </footer>
 
   <sc-if value="{{ paletteOpen }}" hint-placeholder-val="{{ false }}">
-    <div onClick="{{ closePalette }}" style="position:fixed;inset:0;z-index:90;background:rgba(0,59,111,.28);display:flex;align-items:flex-start;justify-content:center;padding-top:14vh">
-      <div onClick="{{ stop }}" style="width:min(560px,90vw);background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:0 8px 40px rgba(0,59,111,.16);overflow:hidden">
-        <input ref="{{ inputRef }}" value="{{ query }}" onChange="{{ onQuery }}" placeholder="Go to…" style="width:100%;border:0;border-bottom:1px solid #D0DFF0;padding:18px 20px;font-family:Montserrat,sans-serif;font-size:16px;font-weight:300;color:#2D4A5A;outline:none">
-        <div style="padding:8px">
+    <div onClick="{{ closePalette }}" style="position:fixed;inset:0;z-index:90;background:rgba(0,59,111,.28);display:flex;align-items:flex-start;justify-content:center;padding:12vh 16px 16px">
+      <div onClick="{{ stop }}" role="dialog" aria-label="Site search" style="width:min(680px,100%);max-height:76vh;background:#fff;border:1px solid #D0DFF0;border-radius:8px;box-shadow:0 12px 48px rgba(0,59,111,.18);overflow:hidden;display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;gap:12px;padding:0 18px;border-bottom:1px solid #D0DFF0">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5A7A99" stroke-width="1.6" stroke-linecap="round" style="flex:none"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 20 20"></path></svg>
+          <input ref="{{ inputRef }}" value="{{ query }}" onChange="{{ onQuery }}" aria-label="Search the site" placeholder="Search papers, authors, abstracts…" style="flex:1;min-width:0;border:0;background:transparent;padding:18px 0;font-family:Montserrat,sans-serif;font-size:16px;font-weight:300;color:#2D4A5A;outline:none">
+          <sc-if value="{{ hasQuery }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ clearQuery }}" aria-label="Clear search" style="flex:none;background:transparent;border:0;padding:6px;cursor:pointer;font-family:Montserrat,sans-serif;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#5A7A99;transition:color .18s" style-hover="color:#007FC0">Clear</button>
+          </sc-if>
+        </div>
+        <div ref="{{ listRef }}" style="flex:1;overflow-y:auto;padding:8px">
           <sc-for list="{{ results }}" as="r" hint-placeholder-count="3">
-            <a href="{{ r.href }}" style="display:flex;align-items:baseline;gap:12px;padding:12px 14px;border-radius:4px;transition:background .14s" style-hover="background:#E3F1FB">
-              <span style="font-size:15px;font-weight:500;color:#003B6F">{{ r.label }}</span>
-              <span style="font-size:12px;font-weight:300;color:#5A7A99">{{ r.hint }}</span>
+            <a href="{{ r.href }}" onClick="{{ r.go }}" onMouseEnter="{{ r.hover }}" style="display:flex;flex-direction:column;gap:7px;padding:13px 16px;border-radius:4px;border-left:2px solid {{ r.edge }};background:{{ r.bg }};transition:background .14s">
+              <div style="display:flex;align-items:baseline;gap:12px">
+                <span style="flex:none;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#C6A15B">{{ r.kind }}</span>
+                <span style="font-size:15px;font-weight:500;line-height:1.4;color:#003B6F"><sc-for list="{{ r.titleParts }}" as="t" hint-placeholder-count="1"><span style="background:{{ t.bg }};color:{{ t.fg }};font-weight:{{ t.w }};border-radius:2px">{{ t.text }}</span></sc-for></span>
+              </div>
+              <sc-if value="{{ r.hasBody }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:13px;font-weight:300;line-height:1.65;color:#5A7A99"><sc-for list="{{ r.parts }}" as="t" hint-placeholder-count="1"><span style="background:{{ t.bg }};color:{{ t.fg }};font-weight:{{ t.w }};border-radius:2px">{{ t.text }}</span></sc-for></div>
+              </sc-if>
             </a>
           </sc-for>
+          <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:28px 16px;display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:15px;font-weight:400;color:#003B6F">No matches for “{{ query }}”</div>
+              <div style="font-size:13px;font-weight:300;line-height:1.7;color:#5A7A99;max-width:52ch">Try an author name, a venue (NeurIPS, ICLR, CAISc), a topic (safety, diffusion, tokenisers), or a phrase from an abstract in quotes.</div>
+            </div>
+          </sc-if>
+        </div>
+        <div style="border-top:1px solid #D0DFF0;background:#F4F8FC;padding:11px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#5A7A99">
+          <span style="display:flex;gap:18px;flex-wrap:wrap"><span>↑ ↓ navigate</span><span>↵ open</span><span>esc close</span></span>
+          <span style="flex:none;color:#003B6F">{{ countLabel }}</span>
         </div>
       </div>
     </div>
@@ -243,59 +277,200 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { open: false, q: "", expanded: {}, menu: false, rows: null, blogRows: null };
-  blogData = [];
-  icons() { if (window.lucide) window.lucide.createIcons(); }
-  fmtAuthors(list) {
-    return (list || []).map((a, j) => ({ ...a, weight: j === 0 ? 600 : 300, sep: j < list.length - 1 ? ", " : "" }));
+  state = { open: false, q: "", sel: 0, focus: null, menu: false, expanded: {}, papers: [], blogs: [] };
+
+  // Per-entry values that never change once loaded (slug, authors, abstract split).
+  _static = new WeakMap();
+
+  load() {
+    fetch("papers.json").then((r) => r.json()).then((d) => {
+      const newest = (a, b) => String(b.sortKey || "").localeCompare(String(a.sortKey || ""));
+      window.PrahladaSearch.build(d);
+      this._viewKey = null;
+      this.setState({
+        papers: (d.papers || []).slice().sort(newest),
+        blogs: (d.blogs || []).slice().sort(newest)
+      });
+      setTimeout(() => this.focusHash(location.hash.slice(1)), 120);
+    }).catch(() => {});
   }
-  componentDidUpdate() { this.icons(); }
-  pages = [
-    { label: "culture", href: "index.html", hint: "who we are, how we work" },
-    { label: "research", href: "research.html", hint: "focus areas and papers" },
-    { label: "paper dives", href: "paper-dives.html", hint: "reading group notes" }
-  ];
-  data = [];
+
+  anchors() { return this.state.papers.map((p) => p.title).concat(this.state.blogs.map((b) => b.title)); }
+
+  /* ---------------------------------------------------------- lifecycle */
+
   componentDidMount() {
-    this.onKey = (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); this.setState({ open: true, q: "" }); }
-      if (e.key === "Escape") this.setState({ open: false, menu: false });
-    };
     window.addEventListener("keydown", this.onKey);
     this.icons();
     setTimeout(() => this.icons(), 400);
-    fetch("papers.json").then(r => r.json()).then(d => {
-      const next = {};
-      if (d && Array.isArray(d.papers)) next.rows = d.papers.slice().sort((a, b) => String(b.sortKey || "").localeCompare(String(a.sortKey || "")));
-      if (d && Array.isArray(d.blogs)) next.blogRows = d.blogs;
-      this.setState(next);
-    }).catch(() => {});
+    this.load();
   }
-  componentWillUnmount() { window.removeEventListener("keydown", this.onKey); }
-  renderVals() {
-    const q = this.state.q.trim().toLowerCase();
+
+  // The runtime does not pass prevState, so the values we diff are tracked here.
+  componentDidUpdate() {
+    const prevMenu = this._prevMenu, prevQuery = this._prevQuery;
+    this._prevMenu = this.state.menu;
+    this._prevQuery = this.state.q;
+    if (prevMenu !== undefined && prevMenu !== this.state.menu) this.icons();
+    if (this.state.open) {
+      if (prevQuery !== this.state.q && this.listEl) this.listEl.scrollTop = 0;
+      this.keepSelectionVisible();
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("keydown", this.onKey);
+    window.PrahladaSearch.lockScroll(false);
+  }
+
+  // Only the menu icon needs Lucide; re-scanning the DOM every render is wasteful.
+  icons() { if (window.lucide) window.lucide.createIcons(); }
+
+  /* ----------------------------------------------------- command palette */
+
+  // One view-model per (query, selection) so a keystroke scores the corpus once.
+  view() {
+    const key = this.state.q + "\u0000" + (this.state.sel || 0);
+    if (this._viewKey !== key) {
+      this._viewKey = key;
+      this._view = window.PrahladaSearch.view(this.state.q, this.state.sel, {
+        onHover: (i) => { if ((this.state.sel || 0) !== i) this.setState({ sel: i }); },
+        onOpen: (r) => this.openResult(r)
+      });
+    }
+    return this._view;
+  }
+
+  // Opening and closing own the scroll lock directly, so the page behind can
+  // never drift regardless of how the palette was dismissed.
+  showPalette() {
+    if (this.state.open) return;
+    window.PrahladaSearch.lockScroll(true);
+    this.setState({ open: true, q: "", sel: 0, menu: false });
+  }
+
+  hidePalette() {
+    if (!this.state.open) { this.setState({ menu: false }); return; }
+    window.PrahladaSearch.lockScroll(false);
+    this.setState({ open: false, sel: 0, menu: false });
+  }
+
+  openPalette = () => this.showPalette();
+
+  onKey = (e) => {
+    const tag = ((e.target && e.target.tagName) || "").toLowerCase();
+    const typing = tag === "input" || tag === "textarea";
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); this.openPalette(); return; }
+    if (e.key === "/" && !typing && !this.state.open) { e.preventDefault(); this.openPalette(); return; }
+    if (e.key === "Escape") { this.hidePalette(); return; }
+    if (!this.state.open) return;
+    const n = this.view().length;
+    if (e.key === "ArrowDown") { e.preventDefault(); this.setState((s) => ({ sel: n ? Math.min((s.sel || 0) + 1, n - 1) : 0 })); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); this.setState((s) => ({ sel: Math.max((s.sel || 0) - 1, 0) })); }
+    else if (e.key === "Home" && !typing) { e.preventDefault(); this.setState({ sel: 0 }); }
+    else if (e.key === "End" && !typing) { e.preventDefault(); this.setState({ sel: Math.max(n - 1, 0) }); }
+    else if (e.key === "Enter") { e.preventDefault(); const r = this.view()[this.state.sel || 0]; if (r) this.openResult(r); }
+  };
+
+  // Same page: close and reveal in place. Other page: hand off through the hash.
+  openResult(r) {
+    const here = location.pathname.split("/").pop() || "index.html";
+    if (r.page !== here && !(here === "" && r.page.indexOf("index") === 0)) { location.href = r.href; return; }
+    this.hidePalette();
+    if (!r.hash) { window.PrahladaSearch.scrollToY(0); return; }
+    history.replaceState(null, "", "#" + r.hash);
+    this.focusHash(r.hash);
+  }
+
+  // Expand the matching card, ease it under the header, flash its brass ring.
+  focusHash(hash) {
+    if (!hash) return;
+    const S = window.PrahladaSearch;
+    const i = this.anchors().findIndex((title) => S.slug(title) === hash);
+    const patch = { focus: hash };
+    if (i > -1 && this.state.expanded) patch.expanded = { ...this.state.expanded, [i]: true };
+    this.setState(patch);
+    setTimeout(() => {
+      const el = document.getElementById(hash);
+      if (el) S.scrollToY(el.getBoundingClientRect().top + window.scrollY - 100);
+    }, 90);
+    setTimeout(() => { if (this.state.focus === hash) this.setState({ focus: null }); }, 2600);
+  }
+
+  keepSelectionVisible() {
+    const c = this.listEl;
+    if (!c) return;
+    const row = c.children[this.state.sel || 0];
+    if (!row) return;
+    const top = row.offsetTop - c.offsetTop, bottom = top + row.offsetHeight;
+    if (top < c.scrollTop) c.scrollTop = Math.max(top - 8, 0);
+    else if (bottom > c.scrollTop + c.clientHeight) c.scrollTop = bottom - c.clientHeight + 8;
+  }
+
+  paletteVals() {
+    const rows = this.view();
     return {
       paletteOpen: this.state.open,
       menuOpen: this.state.menu,
-      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
-      query: this.state.q,
-      results: q ? this.pages.filter(p => (p.label + " " + p.hint).toLowerCase().includes(q)) : this.pages,
-      openPalette: () => this.setState({ open: true, q: "" }),
-      closePalette: () => this.setState({ open: false }),
+      toggleMenu: () => this.setState((s) => ({ menu: !s.menu })),
+      openPalette: this.openPalette,
+      closePalette: () => this.hidePalette(),
       stop: (e) => e.stopPropagation(),
-      onQuery: (e) => this.setState({ q: e.target.value }),
-      inputRef: (el) => { if (el) setTimeout(() => el.focus(), 20); },
-      papers: (this.state.rows || this.data).map((p, i) => ({
-        ...p,
-        authors: this.fmtAuthors(p.authors),
-        meta: [p.status, p.venue].map(s => (s || "").trim()).filter(Boolean).join(" · "),
-        paras: (p.abstract || "").split(/\n{2,}/).map(t => t.trim()).filter(Boolean).map(text => ({ text })),
-        hasAbstract: !!(p.abstract && p.abstract.trim()),
-        open: !!this.state.expanded[i],
-        caret: this.state.expanded[i] ? "▲" : "▼",
-        toggle: () => this.setState(s => ({ expanded: { ...s.expanded, [i]: !s.expanded[i] } }))
+      query: this.state.q,
+      hasQuery: this.state.q.length > 0,
+      onQuery: (e) => this.setState({ q: e.target.value, sel: 0 }),
+      clearQuery: () => { this.setState({ q: "", sel: 0 }); if (this.inputEl) this.inputEl.focus(); },
+      inputRef: (el) => { this.inputEl = el; if (el) setTimeout(() => el.focus(), 20); },
+      listRef: (el) => { this.listEl = el; },
+      results: rows,
+      noResults: !rows.empty && rows.length === 0,
+      countLabel: rows.countLabel
+    };
+  }
+
+  /* --------------------------------------------------------- card helpers */
+
+  // Brass ring while a card is the search target, otherwise the resting shadow.
+  ring(title) {
+    const S = window.PrahladaSearch;
+    return this.state.focus && this.state.focus === S.slug(title)
+      ? "0 0 0 2px rgba(198,161,91,.85)"
+      : "0 3px 8px -4px rgba(0,59,111,.10)";
+  }
+
+  // First author carries the emphasis; the rest stay Light.
+  authors(list) {
+    return (list || []).map((a, i) => ({ ...a, weight: i === 0 ? 600 : 300, sep: i < list.length - 1 ? ", " : "" }));
+  }
+
+  fixed(entry) {
+    let v = this._static.get(entry);
+    if (!v) {
+      v = {
+        id: window.PrahladaSearch.slug(entry.title),
+        authors: this.authors(entry.authors),
+        meta: [entry.status, entry.venue].map((s) => (s || "").trim()).filter(Boolean).join(" · "),
+        paras: String(entry.abstract || "").split(/\n{2,}/).map((t) => t.trim()).filter(Boolean).map((text) => ({ text })),
+        hasAbstract: !!(entry.abstract && entry.abstract.trim())
+      };
+      this._static.set(entry, v);
+    }
+    return v;
+  }
+
+  renderVals() {
+    const open = this.state.expanded;
+    return {
+      ...this.paletteVals(),
+      papers: this.state.papers.map((p, i) => ({
+        ...p, ...this.fixed(p),
+        ring: this.ring(p.title),
+        rows: open[i] ? "1fr" : "0fr",
+        op: open[i] ? 1 : 0,
+        rot: open[i] ? "180deg" : "0deg",
+        toggle: () => this.setState((s) => ({ expanded: { ...s.expanded, [i]: !s.expanded[i] } }))
       })),
-      blogs: (this.state.blogRows || this.blogData).map(b => ({ ...b, authors: this.fmtAuthors(b.authors) }))
+      blogs: this.state.blogs.map((b) => ({ ...b, ...this.fixed(b), ring: this.ring(b.title) }))
     };
   }
 }
