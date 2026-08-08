@@ -201,7 +201,7 @@
           {{ navMark }}
         </span>
       </a>
-      <nav class="p-navlinks" style="display:flex;align-items:center;gap:20px;flex-direction:row-reverse">
+      <nav class="p-navlinks" style="display:flex;align-items:center;gap:20px">
         <div class="p-navtrack" ref="{{ navTrackRef }}" onMouseLeave="{{ navLeave }}" style="position:relative;display:flex;align-items:center;padding:7px 5px 8px;border:1px solid #D0DFF0;border-radius:999px;background:#fff">
           <span style="position:absolute;bottom:3px;height:2px;border-radius:999px;background:#C6A15B;left:{{ navRule.left }};right:{{ navRule.right }};opacity:{{ navRule.op }};transition:left {{ navRule.dl }},right {{ navRule.dr }},opacity .35s ease;animation:{{ navRule.settle }}"></span>
           <a href="index.html" ref="{{ navRef0 }}" onMouseEnter="{{ navEnter0 }}" style="position:relative;z-index:1;font-size:13px;font-weight:600;letter-spacing:.02em;color:{{ navFg0 }};padding:9px 20px;border-radius:999px;transition:color .3s ease">
