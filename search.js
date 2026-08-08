@@ -306,7 +306,9 @@
   function view(q, sel, handlers) {
     const raw = query(q);
     const active = Math.min(sel || 0, Math.max(raw.length - 1, 0));
-    const rows = raw.map((r, i) => ({
+    const rows = raw.map((r, i) => {
+      // The row (not the raw doc) is what gets handed to onOpen — it carries href.
+      const row = {
       kind: r.kind, title: r.title, page: r.page, hash: r.hash,
       href: r.page + (r.hash ? "#" + r.hash : ""),
       titleParts: r.titleParts.map(paint),
@@ -318,9 +320,11 @@
       go: (e) => {
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // let the browser open a tab
         e.preventDefault();
-        handlers.onOpen(r);
+        handlers.onOpen(row);
       }
-    }));
+      };
+      return row;
+    });
     rows.total = raw.total;
     rows.empty = raw.empty;
     rows.countLabel = raw.empty ? "jump to" : (raw.total ? raw.total + (raw.total === 1 ? " result" : " results") : "no results");

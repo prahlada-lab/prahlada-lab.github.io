@@ -3,6 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<style>
+  /* Declared here (not only in the template) so the layout and palette hold
+     even before the runtime injects the template's own styles, and so that
+     Samsung Internet / Chrome auto-dark leave the light palette alone. */
+  :root, html { color-scheme: only light; }
+  html, body { margin: 0; padding: 0; background: #F4F8FC; color: #2D4A5A; }
+  * { box-sizing: border-box; }
+  a { color: #003B6F; text-decoration: none; }
+  a:hover { color: #007FC0; }
+  img { forced-color-adjust: none; }
+  .p-burger { display: none; }
+  @media (max-width: 720px) {
+    .p-navlinks { display: none; }
+    .p-burger { display: flex; }
+    .p-shell { padding-left: 24px; padding-right: 24px; }
+  }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+  @keyframes markIn { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+  @keyframes unfurlA { from { opacity: 0; transform: rotate(-10deg) scale(.88); } to { opacity: .12; transform: rotate(0deg) scale(1); } }
+  @keyframes unfurlB { from { opacity: 0; transform: scale(-.88,-.88) rotate(-10deg); } to { opacity: .12; transform: scale(-1,-1) rotate(0deg); } }
+  @keyframes letterRun { 0% { color: #003B6F; } 30% { color: #C6A15B; } 55% { color: #007FC0; } 100% { color: #003B6F; } }
+</style>
 <script src="./support.js"></script>
 </head>
 <body>
