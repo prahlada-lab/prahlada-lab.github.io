@@ -106,7 +106,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&amp;display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&amp;family=Tiro+Devanagari+Sanskrit&amp;display=swap">
 <link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/colors.css">
 <link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/typography.css">
 <link rel="stylesheet" href="_ds/prahlada-design-system-33c61a93-5731-477d-bb6d-76df8e6bdaa4/tokens/spacing.css">
@@ -168,6 +168,14 @@
   }
   @keyframes ruleSettle{0%{transform:scaleX(1)}45%{transform:scaleX(1.018)}100%{transform:scaleX(1)}}
   @keyframes riseIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.p-net{position:absolute;inset:-20px -40px;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'96'%20height%3D'83'%3E%3Cg%20stroke%3D'%23003B6F'%20stroke-opacity%3D'.11'%20stroke-width%3D'1.5'%20fill%3D'%23003B6F'%20fill-opacity%3D'.11'%3E%3Cline%20x1%3D'0'%20y1%3D'0'%20x2%3D'96'%20y2%3D'0'%2F%3E%3Cline%20x1%3D'0'%20y1%3D'0'%20x2%3D'48'%20y2%3D'41.5'%2F%3E%3Cline%20x1%3D'96'%20y1%3D'0'%20x2%3D'48'%20y2%3D'41.5'%2F%3E%3Cline%20x1%3D'48'%20y1%3D'41.5'%20x2%3D'0'%20y2%3D'83'%2F%3E%3Cline%20x1%3D'48'%20y1%3D'41.5'%20x2%3D'96'%20y2%3D'83'%2F%3E%3Cline%20x1%3D'0'%20y1%3D'83'%20x2%3D'96'%20y2%3D'83'%2F%3E%3Cline%20x1%3D'0'%20y1%3D'0'%20x2%3D'0'%20y2%3D'83'%2F%3E%3Cline%20x1%3D'96'%20y1%3D'0'%20x2%3D'96'%20y2%3D'83'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'0'%20r%3D'6'%20stroke%3D'none'%2F%3E%3Ccircle%20cx%3D'96'%20cy%3D'0'%20r%3D'6'%20stroke%3D'none'%2F%3E%3Ccircle%20cx%3D'48'%20cy%3D'41.5'%20r%3D'6'%20stroke%3D'none'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'83'%20r%3D'6'%20stroke%3D'none'%2F%3E%3Ccircle%20cx%3D'96'%20cy%3D'83'%20r%3D'6'%20stroke%3D'none'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-size:96px 83px;-webkit-mask-image:radial-gradient(ellipse 75% 90% at 0% 0%,#000 0,transparent 72%);mask-image:radial-gradient(ellipse 75% 90% at 0% 0%,#000 0,transparent 72%)}
+.p-marq{overflow:hidden;position:relative;width:100vw;left:50%;margin-left:-50vw;margin-bottom:64px;border-top:1px solid #D0DFF0;border-bottom:1px solid #D0DFF0;background:rgba(227,241,251,.6);padding:18px 0}
+.p-marqt{display:flex;align-items:center;width:max-content;animation:marq 80s linear infinite}
+.p-marqt span{font-family:Montserrat,sans-serif;font-weight:600;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#5A7A99;white-space:nowrap}
+.p-marqt i{font-style:normal;font-size:9px;color:#C6A15B;padding:0 26px}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.p-marqt{animation:none}}
+
   @keyframes unfurlA{from{opacity:0;transform:rotate(-10deg) scale(.88)}to{opacity:.12;transform:rotate(0deg) scale(1)}}
   @keyframes unfurlB{from{opacity:0;transform:scale(-.88,-.88) rotate(-10deg)}to{opacity:.12;transform:scale(-1,-1) rotate(0deg)}}
   @media(max-width:900px){.p-hero{grid-template-columns:1fr !important;gap:44px !important}.p-panel{max-width:460px}}
@@ -194,38 +202,33 @@
   <div class="p-motif-sm" style="position:fixed;left:-120px;top:96px;width:300px;z-index:0;pointer-events:none;user-select:none;animation:unfurlB 1.7s .38s cubic-bezier(.22,.61,.36,1) both"><img src="assets/mandala-corner.png" alt="" style="display:block;width:100%;mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 16%,#000 62%,transparent 99%);transform:rotate(var(--srot,0deg));opacity:var(--mfade,1);transition:transform .55s cubic-bezier(.22,.61,.36,1),opacity .3s linear;will-change:transform,opacity"></div>
 </sc-if>
 
-<header style="position:sticky;top:0;z-index:40;background:rgba(244,248,252,.94);border-bottom:1px solid #D0DFF0">
+<header style="position:sticky;top:0;z-index:40;background:rgba(0,59,111,.97);border-bottom:1px solid #C6A15B">
   <div class="p-shell" style="max-width:1120px;margin:0 auto;padding:0 40px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:32px">
-      <a href="index v2.dc.html" style="display:flex;align-items:center">
-        <span class="p-navword" ref="{{ navWordRef }}" style="font-family:'EB Garamond',Georgia,serif;font-size:26px;font-weight:500;letter-spacing:-.015em;color:#003B6F;display:flex;opacity:{{ navWordOp }};transition:opacity .3s ease">
+      <a href="index.html" style="display:flex;align-items:center">
+        <span class="p-navword" ref="{{ navWordRef }}" style="font-family:'Bricolage Grotesque',Montserrat,sans-serif;font-size:25px;font-weight:800;letter-spacing:-.035em;color:#fff;display:flex;opacity:{{ navWordOp }};transition:opacity .3s ease">
           {{ navMark }}
         </span>
       </a>
       <nav class="p-navlinks" style="display:flex;align-items:center;gap:20px">
-        <div class="p-navtrack" ref="{{ navTrackRef }}" onMouseLeave="{{ navLeave }}" style="position:relative;display:flex;align-items:center;padding:7px 5px 8px;border:1px solid #D0DFF0;border-radius:999px;background:#fff">
+        <button class="p-navsearchsm" onClick="{{ openPalette }}" aria-label="Search" style="display:{{ iconDisplay }};align-items:center;justify-content:center;width:46px;height:46px;flex:none;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.26);border-radius:999px;cursor:pointer;transition:border-color .18s,background .18s" style-hover="border-color:#C6A15B;background:rgba(255,255,255,.16)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E3F1FB" stroke-width="1.7" stroke-linecap="round" style="flex:none"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 20 20"></path></svg></button>
+<button class="p-navsearch" onClick="{{ openPalette }}" aria-label="Search" style="display:{{ barDisplay }};align-items:center;gap:12px;width:clamp(210px,26vw,272px);height:46px;padding:0 8px 0 16px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:400;color:#D5E4F2;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.26);border-radius:999px;cursor:pointer;transition:border-color .18s,background .18s" style-hover="border-color:#C6A15B;background:rgba(255,255,255,.16)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E3F1FB" stroke-width="1.7" stroke-linecap="round" style="flex:none"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 20 20"></path></svg><span style="flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-align:left">Search papers…</span><span style="font-size:11px;color:#E3F1FB;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:3px 9px">Ctrl K</span></button>
+<div class="p-navtrack" ref="{{ navTrackRef }}" onMouseLeave="{{ navLeave }}" style="position:relative;display:flex;align-items:center;padding:7px 5px 8px;border:1px solid rgba(255,255,255,.26);border-radius:999px;background:rgba(255,255,255,.07)">
           <span style="position:absolute;bottom:3px;height:2px;border-radius:999px;background:#C6A15B;left:{{ navRule.left }};right:{{ navRule.right }};opacity:{{ navRule.op }};transition:left {{ navRule.dl }},right {{ navRule.dr }},opacity .35s ease;animation:{{ navRule.settle }}"></span>
-          <a href="index v2.dc.html" ref="{{ navRef0 }}" onMouseEnter="{{ navEnter0 }}" style="position:relative;z-index:1;font-size:13px;font-weight:600;letter-spacing:.02em;color:{{ navFg0 }};padding:9px 20px;border-radius:999px;transition:color .3s ease">
+          <a href="index.html" ref="{{ navRef0 }}" onMouseEnter="{{ navEnter0 }}" style="position:relative;z-index:1;font-size:13px;font-weight:600;letter-spacing:.02em;color:{{ navFg0 }};padding:9px 20px;border-radius:999px;transition:color .3s ease">
 Culture</a>
-          <a href="research v2.dc.html" ref="{{ navRef1 }}" onMouseEnter="{{ navEnter1 }}" style="position:relative;z-index:1;font-size:13px;font-weight:600;letter-spacing:.02em;color:{{ navFg1 }};padding:9px 20px;border-radius:999px;transition:color .3s ease">Research</a>
-          <a href="paper dives v2.dc.html" ref="{{ navRef2 }}" onMouseEnter="{{ navEnter2 }}" style="position:relative;z-index:1;font-size:13px;font-weight:600;letter-spacing:.02em;color:{{ navFg2 }};padding:9px 20px;border-radius:999px;transition:color .3s ease"><span class="p-lbl-long">Paper dives</span><span class="p-lbl-short">Dives</span></a>
+          <a href="research.html" ref="{{ navRef1 }}" onMouseEnter="{{ navEnter1 }}" style="position:relative;z-index:1;font-size:13px;font-weight:600;letter-spacing:.02em;color:{{ navFg1 }};padding:9px 20px;border-radius:999px;transition:color .3s ease">Research</a>
+          <a href="paper-dives.html" ref="{{ navRef2 }}" onMouseEnter="{{ navEnter2 }}" style="position:relative;z-index:1;font-size:13px;font-weight:600;letter-spacing:.02em;color:{{ navFg2 }};padding:9px 20px;border-radius:999px;transition:color .3s ease"><span class="p-lbl-long">Paper dives</span><span class="p-lbl-short">Dives</span></a>
         </div>
-        <button class="p-navsearchsm" onClick="{{ openPalette }}" aria-label="Search" style="display:none;align-items:center;justify-content:center;width:44px;height:44px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;cursor:pointer;flex:none">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5A7A99" stroke-width="1.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 20 20"></path></svg>
-        </button>
-        <button class="p-navsearch" onClick="{{ openPalette }}" style="display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;padding:7px 12px;font-family:Montserrat,sans-serif;font-size:13px;font-weight:400;color:#5A7A99;cursor:pointer;transition:border-color .18s,background .18s" style-hover="border-color:#003B6F;background:#E3F1FB">
-          <span>Search</span>
-          <span style="font-size:11px;color:#5A7A99;border:1px solid #D0DFF0;border-radius:3px;padding:1px 5px">Ctrl K</span>
-        </button>
-      </nav>
+        </nav>
     <button class="p-burger" onClick="{{ toggleMenu }}" style="align-items:center;justify-content:center;width:44px;height:44px;background:transparent;border:1px solid #D0DFF0;border-radius:4px;cursor:pointer;color:#003B6F">
       <i data-lucide="menu" style="width:20px;height:20px"></i>
     </button>
   </div>
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
     <div style="border-top:1px solid #D0DFF0;background:#fff;padding:16px 22px;display:flex;flex-direction:column;gap:4px">
-      <a href="index v2.dc.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:16px;color:#003B6F;padding:13px 0">Culture</a>
-      <a href="research v2.dc.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:16px;color:#5A7A99;padding:13px 0">Research</a>
-      <a href="paper dives v2.dc.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:16px;color:#5A7A99;padding:13px 0">Paper dives</a>
+      <a href="index.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:16px;color:#003B6F;padding:13px 0">Culture</a>
+      <a href="research.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:16px;color:#5A7A99;padding:13px 0">Research</a>
+      <a href="paper-dives.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:16px;color:#5A7A99;padding:13px 0">Paper dives</a>
       <button onClick="{{ openPalette }}" style="margin-top:6px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #D0DFF0;border-radius:4px;padding:13px 14px;font-family:Montserrat,sans-serif;font-size:14px;color:#5A7A99;cursor:pointer">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5A7A99" stroke-width="1.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5 20 20"></path></svg>
         <span>Search</span>
@@ -236,18 +239,18 @@ Culture</a>
 
 <main class="p-shell" style="position:relative;z-index:1;flex:1;max-width:1120px;width:100%;margin:0 auto;padding:0 40px">
 
-  <section class="p-hero" style="padding:96px 0 88px;display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center">
+  <section class="p-hero" style="position:relative;padding:96px 0 88px;display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center"><sc-if value="{{ showFillers }}" hint-placeholder-val="{{ true }}"><div class="p-net"></div></sc-if>
     <div style="display:flex;flex-direction:column;align-items:flex-start">
-      <h1 ref="{{ heroWordRef }}" style="font-family:'EB Garamond',Georgia,serif;margin:0;font-size:clamp(46px,7.4vw,92px);font-weight:400;letter-spacing:-.03em;color:#003B6F;line-height:1.02;display:flex;animation:riseIn .8s .55s cubic-bezier(.22,.61,.36,1) both">
+      <h1 ref="{{ heroWordRef }}" style="font-family:'Bricolage Grotesque',Montserrat,sans-serif;margin:0;font-size:clamp(46px,7.4vw,92px);font-weight:800;letter-spacing:-.045em;color:#003B6F;line-height:1.02;display:flex;animation:riseIn .8s .55s cubic-bezier(.22,.61,.36,1) both">
         <span style="transition:color .2s;animation:letterRun .75s 1.50s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#C6A15B">P</span><span style="transition:color .2s;animation:letterRun .75s 1.57s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#007FC0">r</span><span style="transition:color .2s;animation:letterRun .75s 1.64s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#C6A15B">a</span><span style="transition:color .2s;animation:letterRun .75s 1.71s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#007FC0">h</span><span style="transition:color .2s;animation:letterRun .75s 1.78s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#C6A15B">l</span><span style="transition:color .2s;animation:letterRun .75s 1.85s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#007FC0">a</span><span style="transition:color .2s;animation:letterRun .75s 1.92s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#C6A15B">d</span><span style="transition:color .2s;animation:letterRun .75s 1.99s cubic-bezier(.4,0,.2,1) 2" style-hover="color:#007FC0">a</span>
       </h1>
       <div style="width:56px;height:2px;background:#C6A15B;margin:28px 0 0;animation:riseIn .8s .68s cubic-bezier(.22,.61,.36,1) both"></div>
-      <p style="font-family:'EB Garamond',Georgia,serif;margin:28px 0 0;font-size:clamp(24px,3.4vw,34px);font-weight:400;letter-spacing:-.02em;color:#007FC0;line-height:1.12;max-width:20ch;animation:riseIn .8s .72s cubic-bezier(.22,.61,.36,1) both">A <b style="font-weight: 600; color: rgb(0, 127, 192);"><span style="font-weight: normal;">Student-led</span></b> and a <br>Student-first AI Lab!</p>
+      <p style="font-family:'Bricolage Grotesque',Montserrat,sans-serif;margin:28px 0 0;font-size:clamp(24px,3.4vw,38px);font-weight:500;letter-spacing:-.03em;color:#007FC0;line-height:1.12;max-width:22ch;animation:riseIn .8s .72s cubic-bezier(.22,.61,.36,1) both">A <b style="font-weight:800;color:#007FC0">Student-led</b> and a <br>Student-first AI Lab!</p>
       <p style="margin: 30px 0 0; font-size: 16px; font-weight: 300; line-height: 1.75; color: #2D4A5A; max-width: 46ch; text-wrap: pretty; animation: riseIn .8s .84s cubic-bezier(.22,.61,.36,1) both; font-family: Montserrat">Filling gaps in the <b style="font-weight: 600; color: #374A58"><span style="font-weight: normal; font-family: Montserrat">Indic open source</span></b> ecosystem — from BITS Pilani</p>
       <sc-if value="{{ showHeroButtons }}" hint-placeholder-val="{{ true }}">
       <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:38px;animation:riseIn .8s .96s cubic-bezier(.22,.61,.36,1) both">
-        <a href="research v2.dc.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:14px;color:#fff;background:#003B6F;border:1px solid #003B6F;border-radius:4px;padding:13px 22px;transition:background .18s,border-color .18s" style-hover="background:#007FC0;border-color:#007FC0;color:#fff">Research</a>
-        <a href="paper dives v2.dc.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:14px;color:#003B6F;border:1px solid #D0DFF0;background:#fff;border-radius:4px;padding:13px 22px;transition:border-color .18s,background .18s" style-hover="border-color:#003B6F;background:#E3F1FB;color:#003B6F">Paper dives</a>
+        <a href="research.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:14px;color:#fff;background:#003B6F;border:1px solid #003B6F;border-radius:4px;padding:13px 22px;transition:background .18s,border-color .18s" style-hover="background:#007FC0;border-color:#007FC0;color:#fff">Research</a>
+        <a href="paper-dives.html" style="font-family:Montserrat,sans-serif;font-weight:500;font-size:14px;color:#003B6F;border:1px solid #D0DFF0;background:#fff;border-radius:4px;padding:13px 22px;transition:border-color .18s,background .18s" style-hover="border-color:#003B6F;background:#E3F1FB;color:#003B6F">Paper dives</a>
       </div>
       </sc-if>
     </div>
@@ -262,7 +265,8 @@ Culture</a>
     </div>
   </section>
 
-  <section id="about-us" style="padding:0 0 8px;scroll-margin-top:110px">
+  <sc-if value="{{ showFillers }}" hint-placeholder-val="{{ true }}"><div class="p-marq" aria-hidden="true"><div class="p-marqt"><span>Alignment</span><i>◆</i><span>Red-Teaming</span><i>◆</i><span>Interpretability</span><i>◆</i><span>Unlearning</span><i>◆</i><span>Safety Audits</span><i>◆</i><span>Cross-cultural Reasoning</span><i>◆</i><span>Indic Languages</span><i>◆</i><span>Synthetic Problem Generation</span><i>◆</i><span>Continual Learning</span><i>◆</i><span>Speculative Decoding</span><i>◆</i><span>Open Weights</span><i>◆</i><span>Open Datasets</span><i>◆</i><span>Alignment</span><i>◆</i><span>Red-Teaming</span><i>◆</i><span>Interpretability</span><i>◆</i><span>Unlearning</span><i>◆</i><span>Safety Audits</span><i>◆</i><span>Cross-cultural Reasoning</span><i>◆</i><span>Indic Languages</span><i>◆</i><span>Synthetic Problem Generation</span><i>◆</i><span>Continual Learning</span><i>◆</i><span>Speculative Decoding</span><i>◆</i><span>Open Weights</span><i>◆</i><span>Open Datasets</span><i>◆</i></div></div></sc-if>
+<section id="about-us" style="padding:0 0 8px;scroll-margin-top:110px">
     <div style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap">
       <div style="font-family:Montserrat,sans-serif;font-weight:600;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#5A7A99">About us</div>
       <span style="flex:1;min-width:60px;height:1px;background:#D0DFF0"></span>
@@ -302,7 +306,7 @@ Culture</a>
     </div>
   </section>
 
-  <div class="p-orn" style="position:relative;width:100vw;left:50%;margin-left:-50vw;padding:76px 0 66px;background:linear-gradient(to bottom,rgba(227,241,251,0),rgba(227,241,251,.7));display:flex;align-items:center;justify-content:center;gap:22px">
+  <div class="p-orn" style="position:relative;width:100vw;left:50%;margin-left:-50vw;padding:76px 0 66px;overflow:hidden;background:linear-gradient(to bottom,rgba(227,241,251,0),rgba(227,241,251,.7));display:flex;align-items:center;justify-content:center;gap:22px"><sc-if value="{{ showFillers }}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Tiro Devanagari Sanskrit',serif;font-size:clamp(56px,11vw,150px);line-height:1;white-space:nowrap;color:rgba(0,59,111,.055);pointer-events:none;user-select:none">विद्या ददाति विनयम्</span></sc-if>
     <span style="width:110px;height:1px;background:linear-gradient(to right,rgba(208,223,240,0),#D0DFF0)"></span>
     <span style="font-size:10px;letter-spacing:.62em;color:#C6A15B">◆ ◆ ◆</span>
     <span style="width:110px;height:1px;background:linear-gradient(to left,rgba(208,223,240,0),#D0DFF0)"></span>
@@ -315,8 +319,8 @@ Culture</a>
       <div style="position:relative;z-index:1">
         <div style="text-align:center">
           <img src="assets/logo_mark_white_tight.png" alt="" style="height:clamp(78px,9.5vw,124px);width:auto;object-fit:contain;opacity:.94;margin:0 auto 34px;display:block">
-          <div style="font-family:'EB Garamond',Georgia,serif;font-size:clamp(38px,6vw,72px);font-weight:400;letter-spacing:-.03em;line-height:1.02;color:#fff">Vidya Dadati Vinayam.</div>
-          <div style="font-family:'EB Garamond',Georgia,serif;margin-top:18px;font-size:clamp(20px,2.6vw,28px);font-weight:400;font-style:italic;color:#C6A15B">Knowledge Gives Humility.</div>
+          <div style="font-family:'Bricolage Grotesque',Montserrat,sans-serif;font-size:clamp(38px,6vw,72px);font-weight:800;letter-spacing:-.045em;line-height:1.02;color:#fff">Vidya Dadati Vinayam.</div>
+          <div style="font-family:'Bricolage Grotesque',Montserrat,sans-serif;margin-top:18px;font-size:clamp(20px,2.6vw,28px);font-weight:500;color:#C6A15B">Knowledge Gives Humility.</div>
         </div>
         <div style="margin-top:72px;display:flex;flex-direction:column;max-width:320px">
         <a href="https://www.linkedin.com/company/prahlada-open-research/" target="_blank" style="display:flex;align-items:center;gap:16px;padding:14px 0;border-top:1px solid rgba(255,255,255,.14)">
@@ -383,7 +387,7 @@ Culture</a>
   </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;emphasisStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Semibold&quot;,&quot;Brass highlight&quot;,&quot;Sky blue&quot;,&quot;Plain&quot;],&quot;default&quot;:&quot;Plain&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;About us&quot;},&quot;showHeroButtons&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;showMotifs&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;showFillers&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;searchStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Wide bar&quot;,&quot;Icon&quot;],&quot;default&quot;:&quot;Wide bar&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Nav&quot;},&quot;emphasisStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Semibold&quot;,&quot;Brass highlight&quot;,&quot;Sky blue&quot;,&quot;Plain&quot;],&quot;default&quot;:&quot;Plain&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;About us&quot;},&quot;showHeroButtons&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;showMotifs&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
 class Component extends DCLogic {
 
   /* ------------------------------------------------------------- nav switch */
@@ -465,9 +469,9 @@ class Component extends DCLogic {
       navEnter1: () => this.setState({ navHover: "research" }),
       navEnter2: () => this.setState({ navHover: "dives" }),
       navLeave: () => this.setState({ navHover: null }),
-      navFg0: this.navActive === "home" ? "#003B6F" : "#5A7A99",
-      navFg1: this.navActive === "research" ? "#003B6F" : "#5A7A99",
-      navFg2: this.navActive === "dives" ? "#003B6F" : "#5A7A99",
+      navFg0: this.navActive === "home" ? "#FFFFFF" : "#A9C4DE",
+      navFg1: this.navActive === "research" ? "#FFFFFF" : "#A9C4DE",
+      navFg2: this.navActive === "dives" ? "#FFFFFF" : "#A9C4DE",
       navRule: this.navRuleVals()
     };
   }
@@ -543,6 +547,8 @@ class Component extends DCLogic {
       // Vertical: track the scroll until the nav line is reached, then pin.
       const ty = p < 1 ? -window.scrollY : -dist;
       ghost.style.transform = "translate(" + x + "px," + ty + "px) scale(" + (1 + (k - 1) * e) + ")";
+const gc = "rgb(" + [Math.round(255 * e), Math.round(59 + 196 * e), Math.round(111 + 144 * e)].join(",") + ")";
+ghost.querySelectorAll("*").forEach((n) => { n.style.color = gc; });
       if (p >= 1) this.finishHandoff();
     };
     this._onFlight = () => { if (!this._raf) this._raf = requestAnimationFrame(draw); };
@@ -759,7 +765,7 @@ class Component extends DCLogic {
 
   sweepLetters() {
     const word = "Prahlada".split("");
-    const rest = { color: "#003B6F", shadow: "none", shift: "none" };
+    const rest = { color: "#FFFFFF", shadow: "none", shift: "none" };
     // Neutral navy at both ends of the page — the sweep exists only while the
     // reader is actually moving through it, and never parks mid-pass.
     const raw = this.state.sweep || 0;
@@ -771,8 +777,8 @@ class Component extends DCLogic {
       // Weight is faked with a hairline text shadow: a real weight step changes
       // letter widths and makes the whole wordmark shuffle as the sweep passes.
       if (d === 0) return { ch, color: "#C6A15B", shadow: "0 0 .55px currentColor", shift: "translateY(-2px)" };
-      if (d === 1) return { ch, color: "#007FC0", shadow: "0 0 .3px currentColor", shift: "translateY(-1px)" };
-      if (d === 2) return { ch, color: "#4E7CA6", shadow: "none", shift: "none" };
+      if (d === 1) return { ch, color: "#5FB8EA", shadow: "0 0 .3px currentColor", shift: "translateY(-1px)" };
+      if (d === 2) return { ch, color: "#A9C4DE", shadow: "none", shift: "none" };
       return { ch, ...rest };
     });
   }
@@ -846,7 +852,10 @@ class Component extends DCLogic {
       navWordOp: this.state.navWordShown ? 1 : 0,
       emph: emphasis[this.props.emphasisStyle ?? "Semibold"],
       showHeroButtons: this.props.showHeroButtons ?? true,
-      showMotifs: this.props.showMotifs ?? true
+      showMotifs: this.props.showMotifs ?? true,
+showFillers: this.props.showFillers ?? true,
+barDisplay: (this.props.searchStyle ?? "Wide bar") === "Icon" ? "none" : "flex",
+iconDisplay: (this.props.searchStyle ?? "Wide bar") === "Icon" ? "flex" : "none"
     };
   }
 }
